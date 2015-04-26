@@ -72,6 +72,7 @@ public class listaDrzew {
         }
         
         // TODO tutaj zapierdalamy !!!!
+        //omg co to jest
 
         
         System.out.println("___");
