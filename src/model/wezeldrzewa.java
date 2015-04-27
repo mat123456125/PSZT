@@ -12,6 +12,10 @@ public class wezeldrzewa {
 	{
 		
 	}
+        public wezeldrzewa(String zd)
+	{
+		zdanie = zd;
+	}
 	
 	
 
