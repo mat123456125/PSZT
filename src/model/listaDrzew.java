@@ -117,7 +117,10 @@ public class listaDrzew {
 	    System.out.println(tablicaSlow);
 	}
 	
-	
+	public void uproszczanieSlow()
+	{
+		
+	}
 	
 	public void wypelnijListe()
 	{
