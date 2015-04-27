@@ -53,7 +53,7 @@ public class listaDrzew {
 	            for(int x = 0; x < poczatkowy.length(); x++)
 	            {
 	            	znak = poczatkowy.charAt(x);
-	            	if (znak == '|' || znak == '&' || znak == '(' || znak == ')')
+	            	if (znak == '|' || znak == '&' || znak == '(' || znak == ')' || znak == '-')
 	            	{
 	            		if (!pomocniczy.isEmpty())
 	            		{
@@ -63,13 +63,14 @@ public class listaDrzew {
 	            		
 	            		pomocniczy = "";
 	            	}
-	            	else if (znak == '=' && x+1 < poczatkowy.length() && poczatkowy.charAt(x+1) == '>')
+	            	else if (znak == '=' && x+1 < poczatkowy.length() && poczatkowy.charAt(x+1) == '>' && x-1 > 0 && poczatkowy.charAt(x-1) != '<')
 	            	{
 	            		if (!pomocniczy.isEmpty())
 	            		{
 	            			dzielenieSlow.add(pomocniczy);
 	            		}
 	            		dzielenieSlow.add("=>");
+	            		x++;
 	            	}
 	            	else if (znak == '<' && x+2 < poczatkowy.length() && poczatkowy.charAt(x+1) == '=' && poczatkowy.charAt(x+2) == '>')
 	            	{
@@ -78,18 +79,13 @@ public class listaDrzew {
 	            			dzielenieSlow.add(pomocniczy);
 	            		}
 	            		dzielenieSlow.add("<=>");
+	            		x+=2;
 	            	}
-	            	//else if (znak == '>' && x-1 > 0 && poczatkowy.charAt(x-1) == '=')
 	            		
 	            	else pomocniczy += znak;
-	            	if (x+1 == poczatkowy.length() && znak != '|' && znak != '&' && znak != '(' && znak != ')') dzielenieSlow.add(pomocniczy);
-	            	//if (szereg+1 == tablicaSlow.size()) dzielenieSlow.add(pomocniczy);
-	            	//else if(x == poczatkowy.length())
-	            	//{
-	            	//	
-	            	//	dzielenieSlow.add(pomocniczy);
-	            	//}
-	            	//else pomocniczy += znak;
+	            	if (x+1 == poczatkowy.length() && znak != '|' && znak != '&' &&
+	            		znak != '(' && znak != ')' && znak != '-' && !pomocniczy.isEmpty())
+	            		dzielenieSlow.add(pomocniczy);
 	            }
 	            pomocniczy = "";
 	    	}
@@ -119,8 +115,9 @@ public class listaDrzew {
 	    
 	    
 	    System.out.println(tablicaSlow);
-	    
 	}
+	
+	
 	
 	public void wypelnijListe()
 	{
