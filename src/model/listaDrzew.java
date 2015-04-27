@@ -117,10 +117,36 @@ public class listaDrzew {
 	    System.out.println(tablicaSlow);
 	}
 	
-	public void uproszczanieSlow()
-	{
-		
-	}
+	private void wczytajSlowa()
+        {
+            
+            wezeldrzewa temp;
+            boolean a;
+            for(int i = 0;i<tablicaSlow.size();i++)
+            {
+                
+                
+                ArrayList<String> linia = tablicaSlow.get(i);
+                for(int j = 0;j<tablicaSlow.get(i).size();j++)
+                {
+                    if(linia.get(j).charAt(0) == '&')
+                    {
+                    }
+                    else
+                    {
+                        temp = new wezeldrzewa(linia.get(j));
+                        
+                    }
+                    
+                    
+                }
+            
+            
+            
+            
+            
+            }
+        }
 	
 	public void wypelnijListe()
 	{
