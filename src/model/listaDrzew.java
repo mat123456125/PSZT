@@ -136,6 +136,7 @@ public class listaDrzew {
                     else
                     {
                         temp = new wezeldrzewa(linia.get(j));
+                        //gfd
                         
                     }
                     
