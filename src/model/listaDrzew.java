@@ -131,6 +131,7 @@ public class listaDrzew {
                 {
                     if(linia.get(j).charAt(0) == '&')
                     {
+                        //test2
                     }
                     else
                     {
