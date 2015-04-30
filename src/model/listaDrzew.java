@@ -117,37 +117,144 @@ public class listaDrzew {
 	    System.out.println(tablicaSlow);
 	}
 	
-	private void wczytajSlowa()
+	private boolean wczytajSlowa()
         {
             
-            wezeldrzewa temp;
-            boolean a;
+            wezeldrzewa temp,kozen,ostatni;
+            boolean czyKozen,czyZdanie,czyStart;
+            boolean czySymbol;
+            int symbol = 0;
+            ostatni = new wezeldrzewa("test");
+            kozen = new wezeldrzewa("test");
+            
+            
+            
+            
             for(int i = 0;i<tablicaSlow.size();i++)
             {
                 
                 
+                czyKozen = true;
+                czyStart = true;
+             
                 ArrayList<String> linia = tablicaSlow.get(i);
                 for(int j = 0;j<tablicaSlow.get(i).size();j++)
                 {
+                    czySymbol = false;
+                    
                     if(linia.get(j).charAt(0) == '&')
                     {
-                        //test2
+                        symbol = 1;
+                        czySymbol = true;
+                   
+                        
+                        
                     }
+                    
+                    else if(linia.get(j).charAt(0) == '|')
+                    {
+                          symbol = 2;
+                          czySymbol = true;
+                   
+                        
+                        
+                    }
+                    
+                    else if(linia.get(j).charAt(0) == '=')
+                    {
+                        if(linia.get(j).charAt(1) == '>')
+                        {
+                            symbol = 3;
+                            czySymbol = true;
+                        }
+                        
+                    }
+                    
+                    else if(linia.get(j).charAt(0) == '<')
+                    {
+                          if(linia.get(j).charAt(1) == '=' && linia.get(j).charAt(2) == '>')
+                        {
+                            symbol = 4;
+                            czySymbol = true;
+                        }
+                        
+                    }
+                    
+                    
                     else
                     {
                         temp = new wezeldrzewa(linia.get(j));
-                        //gfd
+                        if(czyKozen)
+                        {   
+                            
+                            if(czyStart)
+                            {
+                                kozen = temp;
+                                ostatni = kozen;
+                                czyStart = false;
+                                czyKozen = true;
+                            }
+                        }
+                        else
+                        {
+                            ostatni.setPrawy(temp);
+                            ostatni = kozen;
+                            czyKozen = true;
+                        }
+                        czyZdanie = true;
+                        
+                    }
+                    
+                    if(czySymbol)
+                    {
+                             if(czyStart)
+                        {
+                            return true;
+                        }
+                        
+                        temp = new wezeldrzewa(symbol);
+                        if(czyKozen)
+                        {
+                            if(kozen.getSpojnik() <= symbol)
+                            {
+                                temp.setLewy(kozen);
+                                kozen = temp;
+                                ostatni = temp.getPrawy();
+                                
+                            }
+                            else
+                            {
+                                ostatni = kozen;
+
+                                while(ostatni.getPrawy().getSpojnik() > 1)
+                                {
+                                    ostatni = ostatni.getPrawy();
+                                }
+                                temp.setLewy(ostatni.getPrawy());
+                                ostatni.setPrawy(temp);
+                                
+                            }
+                            
+                            
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                        
                         
                     }
                     
                     
                 }
+                klauzule.add(kozen);
             
             
             
             
             
             }
+            return false;
         }
 	
 	public void wypelnijListe()
