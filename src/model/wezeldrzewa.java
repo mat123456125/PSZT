@@ -4,10 +4,9 @@ public class wezeldrzewa {
 
 	private wezeldrzewa lewy;
 	private wezeldrzewa prawy;
-	private int spojnik; // 0 brak spojnika | 1 oznacza alternatywe | 2 oznacza koniunkcja | 3 implikacja | 4 rownowaznosc
+	private int spojnik; // 0 brak spojnika | 1 oznacza alternatywe | 2 oznacza koniunkcja | 3 implikacja | 4 rownowaznosc | -1 nawias zamkniety | 5 nawias otwarty
 	private boolean znak; // false oznacza negacje | true oznacza twierdzenie
-        private boolean czyNawias; //do przemyslenia
-	private String zdanie;
+        private String zdanie;
 	
 	public wezeldrzewa()
 	{
