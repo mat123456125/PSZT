@@ -6,6 +6,7 @@ public class wezeldrzewa {
 	private wezeldrzewa prawy;
 	private int spojnik; // 0 brak spojnika | 1 oznacza alternatywe | 2 oznacza koniunkcja | 3 implikacja | 4 rownowaznosc
 	private boolean znak; // false oznacza negacje | true oznacza twierdzenie
+        private boolean czyNawias; //do przemyslenia
 	private String zdanie;
 	
 	public wezeldrzewa()
@@ -15,6 +16,14 @@ public class wezeldrzewa {
         public wezeldrzewa(String zd)
 	{
 		zdanie = zd;
+                spojnik = 0;
+                znak = false;
+	}
+        public wezeldrzewa(int sp)
+	{
+		
+                spojnik = sp;
+                znak = false;
 	}
 	
 	
