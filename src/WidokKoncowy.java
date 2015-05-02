@@ -6,7 +6,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
-
+// UDALO SIE ????
 public class WidokKoncowy extends JPanel
 {
 	private JButton przyciskPowrotu;
