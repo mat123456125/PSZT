@@ -6,11 +6,13 @@ import model.listaDrzew;
 
 public class ObliczListener implements ActionListener{
 
-	private WidokPoczatkowy widok;
+	private OknoProgramu widok;
+//	private WidokPoczatkowy widok;
+//	private WidokKoncowy koniec;
 	
-    ObliczListener(WidokPoczatkowy widok)
+    ObliczListener(OknoProgramu widok)
     {
-    	this.widok = widok;
+		this.widok = widok;
     }
 
         @Override
@@ -22,6 +24,8 @@ public class ObliczListener implements ActionListener{
         lista.setPredykaty(predykaty);
     	
     	lista.wypelnijListe();
+    	
+    	widok.ustawKoniec();
     }
     
 }
