@@ -1,4 +1,7 @@
 import javax.swing.JFrame;
+
+import model.listaDrzew;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -7,6 +10,7 @@ public class OknoProgramu extends JFrame
 {
 
 	private WidokPoczatkowy poczatek;
+	private WidokKoncowy koniec;
 	
 	
 	OknoProgramu()
@@ -23,16 +27,43 @@ public class OknoProgramu extends JFrame
 		setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
 		
 		this.poczatek = new WidokPoczatkowy();
+		this.koniec = new WidokKoncowy();
 	}
 	
 	public void ustawWidokPoczatkowy ()
 	{
-		
+		remove(koniec);
 		add(poczatek);
 		validate();
 		repaint();
 	}
 	
+	public void ustawKoniec()
+	{
+		remove(poczatek);
+		add(koniec);
+		validate();
+		repaint();
+	}
+	
+	public String getZnaczenia()
+	{
+		return poczatek.getZnaczenia();
+	}
+	
+	public String getPredykaty()
+	{
+		return poczatek.getZnaczenia();
+	}
+	
+	public String getTeza()
+	{
+		return poczatek.getTeza();
+	}
+	
+	public listaDrzew getLista() {
+		return poczatek.getLista();
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -45,7 +76,7 @@ public class OknoProgramu extends JFrame
 		
 		OdczytListener odczyt = new OdczytListener(naszeOkno.poczatek);
 		ZapisListener zapis = new ZapisListener(naszeOkno.poczatek);
-                ObliczListener oblicz = new ObliczListener(naszeOkno.poczatek);
+        ObliczListener oblicz = new ObliczListener(naszeOkno);
 		
 		naszeOkno.poczatek.addActionListener(odczyt, zapis, oblicz);
 		
