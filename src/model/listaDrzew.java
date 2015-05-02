@@ -120,13 +120,15 @@ public class listaDrzew {
 	private boolean wczytajSlowa()
         {
             
-            wezeldrzewa temp,kozen,ostatni,kozenTemp;
-            boolean czyKozen,czyZdanie,czyStart;
+            wezeldrzewa temp,kozen,ostatni;
+            boolean czyKozen,czyStart;
             boolean czySymbol;
+            boolean czyMinus = false;
             int symbol = 0;
             ostatni = new wezeldrzewa("test");
             kozen = new wezeldrzewa("test");
-            kozenTemp = kozen;
+            temp = new wezeldrzewa("test");
+            
             
             
             
@@ -199,7 +201,7 @@ public class listaDrzew {
                                 kozen = temp;
                                 ostatni = kozen;
                                 czyStart = false;
-                                czyKozen = true;
+                                czyKozen = false;
                             }
                             else
                             {
@@ -212,7 +214,7 @@ public class listaDrzew {
                             ostatni = temp;
                             
                         }
-                        czyZdanie = true;
+                        
                         
                         
                         
@@ -231,6 +233,13 @@ public class listaDrzew {
                                 }
                                 temp.setSpojnik(-1);
                         
+                        
+                        
+                    }
+                     else if(linia.get(j).charAt(0) == '-')
+                    {
+                        czyMinus = true;  
+                        continue;
                         
                         
                     }
@@ -256,7 +265,7 @@ public class listaDrzew {
                             ostatni = kozen;
                             czyKozen = true;
                         }
-                        czyZdanie = true;
+                        
                         
                     }
                     
@@ -274,7 +283,7 @@ public class listaDrzew {
                             {
                                 temp.setLewy(kozen);
                                 kozen = temp;
-                                ostatni = temp.getPrawy();
+                                ostatni = temp;
                                 
                             }
                             else
@@ -287,8 +296,10 @@ public class listaDrzew {
                                 }
                                 temp.setLewy(ostatni.getPrawy());
                                 ostatni.setPrawy(temp);
+                                ostatni = temp;
                                 
                             }
+                            czyKozen = false;
                             
                             
                         }
@@ -298,6 +309,11 @@ public class listaDrzew {
                         }
                         
                         czySymbol = false;
+                    }
+                    if(czyMinus)
+                    {
+                        temp.setZnak(true);
+                        czyMinus = false;
                     }
                     
                     
