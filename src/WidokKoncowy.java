@@ -54,13 +54,7 @@ public class WidokKoncowy extends JPanel
 	
 	public void przepiszDrzewa()
 	{
-<<<<<<< HEAD
-            for(int i = 0 ; i < drzewa.size() ; i++)
-=======
-            
-            
             for(int i =0;i<drzewa.size();i++)
->>>>>>> branch 'master' of https://github.com/mat123456125/PSZT.git
             {
                 
                 node = addANode(String.valueOf(i),rootNode);
