@@ -17,7 +17,7 @@ public class WidokKoncowy extends JPanel
 	private JTree drzewo;
 	
 	DefaultMutableTreeNode node;
-	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("c");
+	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("klazule");
 	
 	public WidokKoncowy()
 	{
@@ -33,7 +33,7 @@ public class WidokKoncowy extends JPanel
 		// TODO przerobic elementy tak by odpowiednie byly
 		//______________________________________________________
 				
-		node = addANode("A",rootNode);
+		/*node = addANode("A",rootNode);
 		addANode("B",rootNode);
 		addANode("C",rootNode);
 		
@@ -46,7 +46,7 @@ public class WidokKoncowy extends JPanel
 		rootNode = (DefaultMutableTreeNode)rootNode.getParent();
 		node = addANode("G", rootNode);
 		node = addANode("H", rootNode);
-		node = addANode("I", rootNode);
+		node = addANode("I", rootNode);*/
 		
 		this.add(przyciskPowrotu);
 		this.add(drzewo);		
@@ -54,15 +54,67 @@ public class WidokKoncowy extends JPanel
 	
 	public void przepiszDrzewa()
 	{
+            
+            
             for(int i =0;i<drzewa.size();i++)
             {
-                przepiszWezel(drzewa.get(i));
+                
+                node = addANode(String.valueOf(i),rootNode);
+                
+                
+                przepiszWezel(drzewa.get(i),node);
             }
 		
 	}
         
-        private void przepiszWezel(WezelDrzewa wezel)
+        private void przepiszWezel(WezelDrzewa wezel ,DefaultMutableTreeNode n )
         {
+            String znak = new String();
+            DefaultMutableTreeNode kozen;
+            
+            if(!(wezel.isZnak()))
+                {
+                    znak = "-";
+                }
+                if(wezel.getSpojnik() == 1)
+                {
+                    znak = znak + "&";
+                    
+                    
+                }
+                if(wezel.getSpojnik() == 2)
+                {
+                    znak = znak + "|";
+                    
+                }
+                if(wezel.getSpojnik() == 3)
+                {
+                    znak = znak + "=>";
+                    
+                }
+                if(wezel.getSpojnik() == 4)
+                {
+                    znak = znak + "<=>";
+                    
+                }
+                if(wezel.getSpojnik() == -1)
+                {
+                    znak = znak + "()";
+                    
+                }
+                if(wezel.getSpojnik() == 0)
+                {
+                    znak = znak + wezel.getZdanie();
+                    kozen = addANode(znak, n);
+                    return;
+                }
+                kozen = addANode(znak, n);
+                
+                przepiszWezel(wezel.getLewy(),kozen);
+                przepiszWezel(wezel.getPrawy(),kozen);
+                
+                
+            
             
         }
 	
