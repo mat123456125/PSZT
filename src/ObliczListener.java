@@ -25,6 +25,8 @@ public class ObliczListener implements ActionListener{
     	
     	lista.wypelnijListe();
     	
+    	widok.ustawDrzewa(lista.getKlauzule());
+    	
     	widok.ustawKoniec();
     }
     
