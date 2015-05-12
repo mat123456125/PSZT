@@ -19,6 +19,7 @@ public class ListaDrzew {
 	
 	public void dzielSlowa()
 	{
+            
 		
 		//ArrayList<ArrayList<String>> tablicaSlow = new ArrayList<ArrayList<String>>();
 	
