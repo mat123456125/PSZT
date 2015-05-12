@@ -72,6 +72,7 @@ public class ListaDrzew {
 	            		}
 	            		dzielenieSlow.add("=>");
 	            		x++;
+	            		pomocniczy = "";
 	            	}
 	            	else if (znak == '<' && x+2 < poczatkowy.length() && poczatkowy.charAt(x+1) == '=' && poczatkowy.charAt(x+2) == '>')
 	            	{
@@ -81,6 +82,7 @@ public class ListaDrzew {
 	            		}
 	            		dzielenieSlow.add("<=>");
 	            		x+=2;
+	            		pomocniczy = "";
 	            	}
 	            		
 	            	else pomocniczy += znak;
