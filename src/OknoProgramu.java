@@ -66,7 +66,7 @@ public class OknoProgramu extends JFrame
 	
 	public String getPredykaty()
 	{
-		return poczatek.getZnaczenia();
+		return poczatek.getPredykaty();
 	}
 	
 	public String getTeza()
