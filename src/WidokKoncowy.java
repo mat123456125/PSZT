@@ -54,8 +54,6 @@ public class WidokKoncowy extends JPanel
 	
 	public void przepiszDrzewa()
 	{
-            
-            
             for(int i =0;i<drzewa.size();i++)
             {
                 
