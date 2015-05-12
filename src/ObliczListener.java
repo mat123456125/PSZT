@@ -21,18 +21,19 @@ public class ObliczListener implements ActionListener{
     
     public void actionPerformed(ActionEvent e) {
     	
-    	operacje.Oblicz();
+    	
     	String predykaty = widok.getPredykaty();
         
     	
-    	ListaDrzew lista = widok.getLista();
-        lista.setPredykaty(predykaty);
+    	
+        operacje.Oblicz();
+        operacje.getPredykaty().setPredykaty(predykaty);
         
-    	lista.wypelnijListe();
+    	
     	
         // TODO dorobic by brana byla pod uwage teza
     	
-    	widok.ustawDrzewa(lista.getKlauzule());
+    	widok.ustawDrzewa(operacje.getPredykaty().getKlauzule());
     	
     	widok.ustawKoniec();
     }
