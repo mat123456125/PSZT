@@ -12,6 +12,15 @@ public class wezeldrzewa {
 	{
 		
 	}
+        public wezeldrzewa(wezeldrzewa wz)
+	{
+            this.spojnik = wz.spojnik;
+            this.zdanie = wz.zdanie;
+            this.znak = wz.znak;
+		
+	}
+        
+        
         public wezeldrzewa(String zd)
 	{
 		zdanie = zd;

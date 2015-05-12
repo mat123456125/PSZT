@@ -13,7 +13,7 @@ public class WidokKoncowy extends JPanel
 	private JTree drzewo;
 	
 	DefaultMutableTreeNode node;
-	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("NODES");
+	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("c");
 	
 	public WidokKoncowy()
 	{
