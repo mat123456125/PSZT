@@ -345,5 +345,15 @@ public class ListaDrzew {
 	public void setPredykaty(String predykaty) {
 		this.predykaty = predykaty;
 	}
+
+        public Vector<WezelDrzewa> getKlauzule()
+        {
+            return klauzule;
+        }
+
+        public void setKlauzule(Vector<WezelDrzewa> klauzule)
+        {
+            this.klauzule = klauzule;
+        }
 	
 }
