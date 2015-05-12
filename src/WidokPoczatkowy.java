@@ -1,4 +1,4 @@
-import model.listaDrzew;
+import model.ListaDrzew;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -25,11 +25,11 @@ public class WidokPoczatkowy extends JPanel
 	
 
 
-	private listaDrzew lista;
+	private ListaDrzew lista;
 	
 	WidokPoczatkowy ()
 	{
-		lista = new listaDrzew();
+		lista = new ListaDrzew();
 		
 		tresc1 = new JLabel("Symbole zdan");
 		tresc2 = new JLabel("Predykaty");
@@ -120,11 +120,11 @@ public class WidokPoczatkowy extends JPanel
 		teza.setText(text);
 	}
 	
-	public listaDrzew getLista() {
+	public ListaDrzew getLista() {
 		return lista;
 	}
 	
-	public void setLista(listaDrzew lista) {
+	public void setLista(ListaDrzew lista) {
 		this.lista = lista;
 	}
 	

@@ -2,7 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import model.listaDrzew;
+import model.ListaDrzew;
 
 public class ObliczListener implements ActionListener{
 
@@ -20,7 +20,7 @@ public class ObliczListener implements ActionListener{
     	String predykaty = widok.getPredykaty();
         
     	
-    	listaDrzew lista = widok.getLista();
+    	ListaDrzew lista = widok.getLista();
         lista.setPredykaty(predykaty);
     	
     	lista.wypelnijListe();

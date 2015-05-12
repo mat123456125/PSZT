@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
 
-public class listaDrzew {
+public class ListaDrzew {
 
-	private Vector<wezeldrzewa> klauzule = new Vector<wezeldrzewa>();
+	private Vector<WezelDrzewa> klauzule = new Vector<WezelDrzewa>();
 	
 	private String predykaty;// bedzie zawieral predykaty
 	
 	private ArrayList<ArrayList<String>> tablicaSlow = new ArrayList<ArrayList<String>>();
 	
-	public listaDrzew()
+	public ListaDrzew()
 	{
 		
 	}
@@ -120,14 +120,14 @@ public class listaDrzew {
 	private boolean wczytajSlowa()
         {
             
-            wezeldrzewa temp,kozen,ostatni;
+            WezelDrzewa temp,kozen,ostatni;
             boolean czyKozen,czyStart;
             boolean czySymbol;
             boolean czyMinus = false;
             int symbol = 0;
-            ostatni = new wezeldrzewa("test");
-            kozen = new wezeldrzewa("test");
-            temp = new wezeldrzewa("test");
+            ostatni = new WezelDrzewa("test");
+            kozen = new WezelDrzewa("test");
+            temp = new WezelDrzewa("test");
             
             
             
@@ -192,7 +192,7 @@ public class listaDrzew {
                     }
                     else if(linia.get(j).charAt(0) == '(')
                     {
-                        temp = new wezeldrzewa(5);
+                        temp = new WezelDrzewa(5);
                         if(czyKozen)
                         {   
                             
@@ -247,7 +247,7 @@ public class listaDrzew {
                     
                     else
                     {
-                        temp = new wezeldrzewa(linia.get(j));
+                        temp = new WezelDrzewa(linia.get(j));
                         if(czyKozen)
                         {   
                             
@@ -276,7 +276,7 @@ public class listaDrzew {
                             return true;
                         }
                         
-                        temp = new wezeldrzewa(symbol);
+                        temp = new WezelDrzewa(symbol);
                         if(czyKozen)
                         {
                             if(kozen.getSpojnik() < symbol)

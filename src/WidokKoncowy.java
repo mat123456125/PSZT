@@ -7,17 +7,17 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 import java.util.Vector;
-import model.listaDrzew;
-import model.wezeldrzewa;
-// UDALO SIE ????
+import model.ListaDrzew;
+import model.WezelDrzewa;
+
 public class WidokKoncowy extends JPanel
 {
-	private Vector<wezeldrzewa> drzewa;
+	private Vector<WezelDrzewa> drzewa;
 	private JButton przyciskPowrotu;
 	private JTree drzewo;
 	
 	DefaultMutableTreeNode node;
-	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("NODES");
+	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("c");
 	
 	public WidokKoncowy()
 	{
@@ -28,7 +28,7 @@ public class WidokKoncowy extends JPanel
 		
 		
 		// TODO tutaj zrobic 
-		this.drzewa = new Vector<wezeldrzewa>();
+		this.drzewa = new Vector<WezelDrzewa>();
 		
 		// TODO przerobic elementy tak by odpowiednie byly
 		//______________________________________________________
@@ -52,9 +52,14 @@ public class WidokKoncowy extends JPanel
 		this.add(drzewo);		
 	}
 	
-	public void ustawListyDrzew(Vector<wezelDrzewa> listyDrzew)
+	public void wykonajDrzewa()
 	{
-		drzewa = new Vector<wezelDrzewa> ()
+		
+	}
+	
+	public void ustawListeDrzew(Vector<WezelDrzewa> listyDrzew)
+	{
+		drzewa = new Vector<WezelDrzewa> ();
 	}
 	
 	public void DodajListenerPowrotu(ActionListener listener)
