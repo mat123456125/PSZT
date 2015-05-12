@@ -80,27 +80,30 @@ public class WidokKoncowy extends JPanel
                     
                     
                 }
-                if(wezel.getSpojnik() == 2)
+                else if(wezel.getSpojnik() == 2)
                 {
                     znak = znak + "|";
                     
                 }
-                if(wezel.getSpojnik() == 3)
+                else if(wezel.getSpojnik() == 3)
                 {
                     znak = znak + "=>";
                     
                 }
-                if(wezel.getSpojnik() == 4)
+                else if(wezel.getSpojnik() == 4)
                 {
                     znak = znak + "<=>";
                     
                 }
-                if(wezel.getSpojnik() == -1)
+                else if(wezel.getSpojnik() == -1)
                 {
                     znak = znak + "()";
+                    kozen = addANode(znak, n);
+                    przepiszWezel(wezel.getPrawy(),kozen);
+                    return;
                     
                 }
-                if(wezel.getSpojnik() == 0)
+                else if(wezel.getSpojnik() == 0||wezel.getSpojnik() == 5)
                 {
                     znak = znak + wezel.getZdanie();
                     kozen = addANode(znak, n);
