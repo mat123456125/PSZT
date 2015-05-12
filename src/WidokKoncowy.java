@@ -54,7 +54,7 @@ public class WidokKoncowy extends JPanel
 	
 	public void przepiszDrzewa()
 	{
-            for(int i =0;i<drzewa.size();i++)
+            for(int i = 0 ; i < drzewa.size() ; i++)
             {
                 przepiszWezel(drzewa.get(i));
             }
