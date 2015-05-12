@@ -52,7 +52,7 @@ public class OknoProgramu extends JFrame
 	{
 		remove(poczatek);
 		
-		koniec.wykonajDrzewa();
+		koniec.przepiszDrzewa();
 		
 		add(koniec);
 		validate();

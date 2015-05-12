@@ -52,10 +52,19 @@ public class WidokKoncowy extends JPanel
 		this.add(drzewo);		
 	}
 	
-	public void wykonajDrzewa()
+	public void przepiszDrzewa()
 	{
+            for(int i =0;i<drzewa.size();i++)
+            {
+                przepiszWezel(drzewa.get(i));
+            }
 		
 	}
+        
+        private void przepiszWezel(WezelDrzewa wezel)
+        {
+            
+        }
 	
 	public void ustawListeDrzew(Vector<WezelDrzewa> listyDrzew)
 	{
