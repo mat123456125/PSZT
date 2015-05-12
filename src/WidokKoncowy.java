@@ -70,7 +70,7 @@ public class WidokKoncowy extends JPanel
             String znak = new String();
             DefaultMutableTreeNode kozen;
             
-            if(!(wezel.isZnak()))
+            if((wezel.isZnak()))
                 {
                     znak = "-";
                 }
@@ -118,7 +118,7 @@ public class WidokKoncowy extends JPanel
 	
 	public void ustawListeDrzew(Vector<WezelDrzewa> listyDrzew)
 	{
-		drzewa = new Vector<WezelDrzewa> ();
+		drzewa = new Vector<WezelDrzewa> (listyDrzew);
 	}
 	
 	public void DodajListenerPowrotu(ActionListener listener)
