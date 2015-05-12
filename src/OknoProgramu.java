@@ -5,13 +5,15 @@ import model.listaDrzew;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.util.Vector;
+import model.listaDrzew;
+import model.wezeldrzewa;
 
 public class OknoProgramu extends JFrame
 {
 
 	private WidokPoczatkowy poczatek;
 	private WidokKoncowy koniec;
-	
 	
 	OknoProgramu()
 	{
@@ -27,7 +29,18 @@ public class OknoProgramu extends JFrame
 		setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
 		
 		this.poczatek = new WidokPoczatkowy();
+		
+		//this.listaDrzew
+		
 		this.koniec = new WidokKoncowy();
+	}
+	
+	public void ustawDrzewa(Vector<listaDrzew>lista)
+	{
+		koniec
+		
+		validate();
+		repaint();
 	}
 	
 	public void ustawWidokPoczatkowy ()
