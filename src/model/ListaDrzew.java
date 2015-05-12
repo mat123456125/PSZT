@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class ListaDrzew {
 
-	private Vector<Wezeldrzewa> klauzule = new Vector<Wezeldrzewa>();
+	private Vector<WezelDrzewa> klauzule = new Vector<WezelDrzewa>();
 	
 	private String predykaty;// bedzie zawieral predykaty
 	
@@ -121,14 +121,14 @@ public class ListaDrzew {
 	private boolean wczytajSlowa()
         {
             
-            Wezeldrzewa temp,kozen,ostatni;
+            WezelDrzewa temp,kozen,ostatni;
             boolean czyKozen,czyStart;
             boolean czySymbol;
             boolean czyMinus = false;
             int symbol = 0;
-            ostatni = new Wezeldrzewa("test");
-            kozen = new Wezeldrzewa("test");
-            temp = new Wezeldrzewa("test");
+            ostatni = new WezelDrzewa("test");
+            kozen = new WezelDrzewa("test");
+            temp = new WezelDrzewa("test");
             
             
             
@@ -193,7 +193,7 @@ public class ListaDrzew {
                     }
                     else if(linia.get(j).charAt(0) == '(')
                     {
-                        temp = new Wezeldrzewa(5);
+                        temp = new WezelDrzewa(5);
                         if(czyKozen)
                         {   
                             
@@ -248,7 +248,7 @@ public class ListaDrzew {
                     
                     else
                     {
-                        temp = new Wezeldrzewa(linia.get(j));
+                        temp = new WezelDrzewa(linia.get(j));
                         if(czyKozen)
                         {   
                             
@@ -277,7 +277,7 @@ public class ListaDrzew {
                             return true;
                         }
                         
-                        temp = new Wezeldrzewa(symbol);
+                        temp = new WezelDrzewa(symbol);
                         if(czyKozen)
                         {
                             if(kozen.getSpojnik() < symbol)

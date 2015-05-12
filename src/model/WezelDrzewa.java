@@ -1,18 +1,18 @@
 package model;
 
-public class wezeldrzewa {
+public class WezelDrzewa {
 
-	private wezeldrzewa lewy;
-	private wezeldrzewa prawy;
+	private WezelDrzewa lewy;
+	private WezelDrzewa prawy;
 	private int spojnik; // 0 brak spojnika | 1 oznacza alternatywe | 2 oznacza koniunkcja | 3 implikacja | 4 rownowaznosc | -1 nawias zamkniety | 5 nawias otwarty
 	private boolean znak; // false oznacza negacje | true oznacza twierdzenie
         private String zdanie;
 	
-	public wezeldrzewa()
+	public WezelDrzewa()
 	{
 		
 	}
-        public wezeldrzewa(wezeldrzewa wz)
+        public WezelDrzewa(WezelDrzewa wz)
 	{
             this.spojnik = wz.spojnik;
             this.zdanie = wz.zdanie;
@@ -21,13 +21,13 @@ public class wezeldrzewa {
 	}
         
         
-        public wezeldrzewa(String zd)
+        public WezelDrzewa(String zd)
 	{
 		zdanie = zd;
                 spojnik = 0;
                 znak = false;
 	}
-        public wezeldrzewa(int sp)
+        public WezelDrzewa(int sp)
 	{
 		
                 spojnik = sp;
@@ -36,19 +36,19 @@ public class wezeldrzewa {
 	
 	
 
-	public wezeldrzewa getLewy() {
+	public WezelDrzewa getLewy() {
 		return lewy;
 	}
 
-	public void setLewy(wezeldrzewa lewy) {
+	public void setLewy(WezelDrzewa lewy) {
 		this.lewy = lewy;
 	}
 
-	public wezeldrzewa getPrawy() {
+	public WezelDrzewa getPrawy() {
 		return prawy;
 	}
 
-	public void setPrawy(wezeldrzewa prawy) {
+	public void setPrawy(WezelDrzewa prawy) {
 		this.prawy = prawy;
 	}
 
