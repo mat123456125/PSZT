@@ -60,29 +60,29 @@ public class conversion {
 	}
 	
 	public void IMPEQ(WezelDrzewa m){
-		if(m){
+		if(m != null){
 		if (m.getSpojnik()==3){//kopia do ListaDrzew
 			Negation(m.getLewy());//funkcja g³owna wywolujace wszystko 
 			m.setSpojnik(1);
 			
-		}else if(m.getspojnik()==4){
+		}else if(m.getSpojnik()==4){
 		 	WezelDrzewa mpl = new WezelDrzewa();
 			WezelDrzewa mpr = new WezelDrzewa();
 			mpl.setSpojnik(1);
 			mpr.setSpojnik(1);
-			mpl.setLewy(m.) = m.getChildAt(0);
-			Negation(mpl.GetChildAt(0));
-			mpl.setChildAt(1) = m.getChildAt(1);
-			mpr.setChildAt(0) = m.getChildAt(0);
-			mpr.setChildAt(1) = m.getChildAt(1);
-			Negation(mpl.GetChildAt(1));
-			m.setspojnik(2);
+			mpl.setLewy(m.getLewy());
+			Negation(mpl.getPrawy());
+			mpl.setPrawy(m.getPrawy());
+			mpr.setLewy(m.getLewy());
+			mpr.setPrawy(m.getPrawy());
+			Negation(mpl.getPrawy());
+			m.setSpojnik(2);
 			
-		}else if(m.getspojnik()==0){
+		}else if(m.getSpojnik()==0){
 			return;
 		}
-		if (m.getChildAt(0)) IMPEQ(m.getChildAt(0));
-		if(m.getChildAt(1)) IMPEQ(m.getChildAt(1));
+		if (m.getLewy() != null) this.IMPEQ(m.getLewy());
+		if (m.getPrawy() != null) this.IMPEQ(m.getPrawy());
 		
 	}
 }
