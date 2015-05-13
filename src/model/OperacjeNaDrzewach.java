@@ -35,7 +35,7 @@ public class OperacjeNaDrzewach
 				//{
 				//	tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
 				//}
-				
+				a
 				
 				
 			}
