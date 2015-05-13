@@ -26,6 +26,7 @@ public class ObliczListener implements ActionListener{
         
     	
         operacje.getPredykaty().setText(predykaty);
+        operacje.getTeza().setText(widok.getTeza());
         operacje.Oblicz();
         
     	
