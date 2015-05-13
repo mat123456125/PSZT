@@ -25,6 +25,17 @@ public class OperacjeNaDrzewach
 		}
 	}
 	
+	public void  wytwarzajNoweKlauzuleNaPodstawieObecnych()
+	{
+		for (int x = 0; x + 1 < klauzule.size(); x++)
+		{
+			for (int y = 0; y < klauzule.size(); y++)
+			{
+				
+			}
+		}
+	}
+	
 	public void Oblicz()
 	{
 		predykaty.wypelnijListe();
