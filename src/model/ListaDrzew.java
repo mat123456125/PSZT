@@ -22,6 +22,9 @@ public class ListaDrzew {
         {
             for(int i = 0;i<predykaty.size();i++)
             {
+                
+                
+                
                 nawiasy(predykaty.get(i));
                 
             }
@@ -408,5 +411,15 @@ public class ListaDrzew {
         {
             this.predykaty = predykaty;
         }
-	
+
+        public Vector<Vector<Literal>> getKlauzule()
+        {
+            return klauzule;
+        }
+
+        public void setKlauzule(Vector<Vector<Literal>> klauzule)
+        {
+            this.klauzule = klauzule;
+        }
+
 }
