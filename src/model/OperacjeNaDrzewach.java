@@ -29,8 +29,14 @@ public class OperacjeNaDrzewach
 	{
 		for (int x = 0; x + 1 < klauzule.size(); x++)
 		{
-			for (int y = 0; y < klauzule.size(); y++)
+			for (int y = x + 1 ; y < klauzule.size(); y++)
 			{
+				// if (sprawdzCzyWytworzycNowaKlauzule (klauzule.get(x),klauzule.get(y)) )
+				//{
+				//	tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
+				//}
+				
+				
 				
 			}
 		}
