@@ -25,19 +25,63 @@ public class OperacjeNaDrzewach
 		}
 	}
 	
+	public WezelDrzewa tworzNowaKlauzule (WezelDrzewa pierwszy, WezelDrzewa drugi)
+	{
+		WezelDrzewa rodzic1 = pierwszy;
+		WezelDrzewa rodzic2 = drugi;
+		
+		WezelDrzewa pomocniczy1 = pierwszy.getLewy();
+		WezelDrzewa pomocniczy2 = drugi.getLewy();
+		
+		while (pomocniczy1 != null)
+		{
+			while (pomocniczy2 != null)
+			{
+				// if (inne znaki i ta sama zawartosc)
+				//{
+					// tworzenie nowej klauzuli
+				
+					// WezelDrzewa nowy = new WezelDrzewa();
+				
+					// return nowy;
+				//}
+				
+				if (rodzic2.getPrawy().getSpojnik() == 1) // oznacza ze tam jest v
+				{
+					pomocniczy1 = rodzic2.getPrawy().getLewy();
+					rodzic2 = rodzic2.getPrawy();
+				}
+				else pomocniczy2 = rodzic2.getPrawy();
+			}
+			
+			if (rodzic1.getPrawy().getSpojnik() == 1) // oznacza ze tam jest v
+			{
+				pomocniczy1 = rodzic1.getPrawy().getLewy();
+				rodzic1 = rodzic1.getPrawy();
+			}
+			else pomocniczy1 = rodzic1.getPrawy();
+			
+			rodzic2 = drugi;
+			pomocniczy2 = drugi.getLewy();
+		}
+		
+		// oznacza ze przeszlismy wszystko i nie tworzy sie nic wiec:
+				
+		return null;
+	}
+	
 	public void  wytwarzajNoweKlauzuleNaPodstawieObecnych()
 	{
 		for (int x = 0; x + 1 < klauzule.size(); x++)
 		{
 			for (int y = x + 1 ; y < klauzule.size(); y++)
 			{
-				// if (sprawdzCzyWytworzycNowaKlauzule (klauzule.get(x),klauzule.get(y)) )
-				//{
-				//	tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
-				//}
-				a
+					WezelDrzewa nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
 				
-				
+					// if (sprawdzCzyWytworzycNowaKlauzule (klauzule.get(x),klauzule.get(y)) )
+					// {
+					
+					// }
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-package conversion;
+package model;
 
 import javax.swing.tree.TreeNode;
 
