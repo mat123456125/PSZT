@@ -41,7 +41,11 @@ public class OperacjeNaDrzewach
 				//{
 					// tworzenie nowej klauzuli
 				
-					// WezelDrzewa nowy = new WezelDrzewa();
+					
+				
+				
+				
+				// WezelDrzewa nowy = new WezelDrzewa();
 				
 					// return nowy;
 				//}
@@ -78,9 +82,9 @@ public class OperacjeNaDrzewach
 			{
 					WezelDrzewa nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
 				
-					// if (sprawdzCzyWytworzycNowaKlauzule (klauzule.get(x),klauzule.get(y)) )
+					// if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					// {
-					
+					//		dodajemy nowa klauzule do bazy
 					// }
 			}
 		}
