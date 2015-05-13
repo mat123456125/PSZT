@@ -5,7 +5,7 @@ public class WezelDrzewa {
 	private WezelDrzewa lewy;
 	private WezelDrzewa prawy;
 	private int spojnik; // 0 brak spojnika | 1 oznacza alternatywe | 2 oznacza koniunkcja | 3 implikacja | 4 rownowaznosc | -1 nawias zamkniety | 5 nawias otwarty
-	private boolean znak; // false oznacza negacje | true oznacza twierdzenie
+	private boolean znak; // true oznacza negacje | false oznacza twierdzenie
         private String zdanie;
 	
 	public WezelDrzewa()

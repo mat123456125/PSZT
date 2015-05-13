@@ -12,7 +12,7 @@ public class OperacjeNaDrzewach
 	
 	public void Oblicz()
 	{
-		predykaty.wypelnijListe();
+                predykaty.wypelnijListe();
                 teza.wypelnijListe();
 	}
 
