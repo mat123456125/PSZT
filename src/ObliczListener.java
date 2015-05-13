@@ -33,7 +33,7 @@ public class ObliczListener implements ActionListener{
     	
         // TODO dorobic by brana byla pod uwage teza
     	
-    	widok.ustawDrzewa(operacje.getPredykaty().getKlauzule());
+    	widok.ustawDrzewa(operacje.getPredykaty().getPredykaty());
     	
     	widok.ustawKoniec();
     }
