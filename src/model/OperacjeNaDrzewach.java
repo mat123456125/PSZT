@@ -4,9 +4,9 @@ import java.util.Vector;
 
 public class OperacjeNaDrzewach
 {
-	private Vector<Vector<Literal>> predykaty = new Vector<Vector<Literal>>();
-	private Vector<Vector<Literal>> teza = new Vector<Vector<Literal>>();
-	private Vector<WezelDrzewa> klauzule = new Vector<WezelDrzewa>();
+	private ListaDrzew predykaty = new ListaDrzew();
+	private ListaDrzew teza = new ListaDrzew();
+	private Vector<Vector<Literal>> klauzule = new Vector<Vector<Literal>>();
 	
 	public OperacjeNaDrzewach()
 	{
@@ -15,13 +15,13 @@ public class OperacjeNaDrzewach
 	
 	public void przypiszZawartosciDoKlauzul()
 	{
-		for (int x = 0; x < teza.getPredykaty().size(); x++)
+		for (int x = 0; x < teza.getKlauzule().size(); x++)
 		{
-			klauzule.add(teza.getPredykaty().elementAt(x));
+			klauzule.add(teza.getKlauzule().elementAt(x));
 		}
-		for (int x = 0; x < predykaty.getPredykaty().size(); x++)
+		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
 		{
-			klauzule.add(teza.getPredykaty().elementAt(x));
+			klauzule.add(teza.getKlauzule().elementAt(x));
 		}
 	}
 	
@@ -80,7 +80,7 @@ public class OperacjeNaDrzewach
 		{
 			for (int y = x + 1 ; y < klauzule.size(); y++)
 			{
-					WezelDrzewa nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
+					//WezelDrzewa nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
 				
 					// if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					// {
