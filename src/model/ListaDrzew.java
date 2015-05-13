@@ -6,21 +6,36 @@ import java.util.Vector;
 
 public class ListaDrzew {
 
-	private Vector<WezelDrzewa> klauzule = new Vector<WezelDrzewa>();
-	
+	private Vector<Vector<Literal>> klauzule = new Vector<Vector<Literal>>();
+        private Vector<WezelDrzewa> predykaty = new Vector<WezelDrzewa>();
+	private ArrayList<ArrayList<String>> tablicaSlow = new ArrayList<ArrayList<String>>();
 	private String text;// bedzie zawieral predykaty
 	
-	private ArrayList<ArrayList<String>> tablicaSlow = new ArrayList<ArrayList<String>>();
+	
 	
 	public ListaDrzew()
 	{
           
 		
 	}
-        
-        public void neguj()
+        private void usunNawiasy()
         {
-            if(klauzule.size() == 0)
+            for(int i = 0;i<predykaty.size();i++)
+            {
+                nawiasy(predykaty.get(i));
+                
+            }
+            
+            
+        }
+        private void nawiasy(WezelDrzewa wz)
+        {
+            
+        }
+        
+        public void neguj()  //tylko dla tezy
+        {
+            if(predykaty.size() == 0)
             {
                 return;
             }
@@ -29,23 +44,23 @@ public class ListaDrzew {
             WezelDrzewa temp = new WezelDrzewa(-1);
             temp.setZnak(true);
             tempVector.add(temp);
-            temp.setPrawy(klauzule.get(0));
-            if(klauzule.size() > 1)
+            temp.setPrawy(predykaty.get(0));
+            if(predykaty.size() > 1)
             { 
                 WezelDrzewa temp2;
-                for(int i = 1;i<tablicaSlow.size();i++)
+                for(int i = 1;i<predykaty.size();i++)
                 {
                     temp2 = new WezelDrzewa(1);
                     temp2.setLewy(temp.getPrawy());
                     temp.setPrawy(temp2);
-                    temp2.setPrawy(klauzule.get(i));
+                    temp2.setPrawy(predykaty.get(i));
                     
 
                 }
                 
                 
             }
-            klauzule = tempVector;
+            predykaty = tempVector;
                              
            
             
@@ -357,7 +372,7 @@ public class ListaDrzew {
                     
                     
                 }
-                klauzule.add(kozen);
+                predykaty.add(kozen);
             
             
             
@@ -384,14 +399,14 @@ public class ListaDrzew {
 		this.text = text;
 	}
 
-        public Vector<WezelDrzewa> getKlauzule()
+        public Vector<WezelDrzewa> getPredykaty()
         {
-            return klauzule;
+            return predykaty;
         }
 
-        public void setKlauzule(Vector<WezelDrzewa> klauzule)
+        public void setPredykaty(Vector<WezelDrzewa> predykaty)
         {
-            this.klauzule = klauzule;
+            this.predykaty = predykaty;
         }
 	
 }

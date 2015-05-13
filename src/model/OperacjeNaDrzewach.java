@@ -15,13 +15,13 @@ public class OperacjeNaDrzewach
 	
 	public void przypiszZawartosciDoKlauzul()
 	{
-		for (int x = 0; x < teza.getKlauzule().size(); x++)
+		for (int x = 0; x < teza.getPredykaty().size(); x++)
 		{
-			klauzule.add(teza.getKlauzule().elementAt(x));
+			klauzule.add(teza.getPredykaty().elementAt(x));
 		}
-		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
+		for (int x = 0; x < predykaty.getPredykaty().size(); x++)
 		{
-			klauzule.add(teza.getKlauzule().elementAt(x));
+			klauzule.add(teza.getPredykaty().elementAt(x));
 		}
 	}
 	
