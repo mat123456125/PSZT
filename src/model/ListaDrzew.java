@@ -14,9 +14,45 @@ public class ListaDrzew {
 	
 	public ListaDrzew()
 	{
+          
 		
 	}
+        
+        public void neguj()
+        {
+            if(klauzule.size() == 0)
+            {
+                return;
+            }
+            
+            Vector<WezelDrzewa> tempVector = new Vector<>();
+            WezelDrzewa temp = new WezelDrzewa(-1);
+            temp.setZnak(true);
+            tempVector.add(temp);
+            temp.setPrawy(klauzule.get(0));
+            if(klauzule.size() > 1)
+            { 
+                WezelDrzewa temp2;
+                for(int i = 1;i<tablicaSlow.size();i++)
+                {
+                    temp2 = new WezelDrzewa(1);
+                    temp2.setLewy(temp.getPrawy());
+                    temp.setPrawy(temp2);
+                    temp2.setPrawy(klauzule.get(i));
+                    
+
+                }
+                
+                
+            }
+            klauzule = tempVector;
+                             
+           
+            
+        }
 	
+        
+        
 	public void dzielSlowa()
 	{
             

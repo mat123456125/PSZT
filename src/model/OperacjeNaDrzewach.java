@@ -38,8 +38,8 @@ public class OperacjeNaDrzewach
 	
 	public void Oblicz()
 	{
-		predykaty.wypelnijListe();
-		teza.wypelnijListe();
+                predykaty.wypelnijListe();
+                teza.wypelnijListe();
 	}
 
     public ListaDrzew getPredykaty()
