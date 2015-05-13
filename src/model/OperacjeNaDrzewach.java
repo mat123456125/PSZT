@@ -4,8 +4,8 @@ import java.util.Vector;
 
 public class OperacjeNaDrzewach
 {
-	private ListaDrzew predykaty = new ListaDrzew();
-	private ListaDrzew teza = new ListaDrzew();
+	private Vector<Vector<Literal>> predykaty = new Vector<Vector<Literal>>();
+	private Vector<Vector<Literal>> teza = new Vector<Vector<Literal>>();
 	private Vector<WezelDrzewa> klauzule = new Vector<WezelDrzewa>();
 	
 	public OperacjeNaDrzewach()
