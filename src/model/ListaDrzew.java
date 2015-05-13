@@ -8,7 +8,7 @@ public class ListaDrzew {
 
 	private Vector<WezelDrzewa> klauzule = new Vector<WezelDrzewa>();
 	
-	private String predykaty;// bedzie zawieral predykaty
+	private String text;// bedzie zawieral predykaty
 	
 	private ArrayList<ArrayList<String>> tablicaSlow = new ArrayList<ArrayList<String>>();
 	
@@ -61,7 +61,7 @@ public class ListaDrzew {
 	
 	
 		String przerywnik = "[\\n]+";
-		ArrayList<String> linie = new ArrayList<String>(Arrays.asList(predykaty.split(przerywnik)));
+		ArrayList<String> linie = new ArrayList<String>(Arrays.asList(text.split(przerywnik)));
 		
 		przerywnik = "[\\s]+";
 		
@@ -376,12 +376,12 @@ public class ListaDrzew {
 	
 	//public 
 
-	public String getPredykaty() {
-		return predykaty;
+	public String getText() {
+		return text;
 	}
 
-	public void setPredykaty(String predykaty) {
-		this.predykaty = predykaty;
+	public void setText(String text) {
+		this.text = text;
 	}
 
         public Vector<WezelDrzewa> getKlauzule()

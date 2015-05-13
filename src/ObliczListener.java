@@ -25,7 +25,7 @@ public class ObliczListener implements ActionListener{
     	String predykaty = widok.getPredykaty();
         
     	
-        operacje.getPredykaty().setPredykaty(predykaty);
+        operacje.getPredykaty().setText(predykaty);
         operacje.Oblicz();
         
     	
