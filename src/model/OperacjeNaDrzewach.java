@@ -25,53 +25,64 @@ public class OperacjeNaDrzewach
 		}
 	}
 	
-	public WezelDrzewa tworzNowaKlauzule (WezelDrzewa pierwszy, WezelDrzewa drugi)
+	public Vector<Literal> usunPowtarzanieIOdwrotnosci (Vector<Literal> oryginal)
 	{
-		WezelDrzewa rodzic1 = pierwszy;
-		WezelDrzewa rodzic2 = drugi;
+		Vector<Literal> zastepczy = new Vector<Literal>(oryginal);
 		
-		WezelDrzewa pomocniczy1 = pierwszy.getLewy();
-		WezelDrzewa pomocniczy2 = drugi.getLewy();
-		
-		while (pomocniczy1 != null)
+		for (int x = 0; x < zastepczy.size() - 1; x++)
 		{
-			while (pomocniczy2 != null)
+			for (int y = x + 1; y < zastepczy.size(); y++)
 			{
-				// if (inne znaki i ta sama zawartosc)
-				//{
-					// tworzenie nowej klauzuli
 				
-					
+				Literal lit1 = zastepczy.get(x);
+				Literal lit2 = zastepczy.get(y);
 				
-				
-				
-				// WezelDrzewa nowy = new WezelDrzewa();
-				
-					// return nowy;
-				//}
-				
-				if (rodzic2.getPrawy().getSpojnik() == 1) // oznacza ze tam jest v
+				if (lit1.getZdanie() == lit2.getZdanie() && lit1.isZnak() == lit2.isZnak())
 				{
-					pomocniczy1 = rodzic2.getPrawy().getLewy();
-					rodzic2 = rodzic2.getPrawy();
+					zastepczy.remove(y);
 				}
-				else pomocniczy2 = rodzic2.getPrawy();
 			}
-			
-			if (rodzic1.getPrawy().getSpojnik() == 1) // oznacza ze tam jest v
-			{
-				pomocniczy1 = rodzic1.getPrawy().getLewy();
-				rodzic1 = rodzic1.getPrawy();
-			}
-			else pomocniczy1 = rodzic1.getPrawy();
-			
-			rodzic2 = drugi;
-			pomocniczy2 = drugi.getLewy();
 		}
 		
-		// oznacza ze przeszlismy wszystko i nie tworzy sie nic wiec:
+		for (int x = 0; x < zastepczy.size() - 1; x++)
+		{
+			for (int y = zastepczy.size() - 1 ; y > x ; y--)
+			{
 				
-		return null;
+				Literal lit1 = zastepczy.get(x);
+				Literal lit2 = zastepczy.get(y);
+				
+				if (lit1.getZdanie() == lit2.getZdanie() && lit1.isZnak() != lit2.isZnak())
+				{
+					zastepczy.remove(x);
+					zastepczy.remove(y);
+				}
+			}
+		}
+		
+		return zastepczy;
+	}
+	
+	public Vector<Literal> tworzNowaKlauzule (Vector<Literal> pierwszy, Vector<Literal> drugi)
+	{
+		
+		Vector<Literal> nowy = new Vector<Literal>();
+		
+		Vector<Literal> zastepczyPierwszy = usunPowtarzanieIOdwrotnosci(pierwszy);
+		Vector<Literal> zastepczyDrugi = usunPowtarzanieIOdwrotnosci(drugi);
+		
+		for (int x = 0; x < zastepczyPierwszy.size(); x++)
+		{
+			nowy.add(zastepczyPierwszy.elementAt(x));
+		}
+		for (int x = 0; x < zastepczyDrugi.size(); x++)
+		{
+			nowy.add(zastepczyDrugi.elementAt(x));
+		}
+		
+		nowy = usunPowtarzanieIOdwrotnosci(nowy);
+				
+		return nowy;
 	}
 	
 	public void  wytwarzajNoweKlauzuleNaPodstawieObecnych()
@@ -80,7 +91,9 @@ public class OperacjeNaDrzewach
 		{
 			for (int y = x + 1 ; y < klauzule.size(); y++)
 			{
-					//WezelDrzewa nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
+				
+				
+					Vector<Literal> nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
 				
 					// if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					// {
