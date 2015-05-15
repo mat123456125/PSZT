@@ -35,6 +35,8 @@ public class ListaDrzew {
                         
                     }
                 }
+                if(predykaty.get(i).getSpojnik() == 0)
+                    continue;
                 
                 
                 nawiasy(predykaty.get(i));
@@ -45,8 +47,38 @@ public class ListaDrzew {
         }
         private void nawiasy(WezelDrzewa wz)
         {
-            //rekurwencja
-            //dla 2 dzieci zrobic sprawdzenie
+            //prawe poddrzewo
+            
+            if(wz.getPrawy().getSpojnik() == -1)
+            {
+                if(wz.getPrawy().isZnak())
+                {
+                    wz.getPrawy().getPrawy().setZnak(true);
+                }
+                wz.setPrawy(wz.getPrawy().getPrawy());
+                nawiasy(wz.getPrawy());
+                
+            }
+            else if(wz.getPrawy().getSpojnik() != 0)
+            {
+                nawiasy(wz.getPrawy());
+            }
+            //lewe poddrzewo
+            if(wz.getLewy().getSpojnik() == -1)
+            {
+                if(wz.getLewy().isZnak())
+                {
+                    wz.getLewy().getPrawy().setZnak(true);
+                }
+                wz.setLewy(wz.getLewy().getPrawy());
+                nawiasy(wz.getLewy());
+                
+            }
+            else if(wz.getLewy().getSpojnik() != 0)
+            {
+                nawiasy(wz.getLewy());
+            }
+            
             
             
         }
@@ -404,6 +436,7 @@ public class ListaDrzew {
 	{
 		dzielSlowa();
                 wczytajSlowa();
+                usunNawiasy();
 
 	}
 	
