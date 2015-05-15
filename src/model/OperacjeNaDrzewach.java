@@ -13,6 +13,22 @@ public class OperacjeNaDrzewach
 		
 	}
 	
+	private void wypisywanie(Vector<Literal> nowy)
+	{
+		System.out.print ("\nZawartosc nowej klauzuli to: ");
+		
+		for (int z = 0; z < nowy.size(); z++)
+		{
+			if (nowy.elementAt(z).isZnak())
+			{
+				System.out.print(" -");
+			}
+			else System.out.print (" ");
+			
+			System.out.print(nowy.elementAt(z).getZdanie());
+		}
+	}
+	
 	private void przypiszZawartosciDoKlauzul()
 	{
 		for (int x = 0; x < teza.getKlauzule().size(); x++)
@@ -104,21 +120,10 @@ public class OperacjeNaDrzewach
 			for (int y = x + 1 ; y < klauzule.size(); y++)
 			{
 				
-				
 					Vector<Literal> nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
 				
-					System.out.println ("\nZawartosc nowej klauzuli to: ");
-					
-					for (int z = 0; x < nowy.size(); x++)
-					{
-						if (nowy.elementAt(z).isZnak())
-						{
-							System.out.println(" -");
-						}
-						else System.out.println (" ");
-						
-						System.out.println(nowy.elementAt(z).getZdanie());
-					}
+					wypisywanie(nowy);
+
 					// if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					// {
 					//		dodajemy nowa klauzule do bazy
