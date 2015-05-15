@@ -144,6 +144,7 @@ public class OperacjeNaDrzewach
                 {
                     wypisywanie(klauzule.get(x));
 		}
+                wytwarzajNoweKlauzuleNaPodstawieObecnych();
 	}
 
     public ListaDrzew getPredykaty()
