@@ -37,7 +37,7 @@ public class OperacjeNaDrzewach
 		}
 		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
 		{
-			klauzule.add(teza.getKlauzule().elementAt(x));
+			klauzule.add(predykaty.getKlauzule().elementAt(x));
 		}
 	}
         
@@ -136,8 +136,13 @@ public class OperacjeNaDrzewach
 	{
                 predykaty.wypelnijListe();
                 teza.wypelnijListe();
+                teza.neguj();
                 przypiszZawartosciDoKlauzul();
                 usunPowtarzanieAll();
+                for (int x = 0; x  < klauzule.size(); x++)
+                {
+                    wypisywanie(klauzule.get(x));
+		}
 	}
 
     public ListaDrzew getPredykaty()
