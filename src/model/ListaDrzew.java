@@ -431,12 +431,23 @@ public class ListaDrzew {
             }
             return false;
         }
+        private void zmienNaKlauzule()
+        {
+
+        }
+        
+        private void wypelnijLitaraly()
+        {
+            
+        }
 	
 	public void wypelnijListe()
 	{
 		dzielSlowa();
                 wczytajSlowa();
                 usunNawiasy();
+                zmienNaKlauzule();
+                wypelnijLitaraly();
 
 	}
 	
@@ -469,5 +480,7 @@ public class ListaDrzew {
         {
             this.klauzule = klauzule;
         }
+
+        
 
 }
