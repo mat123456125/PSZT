@@ -13,7 +13,7 @@ public class OperacjeNaDrzewach
 		
 	}
 	
-	public void przypiszZawartosciDoKlauzul()
+	private void przypiszZawartosciDoKlauzul()
 	{
 		for (int x = 0; x < teza.getKlauzule().size(); x++)
 		{
@@ -68,16 +68,13 @@ public class OperacjeNaDrzewach
 		
 		Vector<Literal> nowy = new Vector<Literal>();
 		
-		Vector<Literal> zastepczyPierwszy = usunPowtarzanieIOdwrotnosci(pierwszy);
-		Vector<Literal> zastepczyDrugi = usunPowtarzanieIOdwrotnosci(drugi);
-		
-		for (int x = 0; x < zastepczyPierwszy.size(); x++)
+		for (int x = 0; x < pierwszy.size(); x++)
 		{
-			nowy.add(zastepczyPierwszy.elementAt(x));
+			nowy.add(pierwszy.elementAt(x));
 		}
-		for (int x = 0; x < zastepczyDrugi.size(); x++)
+		for (int x = 0; x < drugi.size(); x++)
 		{
-			nowy.add(zastepczyDrugi.elementAt(x));
+			nowy.add(drugi.elementAt(x));
 		}
 		
 		nowy = usunPowtarzanieIOdwrotnosci(nowy);
@@ -85,7 +82,7 @@ public class OperacjeNaDrzewach
 		return nowy;
 	}
 	
-	public void  wytwarzajNoweKlauzuleNaPodstawieObecnych()
+	private void  wytwarzajNoweKlauzuleNaPodstawieObecnych()
 	{
 		for (int x = 0; x + 1 < klauzule.size(); x++)
 		{
@@ -95,6 +92,18 @@ public class OperacjeNaDrzewach
 				
 					Vector<Literal> nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
 				
+					System.out.println ("\nZawartosc nowej klauzuli to: ");
+					
+					for (int z = 0; x < nowy.size(); x++)
+					{
+						if (nowy.elementAt(z).isZnak())
+						{
+							System.out.println(" -");
+						}
+						else System.out.println (" ");
+						
+						System.out.println(nowy.elementAt(z).getZdanie());
+					}
 					// if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					// {
 					//		dodajemy nowa klauzule do bazy
