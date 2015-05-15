@@ -25,7 +25,7 @@ public class OperacjeNaDrzewach
 		}
 	}
 	
-	public Vector<Literal> usunPowtarzanieIOdwrotnosci (Vector<Literal> oryginal)
+	private Vector<Literal> usunPowtarzanieIOdwrotnosci (Vector<Literal> oryginal)
 	{
 		Vector<Literal> zastepczy = new Vector<Literal>(oryginal);
 		
@@ -63,7 +63,7 @@ public class OperacjeNaDrzewach
 		return zastepczy;
 	}
 	
-	public Vector<Literal> tworzNowaKlauzule (Vector<Literal> pierwszy, Vector<Literal> drugi)
+	private Vector<Literal> tworzNowaKlauzule (Vector<Literal> pierwszy, Vector<Literal> drugi)
 	{
 		
 		Vector<Literal> nowy = new Vector<Literal>();
