@@ -42,6 +42,7 @@ public class OknoProgramu extends JFrame
 	
 	public void ustawWidokPoczatkowy ()
 	{
+		System.out.println("b");
 		remove(koniec);
 		add(poczatek);
 		validate();
@@ -88,11 +89,11 @@ public class OknoProgramu extends JFrame
 		
 		OdczytListener odczyt = new OdczytListener(naszeOkno.poczatek);
 		ZapisListener zapis = new ZapisListener(naszeOkno.poczatek);
-                ObliczListener oblicz = new ObliczListener(naszeOkno);
+        ObliczListener oblicz = new ObliczListener(naszeOkno);
 		
 		naszeOkno.poczatek.addActionListener(odczyt, zapis, oblicz);
 		
-		PowrotListener powrot = new PowrotListener();
+		PowrotListener powrot = new PowrotListener(naszeOkno);
 		naszeOkno.koniec.DodajListenerPowrotu(powrot);
 	}
 

@@ -10,7 +10,7 @@ import model.ListaDrzew;
 public class ObliczListener implements ActionListener{
 
 	private OknoProgramu widok;
-	private OperacjeNaDrzewach operacje = new OperacjeNaDrzewach();
+	private OperacjeNaDrzewach operacje;// = new OperacjeNaDrzewach();
 //	private WidokPoczatkowy widok;
 //	private WidokKoncowy koniec;
 	
@@ -22,6 +22,8 @@ public class ObliczListener implements ActionListener{
     @Override
     
     public void actionPerformed(ActionEvent e) {
+    	
+    	operacje = new OperacjeNaDrzewach();
     	
     	
     	String predykaty = widok.getPredykaty();
