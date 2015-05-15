@@ -24,6 +24,21 @@ public class OperacjeNaDrzewach
 			klauzule.add(teza.getKlauzule().elementAt(x));
 		}
 	}
+        
+        private void usunPowtarzanieAll()
+        {
+            Vector<Vector<Literal>> temp = new Vector<Vector<Literal>>();
+            
+            for (int x = 0; x < klauzule.size(); x++)
+            {
+                
+                temp.add(usunPowtarzanieIOdwrotnosci(klauzule.get(x)));
+                
+
+            }
+            klauzule = temp;
+
+        }
 	
 	public Vector<Literal> usunPowtarzanieIOdwrotnosci (Vector<Literal> oryginal)
 	{
