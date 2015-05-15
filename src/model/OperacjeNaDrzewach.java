@@ -68,7 +68,7 @@ public class OperacjeNaDrzewach
 				Literal lit1 = zastepczy.get(x);
 				Literal lit2 = zastepczy.get(y);
 				
-				if (lit1.getZdanie() == lit2.getZdanie() && lit1.isZnak() == lit2.isZnak())
+				if (lit1.getZdanie().equals(lit2.getZdanie()) && lit1.isZnak() == lit2.isZnak())
 				{
 					zastepczy.remove(y);
 				}
@@ -134,9 +134,10 @@ public class OperacjeNaDrzewach
 	
 	public void Oblicz() throws IllegalAccessException
 	{
+                teza.setTeza(true);
                 predykaty.wypelnijListe();
                 teza.wypelnijListe();
-                teza.neguj();
+                
                 przypiszZawartosciDoKlauzul();
                 usunPowtarzanieAll();
                 for (int x = 0; x  < klauzule.size(); x++)
