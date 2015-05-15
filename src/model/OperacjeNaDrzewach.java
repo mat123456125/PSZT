@@ -107,6 +107,7 @@ public class OperacjeNaDrzewach
 	{
                 predykaty.wypelnijListe();
                 teza.wypelnijListe();
+                przypiszZawartosciDoKlauzul();
 	}
 
     public ListaDrzew getPredykaty()
