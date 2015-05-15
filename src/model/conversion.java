@@ -1,9 +1,9 @@
-package conversion;
+package model;
 
 import javax.swing.tree.TreeNode;
 
 public class conversion {
-	public void Negation(WezelDrzewa m){//Zdanie to Literal
+/*	public void Negation(WezelDrzewa m){//Zdanie to Literal
 		if (m.getSpojnik()==0){
 			m.setZnak(true);
 		}
@@ -62,7 +62,7 @@ public class conversion {
 	public void IMPEQ(WezelDrzewa m){
 		if(m != null){
 		if (m.getSpojnik()==3){//kopia do ListaDrzew
-			Negation(m.getLewy());//funkcja g³owna wywolujace wszystko 
+			Negation(m.getLewy());//funkcja gï¿½owna wywolujace wszystko 
 			m.setSpojnik(1);
 			
 		}else if(m.getSpojnik()==4){
@@ -98,5 +98,5 @@ public class conversion {
 	public CheckFalseSTAT(TreeNode m){
 		
 	}
-	
+	*/
 }
