@@ -22,7 +22,19 @@ public class ListaDrzew {
         {
             for(int i = 0;i<predykaty.size();i++)
             {
-                
+                if(predykaty.get(i).getSpojnik() == -1)
+                {
+                    if( predykaty.get(i).isZnak())
+                    {
+                    predykaty.set(i, predykaty.get(i).getPrawy());
+                    predykaty.get(i).setZnak(true);
+                    }
+                    else
+                    {
+                        predykaty.set(i, predykaty.get(i).getPrawy());
+                        
+                    }
+                }
                 
                 
                 nawiasy(predykaty.get(i));
@@ -33,6 +45,9 @@ public class ListaDrzew {
         }
         private void nawiasy(WezelDrzewa wz)
         {
+            //rekurwencja
+            //dla 2 dzieci zrobic sprawdzenie
+            
             
         }
         
