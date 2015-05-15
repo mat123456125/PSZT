@@ -123,6 +123,7 @@ public class OperacjeNaDrzewach
                 predykaty.wypelnijListe();
                 teza.wypelnijListe();
                 przypiszZawartosciDoKlauzul();
+                usunPowtarzanieAll();
 	}
 
     public ListaDrzew getPredykaty()
