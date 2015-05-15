@@ -124,9 +124,9 @@ public class WidokKoncowy extends JPanel
 		drzewa = new Vector<WezelDrzewa> (listyDrzew);
 	}
 	
-	public void DodajListenerPowrotu(ActionListener listener)
+	public void DodajListenerPowrotu(PowrotListener powrot)
 	{
-		this.przyciskPowrotu.addActionListener(listener);
+		this.przyciskPowrotu.addActionListener(powrot);
 	}
 	
 	private DefaultMutableTreeNode addANode(String nazwa, DefaultMutableTreeNode folder)

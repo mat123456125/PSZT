@@ -84,7 +84,6 @@ public class OknoProgramu extends JFrame
 		OknoProgramu naszeOkno = new OknoProgramu();
 		naszeOkno.setVisible(true);
 	
-	
 		naszeOkno.ustawWidokPoczatkowy();
 		
 		OdczytListener odczyt = new OdczytListener(naszeOkno.poczatek);
@@ -93,6 +92,8 @@ public class OknoProgramu extends JFrame
 		
 		naszeOkno.poczatek.addActionListener(odczyt, zapis, oblicz);
 		
+		PowrotListener powrot = new PowrotListener();
+		naszeOkno.koniec.DodajListenerPowrotu(powrot);
 	}
 
 }
