@@ -27,6 +27,8 @@ public class OperacjeNaDrzewach
 			
 			System.out.print(nowy.elementAt(z).getZdanie());
 		}
+		
+		System.out.println("___________________________");
 	}
 	
 	private void przypiszZawartosciDoKlauzul()
@@ -77,16 +79,19 @@ public class OperacjeNaDrzewach
 		
 		for (int x = 0; x < zastepczy.size() - 1; x++)
 		{
-			for (int y = zastepczy.size() - 1 ; y > x ; y--)
+			for (int y = x + 1 ; y < zastepczy.size() ; y++)
 			{
 				
 				Literal lit1 = zastepczy.get(x);
 				Literal lit2 = zastepczy.get(y);
 				
+				System.out.println(lit1.getZdanie());
+				System.out.println(lit2.getZdanie());
+				
 				if (lit1.getZdanie().equals(lit2.getZdanie()) && lit1.isZnak() != lit2.isZnak())
 				{
 					zastepczy.remove(x);
-					zastepczy.remove(y);
+					zastepczy.remove(y-1);
 				}
 			}
 		}
