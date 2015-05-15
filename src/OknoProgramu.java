@@ -42,7 +42,6 @@ public class OknoProgramu extends JFrame
 	
 	public void ustawWidokPoczatkowy ()
 	{
-		System.out.println("b");
 		remove(koniec);
 		add(poczatek);
 		validate();

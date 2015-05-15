@@ -13,8 +13,6 @@ public class PowrotListener implements ActionListener
 	
 	 public void actionPerformed(ActionEvent e)
 	 {
-		 System.out.println("\n");
-		 System.out.println("a");
 		 widok.ustawWidokPoczatkowy();
 	 }
 }
