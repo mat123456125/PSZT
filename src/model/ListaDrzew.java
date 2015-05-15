@@ -10,6 +10,7 @@ public class ListaDrzew {
         private Vector<WezelDrzewa> predykaty = new Vector<WezelDrzewa>();
 	private ArrayList<ArrayList<String>> tablicaSlow = new ArrayList<ArrayList<String>>();
 	private String text;// bedzie zawieral predykaty
+        private boolean teza = false;
 	
 	
 	
@@ -485,6 +486,7 @@ public class ListaDrzew {
 	{
 		dzielSlowa();
                 wczytajSlowa();
+                if(teza) neguj();
                 usunNawiasy();
                 zmienNaKlauzule();
                 wypelnijLitaraly();
@@ -521,6 +523,17 @@ public class ListaDrzew {
         {
             this.klauzule = klauzule;
         }
+
+        public boolean isTeza()
+        {
+            return teza;
+        }
+
+        public void setTeza(boolean teza)
+        {
+            this.teza = teza;
+        }
+        
 
     
         
