@@ -33,6 +33,13 @@ class Literal {
     {
         this.zdanie = zdanie;
     }
+
+    public Literal(boolean znak, String zdanie)
+    {
+        this.znak = znak;
+        this.zdanie = zdanie;
+    }
+    
         
      
 }

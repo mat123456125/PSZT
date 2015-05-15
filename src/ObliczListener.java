@@ -1,6 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import model.OperacjeNaDrzewach;
 import model.ListaDrzew;
@@ -27,7 +29,13 @@ public class ObliczListener implements ActionListener{
     	
         operacje.getPredykaty().setText(predykaty);
         operacje.getTeza().setText(widok.getTeza());
-        operacje.Oblicz();
+            try
+            {
+                operacje.Oblicz();
+            } catch (IllegalAccessException ex)
+            {
+                Logger.getLogger(ObliczListener.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
     	
     	

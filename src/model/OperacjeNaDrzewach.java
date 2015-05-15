@@ -103,7 +103,7 @@ public class OperacjeNaDrzewach
 		}
 	}
 	
-	public void Oblicz()
+	public void Oblicz() throws IllegalAccessException
 	{
                 predykaty.wypelnijListe();
                 teza.wypelnijListe();
