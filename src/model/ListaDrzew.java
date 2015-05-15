@@ -436,18 +436,59 @@ public class ListaDrzew {
 
         }
         
-        private void wypelnijLitaraly()
+        private void wypelnijLitaraly() throws IllegalAccessException
         {
+            Literal lit;
+            Vector<Literal> temp;
+            WezelDrzewa wz;
+            for(int i = 0; i< predykaty.size();i++ )
+            {
+                temp = new Vector<>();
+                wz = predykaty.get(i);
+                
+                while(wz.getSpojnik()!= 0)
+                {
+                    if(wz.getSpojnik() == 2)
+                    {
+                        lit = new Literal(wz.getLewy().isZnak(), wz.getLewy().getZdanie());
+                        temp.add(lit);
+                        wz = wz.getPrawy();
+                        
+                        
+                        
+                        
+                        
+                        
+                    }
+                    else
+                    {
+                        throw new IllegalAccessException("nie jest to klauzula");
+                    }
+
+                }
+                lit = new Literal(wz.isZnak(), wz.getZdanie());
+                temp.add(lit);
+                
+
+                
+                
+                
+                
+                klauzule.add(temp);
+                
+            }
+            
             
         }
 	
-	public void wypelnijListe()
+	public void wypelnijListe() throws IllegalAccessException
 	{
 		dzielSlowa();
                 wczytajSlowa();
                 usunNawiasy();
                 zmienNaKlauzule();
                 wypelnijLitaraly();
+                
 
 	}
 	
@@ -480,6 +521,9 @@ public class ListaDrzew {
         {
             this.klauzule = klauzule;
         }
+
+    
+        
 
         
 
