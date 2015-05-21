@@ -3,23 +3,23 @@ package model;
 import javax.swing.tree.TreeNode;
 
 public class conversion {
-	public void Negation(WezelDrzewa m){//Zdanie to Literal
+	public static void Negation(WezelDrzewa m){//Zdanie to Literal
 		if (m.getSpojnik()==0){
 			m.setZnak(true);
 		}
 		else if(m.getSpojnik()==1){
 			m.setSpojnik(2);
-			this.Negation(m.getLewy());
-			this.Negation(m.getPrawy());
+			Negation(m.getLewy());
+			Negation(m.getPrawy());
 		}
 		else if(m.getSpojnik()==2){ // Klauzula to wektor literalow
 			m.setSpojnik(1);
-			this.Negation(m.getLewy()); 
-			this.Negation(m.getPrawy());
+			Negation(m.getLewy()); 
+			Negation(m.getPrawy());
 		}
 		else if(m.getSpojnik()==3){
 			m.setSpojnik(2);
-			this.Negation(m.getPrawy());
+			Negation(m.getPrawy());
 		}
 		else {
 			WezelDrzewa ml = new WezelDrzewa();
@@ -31,12 +31,12 @@ public class conversion {
 			ml.setSpojnik(1);
 			mp.setSpojnik(1);
 			m.setZnak(true);;
-			this.Negation(mp.getLewy());
-			this.Negation(mp.getPrawy());
+			Negation(mp.getLewy());
+			Negation(mp.getPrawy());
 		}
 	}
 	
-	public int RedKON(WezelDrzewa m,WezelDrzewa mp,int str){//mp to rodzic m - do poprawy str czy lewo czy prawo
+	public static int RedKON(WezelDrzewa m,WezelDrzewa mp,int str){//mp to rodzic m - do poprawy str czy lewo czy prawo
 		if ((m.getSpojnik()==2)&&(str == 2)) {
 			if (mp!=null){
 				if (mp.getSpojnik()==1){
@@ -78,7 +78,7 @@ public class conversion {
 		return 0;
 	}
 	
-	public int MassiveREDKON(WezelDrzewa m){
+	public static int MassiveREDKON(WezelDrzewa m){
 		int st = 0;
 		if(m.getLewy()!=null){
 			st = MassiveREDKON(m.getLewy()); 
@@ -93,7 +93,7 @@ public class conversion {
 	}
 	
 	
-	public void IMPEQ(WezelDrzewa m){
+	public static void IMPEQ(WezelDrzewa m){
 		if(m != null){
 		if (m.getSpojnik()==3){//kopia do ListaDrzew
 			Negation(m.getLewy());//funkcja g�owna wywolujace wszystko 
@@ -115,8 +115,8 @@ public class conversion {
 		}else if(m.getSpojnik()==0){
 			return;
 		}
-		if (m.getLewy() != null) this.IMPEQ(m.getLewy());
-		if (m.getPrawy() != null) this.IMPEQ(m.getPrawy());
+		if (m.getLewy() != null) IMPEQ(m.getLewy());
+		if (m.getPrawy() != null) IMPEQ(m.getPrawy());
 		
 	}
 }
