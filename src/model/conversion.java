@@ -3,7 +3,7 @@ package model;
 import javax.swing.tree.TreeNode;
 
 public class conversion {
-/*	public void Negation(WezelDrzewa m){//Zdanie to Literal
+	public void Negation(WezelDrzewa m){//Zdanie to Literal
 		if (m.getSpojnik()==0){
 			m.setZnak(true);
 		}
@@ -35,29 +35,62 @@ public class conversion {
 			this.Negation(mp.getPrawy());
 		}
 	}
-	public void RedKON(TreeNode m){
-		if (m.getSpojnik()==2) {
-			if (m.getParent()){
-				if (m.getParent().getspojnik==1){
+	public int RedKON(WezelDrzewa m,WezelDrzewa mp,int str){//mp to rodzic m - do poprawy str czy lewo czy prawo
+		if ((m.getSpojnik()==2)&&(str == 2)) {
+			if (mp!=null){
+				if (mp.getSpojnik()==1){
 				WezelDrzewa mpr = new WezelDrzewa();
-				mpr.setParent(m.getParent());
-				mpr.setSpojnik(1);
-				mpr.setChildAt(0,m.getChildAt(1));
-				mpr.setChildAt(1,m.getParent().getChildAt(1));
-				m.setSpojnik(1);
-				}
-				m.getParent().setspojnik(2);
 				
-			
-			SepKON();
+				//mpr.setParent(mp);
+				mpr.setSpojnik(1);
+				mpr.setPrawy(mp.getPrawy());
+				mpr.setLewy(m.getPrawy());
+				m.setPrawy(mp.getPrawy());
+				m.setSpojnik(1);
+				mp.setPrawy(mpr);
+				}
+				mp.setSpojnik(2);
+				return 2;
+			//SepKON();
 			}
 		}
 			
-		else {
+		else if ((m.getSpojnik()==2)&&(str == 1)) {
+			if (mp!=null){
+				if (mp.getSpojnik()==1){
+				WezelDrzewa mpr = new WezelDrzewa();
+				
+				//mpr.setParent(mp);
+				mpr.setSpojnik(1);
+				mpr.setPrawy(m.getLewy());
+				mpr.setLewy(mp.getLewy());
+				m.setLewy(mp.getLewy());
+				m.setSpojnik(1);
+				mp.setLewy(mpr);
+				}
+				mp.setSpojnik(2);
+				return 1;
+			//SepKON();
+			}
 			
 		}
 		
 	}
+	
+	public int MassiveREDKON(WezelDrzewa m){
+		int st = 0;
+		if(m.getLewy()!=null){
+			st = MassiveREDKON(m.getLewy()); 
+		}
+		else if(m.getPrawy()!=null){
+			st = MassiveREDKON(m.getPrawy());
+			
+		}
+		 if(st == 1)  st = RedKON(m.getLewy(),m,1);
+		 else if(st ==2) st = RedKON(m.getPrawy(),m,2);
+		return st;
+	}
+	
 	
 	public void IMPEQ(WezelDrzewa m){
 		if(m != null){
@@ -87,16 +120,17 @@ public class conversion {
 	}
 }
 	
-	public SepKON(TreeNode m){
+	public void SepKON(WezelDrzewa m){
+			
+	}
+	
+	public void CheckTAUT(TreeNode m){
+		if 
 		
 	}
 	
-	public CheckTAUT(TreeNode m){
+	public void CheckFalseSTAT(WezelDrzewa m){
 		
 	}
 	
-	public CheckFalseSTAT(TreeNode m){
-		
-	}
-	*/
 }
