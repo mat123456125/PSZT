@@ -17,28 +17,31 @@ public class OperacjeNaDrzewach
 								// jesli jest to koniec wnioskowania
 	{
 		Vector<Literal> dodanaKlauzula = klauzule.get(klauzule.size()-1); // pobieramy ostatni element ( dodany element )
+		Vector<Literal> aktualnaKlauzula;
 		// bedziemy sprawdzac pozostale wiersze od 0 do przedostatniego czy jest zaprzeczenie jesli jest to koniec
 		// jesli przejdzie przez wszystko to oznacza ze nie jest zaprzeczeniem innej klauzuli wiec nie konczy dowodu
 		// przez rezolucje i zaprzeczenie
-		
-		for (int x = 0; x < klauzule.size() - 1; x++)
+				
+		if (dodanaKlauzula.size() != 1)
 		{
-			for (int y = 0; y < dodanaKlauzula.size(); y++)
+			return false;		// jesli wiecej niz 1 literal to nie koniec sprawdzania
+		}
+		
+		for (int x = 0; x < klauzule.size() - 1; x++)				// czyli ze mozna sprawdzac czy nie zaprzecza czemus innemu
+		{
+			if (klauzule.get(x).size() == 1)
 			{
-				if (dodanaKlauzula.size() != klauzule.get(x).size())
+				aktualnaKlauzula = klauzule.get(x);
+				if ((aktualnaKlauzula.get(0).getZdanie().equals(dodanaKlauzula.get(0).getZdanie())) &&
+						(aktualnaKlauzula.get(0).isZnak() != dodanaKlauzula.get(0).isZnak()))
 				{
-					break;
+					// oznacza ze znalezlismy 2 klauzule sprzeczne (ostatnia i x)
+					return true;
 				}
-				
-				for(int z = 0 ; z < klauzule.get(x).size() ; z++ )
-				{
-					
-				}
-				
 			}
 		}
 		
-		return true;
+		return false;
 	}
 	
 	private void dodajKlauzule (Vector<Literal> nowa)  // Metoda sluzaca do dodania nowej klauzuli do naszego zbioru klazul
