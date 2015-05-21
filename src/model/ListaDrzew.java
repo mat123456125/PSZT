@@ -432,8 +432,15 @@ public class ListaDrzew {
             }
             return false;
         }
+	
         private void zmienNaKlauzule()
         {
+        	int k;
+        	for(k = 0;k<predykaty.size();k++){
+        		conversion.IMPEQ(predykaty.get(k));
+        		conversion.MassiveREDKON(predykaty.get(k));
+        		SEPKON(predykaty.get(k));
+        	}
 
         }
         
@@ -533,6 +540,11 @@ public class ListaDrzew {
         {
             this.teza = teza;
         }
+
+    private void SEPKON(WezelDrzewa get)
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
 
     
