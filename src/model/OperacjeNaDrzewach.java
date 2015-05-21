@@ -1,16 +1,50 @@
 package model;
 
+import com.sun.istack.internal.FinalArrayList;
 import java.util.Vector;
+import java.util.ArrayList;
 
 public class OperacjeNaDrzewach
 {
 	private ListaDrzew predykaty = new ListaDrzew();
 	private ListaDrzew teza = new ListaDrzew();
 	private Vector<Vector<Literal>> klauzule = new Vector<Vector<Literal>>();
+        private ArrayList<ArrayList<Integer>> identyfikatory_przodkow = new ArrayList<ArrayList<Integer>> ();
 	
 	public OperacjeNaDrzewach()
 	{
 		
+	}
+	
+	private boolean czyKoniec() // metoda sluzaca do sprawdzenia czy dodana klauzula nie jest zaprzeczeniem innej klauzuli
+								// jesli jest to koniec wnioskowania
+	{
+		Vector<Literal> dodanaKlauzula = klauzule.get(klauzule.size()-1); // pobieramy ostatni element ( dodany element )
+		Vector<Literal> aktualnaKlauzula;
+		// bedziemy sprawdzac pozostale wiersze od 0 do przedostatniego czy jest zaprzeczenie jesli jest to koniec
+		// jesli przejdzie przez wszystko to oznacza ze nie jest zaprzeczeniem innej klauzuli wiec nie konczy dowodu
+		// przez rezolucje i zaprzeczenie
+				
+		if (dodanaKlauzula.size() != 1)
+		{
+			return false;		// jesli wiecej niz 1 literal to nie koniec sprawdzania
+		}
+		
+		for (int x = 0; x < klauzule.size() - 1; x++)				// czyli ze mozna sprawdzac czy nie zaprzecza czemus innemu
+		{
+			if (klauzule.get(x).size() == 1)
+			{
+				aktualnaKlauzula = klauzule.get(x);
+				if ((aktualnaKlauzula.get(0).getZdanie().equals(dodanaKlauzula.get(0).getZdanie())) &&
+						(aktualnaKlauzula.get(0).isZnak() != dodanaKlauzula.get(0).isZnak()))
+				{
+					// oznacza ze znalezlismy 2 klauzule sprzeczne (ostatnia i x)
+					return true;
+				}
+			}
+		}
+		
+		return false;
 	}
 	
 	private void dodajKlauzule (Vector<Literal> nowa)  // Metoda sluzaca do dodania nowej klauzuli do naszego zbioru klazul
@@ -191,6 +225,13 @@ public class OperacjeNaDrzewach
 					if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					{
 						dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
+						
+						/*
+						if (czyKoniec())
+						{
+													// sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+						}
+						*/
 					}
 			}
 		}
@@ -207,7 +248,7 @@ public class OperacjeNaDrzewach
                 for (int x = 0; x  < klauzule.size(); x++)
                 {
                     wypisywanie(klauzule.get(x));
-		}
+                }
                 wytwarzajNoweKlauzuleNaPodstawieObecnych();
 	}
 
