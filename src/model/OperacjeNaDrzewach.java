@@ -13,6 +13,65 @@ public class OperacjeNaDrzewach
 		
 	}
 	
+	private void dodajKlauzule (Vector<Literal> nowa)  // Metoda sluzaca do dodania nowej klauzuli do naszego zbioru klazul
+	{													// wiadomo ze dodawana klauzula nie wystepuje w bazie
+		
+		klauzule.addElement(nowa);
+		
+		return;
+	}
+	
+	// TODO zdaje sie jest OK !!!!!!!!!!!!!!!!!!!!!!!!
+	private boolean czyToSamo(Vector<Literal> pierwsza, Vector<Literal> druga) // przechodzenie literal po literale
+	{
+		Literal literalZPierwszego, literalZDrugiego;
+		
+		if (pierwsza.size() != druga.size())
+		{
+			return false;
+		}
+		
+		for (int x = 0; x < pierwsza.size(); x++) // dla kazdego titeralu przechodze w drugiej klauzuli czy nie ma tego samego
+		{
+			literalZPierwszego = pierwsza.get(x);
+
+			for (int y = 0; y < druga.size(); y++)
+			{
+				literalZDrugiego = druga.get(y);
+			
+				if ((literalZPierwszego.isZnak() == literalZDrugiego.isZnak()) && (literalZPierwszego.getZdanie().equals(literalZDrugiego.getZdanie())))
+				{
+					break;
+				}
+				else if (y == druga.size() - 1)
+				{
+					return true;
+				}
+			}
+			
+		}
+		
+		return false;
+	}
+	
+	private boolean sprawdzCzyDodacKlauzule (Vector<Literal> klauzulaDoDodania)
+	{
+		 // TODO metoda do przechodzenia przez baze naszych klauzul i sprawdza czy taka juz jest i jesli taka
+		// jest to wtedy zwracamy false 
+		// jesli nie ma to zwracamy true
+		
+		
+		for (int licznik = 0; licznik < klauzule.size(); licznik++)
+		{
+			if (czyToSamo(klauzulaDoDodania, klauzule.get(licznik))) // sprawdzenie czy klauzule takie same ( wywolanie od 2 klauzul)
+			{
+				return false;
+			}
+		}
+			
+		return true;
+	}
+	
 	private void wypisywanie(Vector<Literal> nowy)
 	{
 		System.out.print ("\nZawartosc nowej klauzuli to: ");
@@ -129,10 +188,10 @@ public class OperacjeNaDrzewach
 				
 					wypisywanie(nowy);
 
-					// if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
-					// {
-					//		dodajemy nowa klauzule do bazy
-					// }
+					if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
+					{
+						dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
+					}
 			}
 		}
 	}
