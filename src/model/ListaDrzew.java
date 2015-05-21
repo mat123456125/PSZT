@@ -435,9 +435,8 @@ public class ListaDrzew {
 	
         private void zmienNaKlauzule()
         {
-        	int k,s;
-        	s = predykaty.size();
-        	for(k = 0;k<s;k++){
+        	int k;
+        	for(k = 0;k<predykaty.size();k++){
 
         		conversion.IMPEQ(predykaty.get(k));
         		conversion.MassiveREDKON(predykaty.get(k));
@@ -489,28 +488,8 @@ public class ListaDrzew {
             }
             
             
-            
-            
-            
-            
-            
-            
-            
         }
-
-       public void DrzewoNaVectorKlauzula(WezelDrzewa m,Vector<Literal> klauzula){
-    	   if (m.getLewy()!=null) DrzewoNaVectorKlauzula(m.getLewy(),klauzula);
-    	   	else	if (m.getPrawy()!=null) DrzewoNaVectorKlauzula(m.getPrawy(),klauzula);
-    	   		else {Literal l = new Literal(m.isZnak(),m.getZdanie());
-    	   			klauzula.add(l);    	   			
-    	   		}
-    	   
-       }
-        
-        
-        
-        
-        
+	
 	public void wypelnijListe() throws IllegalAccessException
 	{
 		dzielSlowa();
@@ -565,8 +544,6 @@ public class ListaDrzew {
 
     private void SEPKON(WezelDrzewa get)
     {
-    	
-    	
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
