@@ -120,14 +120,7 @@ public class conversion {
 	}
 }
 	
-	public void SepKON(WezelDrzewa m){
-			
-	}
 	
-	public void CheckTAUT(TreeNode m){
-		if 
-		
-	}
 	
 	public void CheckFalseSTAT(WezelDrzewa m){
 		

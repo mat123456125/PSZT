@@ -434,6 +434,8 @@ public class ListaDrzew {
         }
         private void zmienNaKlauzule()
         {
+            
+            
 
         }
         
