@@ -21,7 +21,7 @@ public class conversion {
 			m.setSpojnik(2);
 			Negation(m.getPrawy());
 		}
-		else {
+		else if(m.getSpojnik()==4){
 			WezelDrzewa ml = new WezelDrzewa();
 			WezelDrzewa mp = new WezelDrzewa();
 			ml.setLewy(m.getLewy());
