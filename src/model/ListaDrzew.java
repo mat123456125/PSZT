@@ -552,13 +552,27 @@ public class ListaDrzew {
             this.teza = teza;
         }
 
-    private void SEPKON(WezelDrzewa get)
+    private int SEPKON(WezelDrzewa get)
     {
-    	
-    	
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    	if(get.getSpojnik()==2){
+    	predykaty.addElement(get.getLewy());
+    	predykaty.addElement(get.getPrawy());
+    	predykaty.removeElement(get);
+    	return 0;
+    	}
+    	return 1;
+        
     }
         
+    public void MassiveSEPKON()
+    {
+    	int i;
+    	for (i=0;i<predykaty.size();)
+    	{
+    		i += SEPKON(predykaty.get(i));
+    	}
+    	
+    }
 
     
         
