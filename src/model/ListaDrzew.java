@@ -432,8 +432,15 @@ public class ListaDrzew {
             }
             return false;
         }
+	
         private void zmienNaKlauzule()
         {
+        	int k;
+        	for(k = 0;k<predykaty.size();k++){
+        		IMPEQ(this.predykaty.get(k));
+        		MassiveREDKON(this.predykaty.get(k));
+        		SEPKON(this.predykaty.get(k));
+        	}
 
         }
         
