@@ -13,6 +13,34 @@ public class OperacjeNaDrzewach
 		
 	}
 	
+	private boolean czyKoniec() // metoda sluzaca do sprawdzenia czy dodana klauzula nie jest zaprzeczeniem innej klauzuli
+								// jesli jest to koniec wnioskowania
+	{
+		Vector<Literal> dodanaKlauzula = klauzule.get(klauzule.size()-1); // pobieramy ostatni element ( dodany element )
+		// bedziemy sprawdzac pozostale wiersze od 0 do przedostatniego czy jest zaprzeczenie jesli jest to koniec
+		// jesli przejdzie przez wszystko to oznacza ze nie jest zaprzeczeniem innej klauzuli wiec nie konczy dowodu
+		// przez rezolucje i zaprzeczenie
+		
+		for (int x = 0; x < klauzule.size() - 1; x++)
+		{
+			for (int y = 0; y < dodanaKlauzula.size(); y++)
+			{
+				if (dodanaKlauzula.size() != klauzule.get(x).size())
+				{
+					break;
+				}
+				
+				for(int z = 0 ; z < klauzule.get(x).size() ; z++ )
+				{
+					
+				}
+				
+			}
+		}
+		
+		return true;
+	}
+	
 	private void dodajKlauzule (Vector<Literal> nowa)  // Metoda sluzaca do dodania nowej klauzuli do naszego zbioru klazul
 	{													// wiadomo ze dodawana klauzula nie wystepuje w bazie
 		
@@ -191,6 +219,13 @@ public class OperacjeNaDrzewach
 					if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					{
 						dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
+						
+						/*
+						if (czyKoniec())
+						{
+													// sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+						}
+						*/
 					}
 			}
 		}
@@ -207,7 +242,7 @@ public class OperacjeNaDrzewach
                 for (int x = 0; x  < klauzule.size(); x++)
                 {
                     wypisywanie(klauzule.get(x));
-		}
+                }
                 wytwarzajNoweKlauzuleNaPodstawieObecnych();
 	}
 
