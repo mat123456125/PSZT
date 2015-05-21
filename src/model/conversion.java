@@ -36,6 +36,7 @@ public class conversion {
 		}
 	}
 	
+	
 	public static int RedKON(WezelDrzewa m,WezelDrzewa mp,int str){//mp to rodzic m - do poprawy str czy lewo czy prawo
 		if ((m.getSpojnik()==2)&&(str == 2)) {
 			if (mp!=null){
