@@ -498,12 +498,18 @@ public class ListaDrzew {
             
         }
 
-       public void DrzewoNaVectorKlauzula(WezelDrzewa m,Vector<Literal> klauzula){
-    	   if (m.getLewy()!=null) DrzewoNaVectorKlauzula(m.getLewy(),klauzula);
-    	   	else	if (m.getPrawy()!=null) DrzewoNaVectorKlauzula(m.getPrawy(),klauzula);
-    	   		else {Literal l = new Literal(m.isZnak(),m.getZdanie());
-    	   			klauzula.add(l);    	   			
-    	   		}
+       public void DrzewoNaVectorKlauzula(WezelDrzewa m,Vector<Literal> klauzula)
+       {
+    	      if (m.getLewy() != null)
+               DrzewoNaVectorKlauzula(m.getLewy(), klauzula);
+
+           else if (m.getPrawy() != null)
+               DrzewoNaVectorKlauzula(m.getPrawy(), klauzula);
+           else
+           {
+               Literal l = new Literal(m.isZnak(), m.getZdanie());
+               klauzula.add(l);
+           }
     	   
        }
         
