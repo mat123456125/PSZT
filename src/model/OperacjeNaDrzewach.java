@@ -1,6 +1,5 @@
 package model;
 
-import com.sun.istack.internal.FinalArrayList;
 import java.util.Vector;
 import java.util.ArrayList;
 
@@ -9,7 +8,7 @@ public class OperacjeNaDrzewach
 	private ListaDrzew predykaty = new ListaDrzew();
 	private ListaDrzew teza = new ListaDrzew();
 	private Vector<Vector<Literal>> klauzule = new Vector<Vector<Literal>>();
-        private ArrayList<ArrayList<Integer>> identyfikatory_przodkow = new ArrayList<ArrayList<Integer>> ();
+    private ArrayList<ArrayList<Integer>> identyfikatory_przodkow = new ArrayList<ArrayList<Integer>> ();
 	
 	public OperacjeNaDrzewach()
 	{
@@ -226,12 +225,13 @@ public class OperacjeNaDrzewach
 					{
 						dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
 						
-						/*
+						
 						if (czyKoniec())
 						{
 													// sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+							return;
 						}
-						*/
+						
 					}
 			}
 		}
