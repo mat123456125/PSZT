@@ -35,6 +35,7 @@ public class conversion {
 			this.Negation(mp.getPrawy());
 		}
 	}
+	
 	public int RedKON(WezelDrzewa m,WezelDrzewa mp,int str){//mp to rodzic m - do poprawy str czy lewo czy prawo
 		if ((m.getSpojnik()==2)&&(str == 2)) {
 			if (mp!=null){
@@ -74,7 +75,7 @@ public class conversion {
 			}
 			
 		}
-		
+		return 0;
 	}
 	
 	public int MassiveREDKON(WezelDrzewa m){
@@ -124,8 +125,7 @@ public class conversion {
 			
 	}
 	
-	public void CheckTAUT(TreeNode m){
-		if 
+	public void CheckTAUT(WezelDrzewa m){
 		
 	}
 	
