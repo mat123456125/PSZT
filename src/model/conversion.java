@@ -16,21 +16,25 @@ public class conversion {
 		if (m.getSpojnik()==0){
 			m.setZnak(true);
 		}
-		else if(m.getSpojnik()==2){
+		else if(m.getSpojnik()==2)
+		{
 			m.setSpojnik(1);
 			Negation(m.getLewy());
 			Negation(m.getPrawy());
 		}
-		else if(m.getSpojnik()==1){ // Klauzula to wektor literalow
+		else if(m.getSpojnik()==1)
+		{ // Klauzula to wektor literalow
 			m.setSpojnik(2);
 			Negation(m.getLewy()); 
 			Negation(m.getPrawy());
 		}
-		else if(m.getSpojnik()==3){
+		else if(m.getSpojnik()==3)
+		{
 			m.setSpojnik(1);
 			Negation(m.getPrawy());
 		}
-		else if(m.getSpojnik()==4){
+		else if(m.getSpojnik()==4)
+		{
 			WezelDrzewa ml = new WezelDrzewa();
 			WezelDrzewa mp = new WezelDrzewa();
 			ml.setLewy(m.getLewy());
@@ -46,70 +50,87 @@ public class conversion {
 	}
 	
 	
-	public static int RedKON(WezelDrzewa m,WezelDrzewa mp,int str){//mp to rodzic m - do poprawy str czy lewo czy prawo
-		if ((m.getSpojnik()==2)&&(str == 2)) {
-			if (mp!=null){
-				if (mp.getSpojnik()==2){
-				WezelDrzewa mpr = new WezelDrzewa();
+	public static int RedKON(WezelDrzewa m,WezelDrzewa mp,int str)
+	{//mp to rodzic m - do poprawy str czy lewo czy prawo
+		if ((m.getSpojnik()==2)&&(str == 2))
+		{
+			if (mp!=null)
+			{
+				if (mp.getSpojnik()==2)
+				{
+					WezelDrzewa mpr = new WezelDrzewa();
 				
-				//mpr.setParent(mp);
-				mpr.setSpojnik(2);
-				mpr.setPrawy(mp.getPrawy());
-				mpr.setLewy(m.getPrawy());
-				m.setPrawy(mp.getPrawy());
-				m.setSpojnik(2);
-				mp.setPrawy(mpr);
+					//mpr.setParent(mp);
+					mpr.setSpojnik(2);
+					mpr.setPrawy(mp.getPrawy());
+					mpr.setLewy(m.getPrawy());
+					m.setPrawy(mp.getPrawy());
+					m.setSpojnik(2);
+					mp.setPrawy(mpr);
 				}
+					
 				mp.setSpojnik(1);
 				return 1;
-			//SepKON();
+				//SepKON();
 			}
 		}
 			
-		else if ((m.getSpojnik()==2)&&(str == 1)) {
-			if (mp!=null){
-				if (mp.getSpojnik()==2){
-				WezelDrzewa mpr = new WezelDrzewa();
+		else if ((m.getSpojnik()==2)&&(str == 1))
+		{
+			if (mp!=null)
+			{
+				if (mp.getSpojnik()==2)
+				{
+					WezelDrzewa mpr = new WezelDrzewa();
 				
-				//mpr.setParent(mp);
-				mpr.setSpojnik(2);
-				mpr.setPrawy(m.getLewy());
-				mpr.setLewy(mp.getLewy());
-				m.setLewy(mp.getLewy());
-				m.setSpojnik(2);
-				mp.setLewy(mpr);
+					//mpr.setParent(mp);
+					mpr.setSpojnik(2);
+					mpr.setPrawy(m.getLewy());
+					mpr.setLewy(mp.getLewy());
+					m.setLewy(mp.getLewy());
+					m.setSpojnik(2);
+					mp.setLewy(mpr);
 				}
+				
 				mp.setSpojnik(1);
 				return 2;
-			//SepKON();
+				//SepKON();
+				
 			}
 			
 		}
 		return 0;
 	}
 	
-	public static int MassiveREDKON(WezelDrzewa m){
+	public static int MassiveREDKON(WezelDrzewa m)
+	{
 		int st = 0;
-		if(m.getLewy()!=null){
+		if(m.getLewy()!=null)
+		{
 			st = MassiveREDKON(m.getLewy()); 
 		}
-		else if(m.getPrawy()!=null){
-			st = MassiveREDKON(m.getPrawy());
-			
+		else if(m.getPrawy()!=null)
+		{
+			st = MassiveREDKON(m.getPrawy());	
 		}
-		 if(st == 1)  st = RedKON(m.getLewy(),m,1);
-		 else if(st ==2) st = RedKON(m.getPrawy(),m,2);
+		if(st == 1)  st = RedKON(m.getLewy(),m,1);
+		else if(st ==2) st = RedKON(m.getPrawy(),m,2);
 		return st;
 	}
 	
 	
-	public static void IMPEQ(WezelDrzewa m){
-		if(m != null){
-		if (m.getSpojnik()==3){//kopia do ListaDrzew
-			Negation(m.getLewy());//funkcja g�owna wywolujace wszystko 
-			m.setSpojnik(2);
-			
-		}else if(m.getSpojnik()==4){
+	public static void IMPEQ(WezelDrzewa m)
+	{
+		if(m != null)
+		{
+			if (m.getSpojnik()==3)
+			{//kopia do ListaDrzew
+				Negation(m.getLewy());//funkcja g�owna wywolujace wszystko 
+				m.setSpojnik(2);
+			}
+	
+		else if(m.getSpojnik()==4)
+		{
 		 	WezelDrzewa mpl = new WezelDrzewa();
 			WezelDrzewa mpr = new WezelDrzewa();
 			mpl.setSpojnik(2);
@@ -125,20 +146,26 @@ public class conversion {
                         m.setLewy(mpl);
 			m.setPrawy(mpr);
 		}else if(m.getSpojnik()==0){
+			
+		}
+		
+		else if(m.getSpojnik()==0)
+		{
 			return;
 		}
 		if (m.getLewy() != null) IMPEQ(m.getLewy());
 		if (m.getPrawy() != null) IMPEQ(m.getPrawy());
-		
 	}
 }
 	
 	
-	public void CheckTAUT(WezelDrzewa m){
+	public void CheckTAUT(WezelDrzewa m)
+	{
 		
 	}
 	
-	public void CheckFalseSTAT(WezelDrzewa m){
+	public void CheckFalseSTAT(WezelDrzewa m)
+	{
 		
 	}
         
