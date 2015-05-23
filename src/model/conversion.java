@@ -106,19 +106,19 @@ public static void IMPEQ(WezelDrzewa m)
    }
    if (m.getLewy() != null) IMPEQ(m.getLewy());
    if (m.getPrawy() != null) IMPEQ(m.getPrawy());
-}
-}
+	}
+	}
 
 
-public void CheckTAUT(WezelDrzewa m)
-{
-   
-}
-
-public void CheckFalseSTAT(WezelDrzewa m)
-{
-   
-}
+	public void CheckTAUT(WezelDrzewa m)
+	{
+	   
+	}
+	
+	public void CheckFalseSTAT(WezelDrzewa m)
+	{
+	   
+	}
 }
 
 
