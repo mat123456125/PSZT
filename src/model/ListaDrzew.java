@@ -445,7 +445,8 @@ public class ListaDrzew {
         	for(k = 0;k<s;k++){
 
         		conversion.IMPEQ(predykaty.get(k));
-        		conversion.MassiveREDKON(predykaty.get(k));
+        		conversion.sprawdzNegacje(predykaty.get(k));
+                        //magiczna operacja costam costam
         		SEPKON(predykaty.get(k));
         	}
 
