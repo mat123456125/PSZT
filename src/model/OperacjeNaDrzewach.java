@@ -9,7 +9,7 @@ public class OperacjeNaDrzewach
 	private ListaDrzew predykaty = new ListaDrzew();
 	private ListaDrzew teza = new ListaDrzew();
 	private Vector<Vector<Literal>> klauzule = new Vector<Vector<Literal>>();
-    private ArrayList<ArrayList<Integer>> identyfikatory_przodkow = new ArrayList<ArrayList<Integer>> ();
+        private ArrayList<ArrayList<Integer>> identyfikatory_przodkow = new ArrayList<ArrayList<Integer>> ();
 	
 	public OperacjeNaDrzewach()
 	{
@@ -149,13 +149,24 @@ public class OperacjeNaDrzewach
 	
 	private void przypiszZawartosciDoKlauzul()
 	{
-		for (int x = 0; x < teza.getKlauzule().size(); x++)
+		
+                ArrayList<Integer> temp;
+                for (int x = 0; x < teza.getKlauzule().size(); x++)
 		{
 			klauzule.add(teza.getKlauzule().elementAt(x));
+                        temp = new ArrayList<Integer>();
+                        temp.add(-1);
+                        temp.add(-1);
+                        identyfikatory_przodkow.add(temp);
+                        
 		}
 		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
 		{
 			klauzule.add(predykaty.getKlauzule().elementAt(x));
+                        temp = new ArrayList<Integer>();
+                        temp.add(-1);
+                        temp.add(-1);
+                        identyfikatory_przodkow.add(temp);
 		}
 	}
         
@@ -252,8 +263,13 @@ public class OperacjeNaDrzewach
 					{
 						dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
 						
+                        ArrayList<Integer> temp = new ArrayList<Integer>();
+                        temp.add(x);
+                        temp.add(y);
+                        identyfikatory_przodkow.add(temp);
+						
 						if (czyKoniec())
-						{
+                        {
 										// sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
 							return;
 						}
