@@ -16,6 +16,26 @@ public class OperacjeNaDrzewach
 		
 	}
 	
+	private boolean sprawdzCzyDaSieSworzyc(Vector<Literal> pierwsze, Vector<Literal> drugie)
+	{
+		
+		Literal literal1,literal2;
+		
+		for (int x = 0; x < pierwsze.size(); x++)
+		{
+			for(int y = 0; y < drugie.size(); y++)
+			{
+				literal1 = pierwsze.get(x);
+				literal2 = drugie.get(y);
+				if (literal1.isZnak() != literal2.isZnak() && literal1.getZdanie().equals(literal2.getZdanie()))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	private boolean czyKoniec() // metoda sluzaca do sprawdzenia czy dodana klauzula nie jest zaprzeczeniem innej klauzuli
 								// jesli jest to koniec wnioskowania
 	{
@@ -94,11 +114,14 @@ public class OperacjeNaDrzewach
 		// jest to wtedy zwracamy false 
 		// jesli nie ma to zwracamy true
 		
+		System.out.println("\nSprawdzam czy dodac klauzule !!!");
 		
 		for (int licznik = 0; licznik < klauzule.size(); licznik++)
 		{
+			System.out.println("Przechodze po klauzulach");
 			if (czyToSamo(klauzulaDoDodania, klauzule.get(licznik))) // sprawdzenie czy klauzule takie same ( wywolanie od 2 klauzul)
 			{
+				System.out.println("Znaleziono 2 takie same klauzule");
 				return false;
 			}
 		}
@@ -218,22 +241,24 @@ public class OperacjeNaDrzewach
 			for (int y = x + 1 ; y < klauzule.size(); y++)
 			{
 				
+				// sprawdzenie czy z x i y da sie stworzyc klauzule
+				if (sprawdzCzyDaSieSworzyc(klauzule.get(x), klauzule.get(y)))
+				{
 					Vector<Literal> nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
-				
+						
 					wypisywanie(nowy);
-
+					
 					if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					{
 						dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
 						
-						
 						if (czyKoniec())
 						{
-													// sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+										// sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
 							return;
 						}
-						
 					}
+				}
 			}
 		}
 	}
