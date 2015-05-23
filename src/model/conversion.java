@@ -130,5 +130,14 @@ public class conversion {
 	public void CheckFalseSTAT(WezelDrzewa m){
 		
 	}
+        
+        public WezelDrzewa copyTree(WezelDrzewa m)
+        {
+            if(m == null) return m;
+            WezelDrzewa nowy = new WezelDrzewa(m);
+            nowy.setLewy(copyTree(m.getLewy()));
+            nowy.setLewy(copyTree(m.getPrawy()));
+            return nowy;
+        }
 	
 }
