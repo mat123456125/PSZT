@@ -3,6 +3,15 @@ package model;
 import javax.swing.tree.TreeNode;
 
 public class conversion {
+    
+         public static WezelDrzewa copyTree(WezelDrzewa m)
+        {
+            if(m == null) return m;
+            WezelDrzewa nowy = new WezelDrzewa(m);
+            nowy.setLewy(copyTree(m.getLewy()));
+            nowy.setLewy(copyTree(m.getPrawy()));
+            return nowy;
+        }
 	public static void Negation(WezelDrzewa m){//Zdanie to Literal
 		if (m.getSpojnik()==0){
 			m.setZnak(true);
@@ -105,15 +114,16 @@ public class conversion {
 			WezelDrzewa mpr = new WezelDrzewa();
 			mpl.setSpojnik(2);
 			mpr.setSpojnik(2);
-			mpl.setLewy(m.getLewy());
-			mpl.setPrawy(m.getPrawy());
+			mpl.setLewy( copyTree(m.getLewy()) );
+			mpl.setPrawy(copyTree(m.getPrawy()));
 			Negation(mpl.getPrawy());
 			
-			mpr.setLewy(m.getLewy());
-			mpr.setPrawy(m.getPrawy());
+			mpr.setLewy(copyTree(m.getLewy()));
+			mpr.setPrawy(copyTree(m.getPrawy()));
 			Negation(mpl.getLewy());
 			m.setSpojnik(1);
-			
+                        m.setLewy(mpl);
+			m.setPrawy(mpr);
 		}else if(m.getSpojnik()==0){
 			return;
 		}
@@ -132,13 +142,6 @@ public class conversion {
 		
 	}
         
-        public WezelDrzewa copyTree(WezelDrzewa m)
-        {
-            if(m == null) return m;
-            WezelDrzewa nowy = new WezelDrzewa(m);
-            nowy.setLewy(copyTree(m.getLewy()));
-            nowy.setLewy(copyTree(m.getPrawy()));
-            return nowy;
-        }
+       
 	
 }
