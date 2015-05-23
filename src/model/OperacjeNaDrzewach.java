@@ -261,18 +261,18 @@ public class OperacjeNaDrzewach
 					
 					if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					{
-						dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
+                                            dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
 						
-                        ArrayList<Integer> temp = new ArrayList<Integer>();
-                        temp.add(x);
-                        temp.add(y);
-                        identyfikatory_przodkow.add(temp);
-						
-						if (czyKoniec())
-                        {
-										// sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
-							return;
-						}
+                                            ArrayList<Integer> temp = new ArrayList<Integer>();
+                                            temp.add(x);
+                                            temp.add(y);
+                                            identyfikatory_przodkow.add(temp);
+					
+                                            if (czyKoniec())
+                                            {
+                                                // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+                                                return;
+                                            }
 					}
 				}
 			}
