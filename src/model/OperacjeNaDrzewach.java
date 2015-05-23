@@ -9,7 +9,7 @@ public class OperacjeNaDrzewach
 	private ListaDrzew predykaty = new ListaDrzew();
 	private ListaDrzew teza = new ListaDrzew();
 	private Vector<Vector<Literal>> klauzule = new Vector<Vector<Literal>>();
-    private ArrayList<ArrayList<Integer>> identyfikatory_przodkow = new ArrayList<ArrayList<Integer>> ();
+        private ArrayList<ArrayList<Integer>> identyfikatory_przodkow = new ArrayList<ArrayList<Integer>> ();
 	
 	public OperacjeNaDrzewach()
 	{
