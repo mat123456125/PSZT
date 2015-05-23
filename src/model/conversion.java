@@ -27,10 +27,10 @@ public class conversion {
                     m.setSpojnik(1);    
                 }
                 m.setZnak(false); 
-                if(m.getLewy().getSpojnik() == 1) zanegujKoniunkcje(m.getLewy());
-                else if(m.getLewy().getSpojnik() == 2) zanegujAlternatywe(m.getLewy());
-                else if(m.getPrawy().getSpojnik() == 1) zanegujKoniunkcje(m.getLewy());
-                else if(m.getPrawy().getSpojnik() == 2) zanegujAlternatywe(m.getLewy());
+                zaneguj(m.getLewy());
+                zaneguj(m.getPrawy());
+                
+              
                 
                 
             }
