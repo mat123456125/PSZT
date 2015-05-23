@@ -12,8 +12,10 @@ public class conversion {
             nowy.setLewy(copyTree(m.getPrawy()));
             return nowy;
         }
-	public static void Negation(WezelDrzewa m){//Zdanie to Literal
-		if (m.getSpojnik()==0){
+	public static void Negation(WezelDrzewa m)//Zdanie to Literal
+        {
+		if (m.getSpojnik()==0)
+                {
 			m.setZnak(true);
 		}
 		else if(m.getSpojnik()==2)
