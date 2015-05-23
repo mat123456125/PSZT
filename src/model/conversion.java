@@ -12,6 +12,37 @@ public class conversion {
             nowy.setLewy(copyTree(m.getPrawy()));
             return nowy;
         }
+         
+        public static void sprawdzNegacje(WezelDrzewa m)
+        {
+            if(m == null) return;
+            if(m.isZnak())
+            {
+                if(m.getSpojnik() == 1)
+                {
+                    m.setSpojnik(2);                                     
+                }
+                else if(m.getSpojnik() == 2)
+                {
+                    m.setSpojnik(1);    
+                }
+                m.setZnak(false); 
+                if(m.getLewy().getSpojnik() == 1) zanegujKoniunkcje(m.getLewy());
+                else if(m.getLewy().getSpojnik() == 2) zanegujAlternatywe(m.getLewy());
+                else if(m.getPrawy().getSpojnik() == 1) zanegujKoniunkcje(m.getLewy());
+                else if(m.getPrawy().getSpojnik() == 2) zanegujAlternatywe(m.getLewy());
+                
+                
+            }
+            else
+            {
+                sprawdzNegacje(m.getLewy());
+                sprawdzNegacje(m.getLewy());
+                
+            }
+            
+                                
+        }
 	public static void Negation(WezelDrzewa m)//Zdanie to Literal
         {
 		if (m.getSpojnik()==0)
@@ -147,9 +178,8 @@ public class conversion {
 			m.setSpojnik(1);
                         m.setLewy(mpl);
 			m.setPrawy(mpr);
-		}else if(m.getSpojnik()==0){
-			
 		}
+               
 		
 		else if(m.getSpojnik()==0)
 		{
