@@ -124,6 +124,8 @@ public class conversion
 	
 	public static void Negation(WezelDrzewa m)//Zdanie to Literal
 	{
+            if(m == null)return;
+            m.setZnak(!m.isZnak());
 	
 	}
 
