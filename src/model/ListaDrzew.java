@@ -559,12 +559,11 @@ public class ListaDrzew {
 
     private int SEPKON(WezelDrzewa get)
     {
-    	if(get.getSpojnik()==2)
-    	{
-	    	predykaty.addElement(get.getLewy());
-	    	predykaty.addElement(get.getPrawy());
-	    	predykaty.removeElement(get);
-	    	return 0;
+    	if(get.getSpojnik()==1){
+    	predykaty.addElement(get.getLewy());
+    	predykaty.addElement(get.getPrawy());
+    	predykaty.removeElement(get);
+    	return 0;
     	}
     	return 1;
         
