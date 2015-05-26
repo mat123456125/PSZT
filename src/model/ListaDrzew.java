@@ -578,14 +578,30 @@ public class ListaDrzew {
         
     
 
-    private WezelDrzewa znajdujWierzcholekKoniunkcji (WezelDrzewa wezel)
+    private WezelDrzewa znajdujWierzcholekKoniunkcji (WezelDrzewa wezel, WezelDrzewa ojciec)
     {
+    	WezelDrzewa nowy = null;
+    	
     	if (wezel == null)
     	{
     		return null;
     	}
     	
-    	if ()
+    	if (wezel.getSpojnik() == 1)
+    	{
+    		return ojciec;
+    	}
+    	
+    	nowy = znajdujWierzcholekKoniunkcji(wezel.getLewy(), wezel);
+    	
+    	if (znajdujWierzcholekKoniunkcji(wezel.getLewy(),wezel) == null)
+    	{
+    		if (znajdujWierzcholekKoniunkcji(wezel.getPrawy(),wezel) == null)
+    		{
+    			return null;
+    		}
+    	}
+    	
     	
     	
     	    wypisz wierzchołek_v.wartość
