@@ -41,6 +41,7 @@ public class conversion
         }
     }
 
+    
     public static void zaneguj(WezelDrzewa wezel)
     {
 // alt - 2
