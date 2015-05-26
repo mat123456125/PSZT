@@ -578,7 +578,7 @@ public class ListaDrzew {
         	for(int k = 0;k < predykaty.size();)
                 {
                     temp = null;
-                    temp = znajdujWierzcholekKoniunkcji(predykaty.get(k));
+                    temp = znajdujWierzcholekKoniunkcji(predykaty.get(k),null);
                     if(temp == null )
                     {
                         k++;
@@ -619,19 +619,20 @@ public class ListaDrzew {
     	
     	nowy = znajdujWierzcholekKoniunkcji(wezel.getLewy(), wezel);
     	
-    	if (znajdujWierzcholekKoniunkcji(wezel.getLewy(),wezel) == null)
+    	if (nowy != null)
     	{
-    		if (znajdujWierzcholekKoniunkcji(wezel.getPrawy(),wezel) == null)
-    		{
-    			return null;
-    		}
-    	}
+            return nowy;
+        
+        }
+        nowy = znajdujWierzcholekKoniunkcji(wezel.getPrawy(), wezel);
     	
+    	if (nowy != null)
+    	{
+            return nowy;
+        
+        }
+        return null;
     	
-    	
-    	    wypisz wierzchołek_v.wartość
-    	    jeżeli wierzchołek_v.lewy_syn != null to PRE-ORDER(wierzchołek_v.lewy_syn)
-    	    jeżeli wierzchołek_v.prawy_syn != null to PRE-ORDER(wierzchołek_v.prawy_syn)
     	
     	
     }
