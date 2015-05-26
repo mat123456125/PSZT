@@ -584,9 +584,21 @@ public class ListaDrzew {
         
     
 
-    
+    private WezelDrzewa znajdujWierzcholekKoniunkcji (WezelDrzewa wezel)
+    {
+    	if (wezel == null)
+    	{
+    		return null;
+    	}
+    	
+    	if ()
+    	
+    	
+    	    wypisz wierzchołek_v.wartość
+    	    jeżeli wierzchołek_v.lewy_syn != null to PRE-ORDER(wierzchołek_v.lewy_syn)
+    	    jeżeli wierzchołek_v.prawy_syn != null to PRE-ORDER(wierzchołek_v.prawy_syn)
+    	
+    	
+    }
         
-
-        
-
 }
