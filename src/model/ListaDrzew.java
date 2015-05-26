@@ -573,7 +573,13 @@ public class ListaDrzew {
 
     private void wyciagnijKoniunkcje()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        	for(int k = 0;predykaty.size();k++)
+                {
+
+        		
+        	}
+                
     }
         
     
