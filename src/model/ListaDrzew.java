@@ -446,9 +446,10 @@ public class ListaDrzew {
 
         		conversion.IMPEQ(predykaty.get(k));
         		conversion.sprawdzNegacje(predykaty.get(k));
-                        //magiczna operacja costam costam
+                        
         		rozdzielKoniunkcje(predykaty.get(k));
         	}
+                wyciagnijKoniunkcje();
 
         }
         
@@ -568,6 +569,11 @@ public class ListaDrzew {
     	}
     	return 1;
         
+    }
+
+    private void wyciagnijKoniunkcje()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
     
