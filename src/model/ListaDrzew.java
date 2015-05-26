@@ -573,11 +573,12 @@ public class ListaDrzew {
 
     private void wyciagnijKoniunkcje()
     {
-        WezelDrzewa temp,noweDrzewo;
+        WezelDrzewa temp,temp2,noweDrzewo;
         
         	for(int k = 0;k < predykaty.size();)
                 {
                     temp = null;
+                    temp2 = null;
                     temp = znajdujWierzcholekKoniunkcji(predykaty.get(k),null);
                     if(temp == null )
                     {
@@ -586,7 +587,21 @@ public class ListaDrzew {
                     else
                     {
                         noweDrzewo = conversion.copyTree(temp);
-                        predykaty.add(k+1, temp);
+                        predykaty.add(k+1, noweDrzewo);
+                        temp2 = znajdujWierzcholekKoniunkcji(noweDrzewo,null);
+                        if(temp.getLewy().getSpojnik() == 1)
+                        {
+                            temp2.setLewy(temp.getLewy().getPrawy());
+                            temp.setLewy(temp.getLewy().getLewy());
+                            
+                        }
+                        else
+                        {
+                            temp2.setPrawy(temp.getPrawy().getPrawy());
+                            temp.setPrawy(temp.getPrawy().getLewy());
+                        }
+                        
+                        
                     }
                     
 
