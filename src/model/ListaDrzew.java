@@ -573,12 +573,31 @@ public class ListaDrzew {
 
     private void wyciagnijKoniunkcje()
     {
+        WezelDrzewa temp,noweDrzewo;
         
-        	for(int k = 0;predykaty.size();k++)
+        	for(int k = 0;k < predykaty.size();)
                 {
+                    temp = null;
+                    temp = znajdujWierzcholekKoniunkcji(predykaty.get(k));
+                    if(temp == null )
+                    {
+                        k++;
+                    }
+                    else
+                    {
+                        noweDrzewo = conversion.copyTree(temp);
+                        predykaty.add(k+1, temp);
+                    }
+                    
 
         		
-        	}
+        	
+                
+                
+                }
+                
+                
+                
                 
     }
         
