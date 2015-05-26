@@ -447,7 +447,7 @@ public class ListaDrzew {
         		conversion.IMPEQ(predykaty.get(k));
         		conversion.sprawdzNegacje(predykaty.get(k));
                         //magiczna operacja costam costam
-        		SEPKON(predykaty.get(k));
+        		rozdzielKoniunkcje(predykaty.get(k));
         	}
 
         }
@@ -558,27 +558,19 @@ public class ListaDrzew {
             this.teza = teza;
         }
 
-    private int SEPKON(WezelDrzewa get)
+    private int rozdzielKoniunkcje(WezelDrzewa wz)
     {
-    	if(get.getSpojnik()==1){
-    	predykaty.addElement(get.getLewy());
-    	predykaty.addElement(get.getPrawy());
-    	predykaty.removeElement(get);
+    	if(wz.getSpojnik()==1){
+    	predykaty.addElement(wz.getLewy());
+    	predykaty.addElement(wz.getPrawy());
+    	predykaty.removeElement(wz);
     	return 0;
     	}
     	return 1;
         
     }
         
-    public void MassiveSEPKON()
-    {
-    	int i;
-    	for (i=0;i<predykaty.size();)
-    	{
-    		i += SEPKON(predykaty.get(i));
-    	}
-    	
-    }
+    
 
     
         
