@@ -586,7 +586,7 @@ public class ListaDrzew {
                     }
                     else
                     {
-                        noweDrzewo = conversion.copyTree(temp);
+                        noweDrzewo = conversion.copyTree(predykaty.get(k));
                         predykaty.add(k+1, noweDrzewo);
                         temp2 = znajdujWierzcholekKoniunkcji(noweDrzewo,null);
                         if(temp.getLewy().getSpojnik() == 1)
