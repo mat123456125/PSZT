@@ -271,7 +271,12 @@ public class OperacjeNaDrzewach
 	
 	private void  wytwarzajNoweKlauzuleNaPodstawieObecnych()
 	{
-		for (int x = 0; x + 1 < klauzule.size(); x++)
+        boolean czyDodano = true;
+	while(czyDodano)
+        {
+            czyDodano = false;
+            
+            for (int x = 0; x + 1 < klauzule.size(); x++)
 		{
 			for (int y = x + 1 ; y < klauzule.size(); y++)
 			{
@@ -285,6 +290,7 @@ public class OperacjeNaDrzewach
 					
 					if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
 					{
+                                            czyDodano = true;
                                             dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
 						
                                             ArrayList<Integer> temp = new ArrayList<Integer>();
@@ -302,6 +308,7 @@ public class OperacjeNaDrzewach
 			}
 		}
 	}
+        }
 	
 	public void Oblicz() throws IllegalAccessException
 	{
