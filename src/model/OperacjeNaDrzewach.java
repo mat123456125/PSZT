@@ -174,11 +174,11 @@ public class OperacjeNaDrzewach
 		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
 		{
 
-//                       for (int y = 0; y < predykaty.getKlauzule().elementAt(x).size(); y++)
-//                        {
-//                          System.out.print(predykaty.getKlauzule().get(x).get(y).wypisz()+ " ");
-//                       }
-//                       System.out.print("\n");
+                       for (int y = 0; y < predykaty.getKlauzule().elementAt(x).size(); y++)
+                        {
+                          System.out.print(predykaty.getKlauzule().get(x).get(y).wypisz()+ " ");
+                       }
+                       System.out.print("\n");
 			
 			klauzule.add(predykaty.getKlauzule().elementAt(x));
                         temp = new ArrayList<Integer>();
