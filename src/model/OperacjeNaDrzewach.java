@@ -37,10 +37,10 @@ public class OperacjeNaDrzewach
 		return false;
 	}
 	
-	private boolean czyKoniec() // metoda sluzaca do sprawdzenia czy dodana klauzula nie jest zaprzeczeniem innej klauzuli
+	private boolean czyKoniec(int numer) // metoda sluzaca do sprawdzenia czy dodana klauzula nie jest zaprzeczeniem innej klauzuli
 								// jesli jest to koniec wnioskowania
 	{
-		Vector<Literal> dodanaKlauzula = klauzule.get(klauzule.size()-1); // pobieramy ostatni element ( dodany element )
+		Vector<Literal> dodanaKlauzula = klauzule.get(numer); // pobieramy ostatni element ( dodany element )
 		Vector<Literal> aktualnaKlauzula;
 		// bedziemy sprawdzac pozostale wiersze od 0 do przedostatniego czy jest zaprzeczenie jesli jest to koniec
 		// jesli przejdzie przez wszystko to oznacza ze nie jest zaprzeczeniem innej klauzuli wiec nie konczy dowodu
@@ -173,13 +173,13 @@ public class OperacjeNaDrzewach
                         identyfikatory_przodkow.add(temp);
                         
                         
-                        if (czyKoniec())
-                        {
-                        	System.out.println("Kurwa dziala !!!");
-                        	czyUdowodniono = true;
-                            // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
-                            return;
-                        }
+                        //if (czyKoniec())
+                        //{
+                        //	System.out.println("Kurwa dziala !!!");
+                        //	czyUdowodniono = true;
+                        //    // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+                        //    return;
+                        //}
                 	}
             
                 }
@@ -201,13 +201,23 @@ public class OperacjeNaDrzewach
                             identyfikatory_przodkow.add(temp);
                        }
                        
-                       if (czyKoniec())
-                       {
-                       	System.out.println("Kurwa dziala !!!");
-                       	czyUdowodniono = true;
+                       //if (czyKoniec())
+                      // {
+                       	//System.out.println("Kurwa dziala !!!");
+                       //	czyUdowodniono = true;
                            // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
-                           return;
-                       }
+                      //     return;
+                       //}
+		}
+		
+		for (int x = 0; x < klauzule.size(); x++)
+		{
+			if (czyKoniec(x))
+			{
+				System.out.println("Dziala !!!");
+				czyUdowodniono = true;
+				return;
+			}
 		}
 	}
         
@@ -323,7 +333,7 @@ public class OperacjeNaDrzewach
 	                                            temp.add(y);
 	                                            identyfikatory_przodkow.add(temp);
 						
-	                                            if (czyKoniec())
+	                                            if (czyKoniec(klauzule.size()-1))
 	                                            {
 	                                            	System.out.println("Kurwa dziala !!!");
 	                                            	czyUdowodniono = true;

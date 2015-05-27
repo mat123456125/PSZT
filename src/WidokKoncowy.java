@@ -25,8 +25,9 @@ public class WidokKoncowy extends JPanel
 	private ArrayList<ArrayList<Integer>> identyfikatory_przodkow;
 	private Vector<Vector<Literal>> klauzule;
 	
-	DefaultMutableTreeNode node;
-	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("klazule");
+	private DefaultMutableTreeNode node;
+	private DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("klazule");
+	private JScrollPane scrollDrzewo;
 	
 	public WidokKoncowy()
 	{
@@ -42,7 +43,7 @@ public class WidokKoncowy extends JPanel
 		this.drzewa = new Vector<WezelDrzewa>();
 		
 		
-		JScrollPane scrollDrzewo = new JScrollPane (drzewo);
+		scrollDrzewo = new JScrollPane (drzewo);
 		
 	    scrollDrzewo.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
 	    scrollDrzewo.setHorizontalScrollBarPolicy ( ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -268,13 +269,20 @@ public class WidokKoncowy extends JPanel
 	
 	public void czysc()
 	{
-		remove(drzewo);
-                System.out.println("Czyszcze !!!");
+        System.out.println("Czyszcze !!!");
+		
+		remove(scrollDrzewo);
         drzewo = null;
 		rootNode = new DefaultMutableTreeNode("klazule");
 		drzewo = new JTree(rootNode);
 
-        add(drzewo);	
+		scrollDrzewo = new JScrollPane (drzewo);
+		
+	    scrollDrzewo.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
+	    scrollDrzewo.setHorizontalScrollBarPolicy ( ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+	    scrollDrzewo.setBounds(300,50 ,600 ,600);
+	    
+        add(scrollDrzewo);	
 		//drzewo = null;
 		
 		return;
