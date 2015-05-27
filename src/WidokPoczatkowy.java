@@ -48,14 +48,18 @@ public class WidokPoczatkowy extends JPanel
 		przyciskWczytajPlik.setBounds(1050, 200, 180, 50);
 		obliczaj.setBounds(1120, 620, 110, 50);
 		zapiszDoPliku.setBounds(1050, 280, 180, 50);
-		teza.setBounds(100, 550, 800, 50);
 		
 		JScrollPane scrollPredykaty = new JScrollPane ( predykaty );
+		JScrollPane scrollTeza = new JScrollPane ( teza );
 
 	    scrollPredykaty.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
 	    scrollPredykaty.setHorizontalScrollBarPolicy ( ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	    
+	    scrollTeza.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
+	    scrollTeza.setHorizontalScrollBarPolicy ( ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    
 	    scrollPredykaty.setBounds(100, 100, 800, 350);
+	    scrollTeza.setBounds(100, 550, 800, 130);
 	    
 	    
 	   // scrollZnaczeniaHor.setHorizontalScrollBarPolicy ( ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS );
@@ -71,7 +75,7 @@ public class WidokPoczatkowy extends JPanel
 		this.add(przyciskWczytajPlik);
 		this.add(obliczaj);
 		this.add(zapiszDoPliku);
-		this.add(teza);
+		this.add(scrollTeza);
 		
 	}
 	public void addActionListener(ActionListener listenerOdczyt, ActionListener listenerZapis, ActionListener listenerOblicz)

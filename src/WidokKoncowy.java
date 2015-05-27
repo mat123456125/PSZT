@@ -52,23 +52,6 @@ public class WidokKoncowy extends JPanel
 	    przyciskPowrotu.setBounds(50,600, 100, 50);
 	    scrollDrzewo.setBounds(300,50 ,600 ,600);
 	    
-		// TODO przerobic elementy tak by odpowiednie byly
-		//______________________________________________________
-				
-		/*node = addANode("A",rootNode);
-		addANode("B",rootNode);
-		addANode("C",rootNode);
-		
-		rootNode = node;
-		
-		node = addANode("D",rootNode);
-		addANode("E",rootNode);
-		node = addANode("F",rootNode);
-				
-		rootNode = (DefaultMutableTreeNode)rootNode.getParent();
-		node = addANode("G", rootNode);
-		node = addANode("H", rootNode);
-		node = addANode("I", rootNode);*/
 		
 		this.add(przyciskPowrotu);
 		this.add(scrollDrzewo);		
@@ -113,15 +96,6 @@ public class WidokKoncowy extends JPanel
 			string = "";
 
 		}
-
-            /*for(int i =0;i<drzewa.size();i++)
-            {
-                
-                node = addANode(String.valueOf(i),rootNode);
-                
-                
-                przepiszWezel(drzewa.get(i),node);
-            }*/
 		
 	}
 	
@@ -194,60 +168,6 @@ public class WidokKoncowy extends JPanel
 	}
 	
 	
-        
-        private void przepiszWezel(WezelDrzewa wezel ,DefaultMutableTreeNode n )
-        {
-           /* String znak = new String();
-            DefaultMutableTreeNode kozen;
-            
-            if((wezel.isZnak()))
-                {
-                    znak = "-";
-                }
-                if(wezel.getSpojnik() == 1)
-                {
-                    znak = znak + "&";
-                    
-                    
-                }
-                else if(wezel.getSpojnik() == 2)
-                {
-                    znak = znak + "|";
-                    
-                }
-                else if(wezel.getSpojnik() == 3)
-                {
-                    znak = znak + "=>";
-                    
-                }
-                else if(wezel.getSpojnik() == 4)
-                {
-                    znak = znak + "<=>";
-                    
-                }
-                else if(wezel.getSpojnik() == -1)
-                {
-                    znak = znak + "()";
-                    kozen = addANode(znak, n);
-                    przepiszWezel(wezel.getPrawy(),kozen);
-                    return;
-                    
-                }
-                else if(wezel.getSpojnik() == 0||wezel.getSpojnik() == 5)
-                {
-                    znak = znak + wezel.getZdanie();
-                    kozen = addANode(znak, n);
-                    return;
-                }
-                kozen = addANode(znak, n);
-                
-                przepiszWezel(wezel.getLewy(),kozen);
-                przepiszWezel(wezel.getPrawy(),kozen);
-                
-                
-            
-            */
-        }
 	
 	public void ustawListeDrzew(Vector<WezelDrzewa> listyDrzew)
 	{
