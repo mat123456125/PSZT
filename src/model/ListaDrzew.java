@@ -460,10 +460,14 @@ public class ListaDrzew {
         {
         	int k,s;
         	s = predykaty.size();
-        	for(k = 0;k<s;k++){
+        	for(k = 0;k<s;k++)
+                {
 
         		conversion.IMPEQ(predykaty.get(k));
         		conversion.sprawdzNegacje(predykaty.get(k));
+                }
+                for(k = 0;k<predykaty.size();k++)
+                {
                         
         		rozdzielKoniunkcje(predykaty.get(k));
         	}
