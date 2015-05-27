@@ -253,9 +253,12 @@ public class WidokKoncowy extends JPanel
 	
 	public void czysc()
 	{
-		System.out.println("Czyszcze !!!");
+		remove(drzewo);
+                System.out.println("Czyszcze !!!");
+                drzewo = null;
 		rootNode = new DefaultMutableTreeNode("klazule");
 		drzewo = new JTree(rootNode);
+                add(drzewo);	
 		//drzewo = null;
 		
 		return;
