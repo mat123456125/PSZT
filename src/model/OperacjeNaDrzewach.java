@@ -152,31 +152,43 @@ public class OperacjeNaDrzewach
 		
                 ArrayList<Integer> temp;
                 for (int x = 0; x < teza.getKlauzule().size(); x++)
-		{
+                {
+        			System.out.println("wartosc x wynosi: " + x);
+                	
+                    for (int y = 0; y < teza.getKlauzule().elementAt(x).size(); y++)
+                    {
+            			System.out.println("wartosc y wynosi: " + y);
+                    	
+                    	teza.getKlauzule().get(x).get(y).wypisz();
+                    }
+                	
+                	
 			klauzule.add(teza.getKlauzule().elementAt(x));
                         temp = new ArrayList<Integer>();
                         temp.add(-1);
                         temp.add(-1);
                         identyfikatory_przodkow.add(temp);
                         
-            for (int y = 0; y < teza.getKlauzule().get(x).size(); y++)
-            {
-            	teza.getKlauzule().get(x).get(y).wypisz();
-            }
+
             
 		}
 		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
 		{
+			System.out.println("wartosc x wynosi: " + x);
+
+            for (int y = 0; y < predykaty.getKlauzule().elementAt(x).size(); y++)
+            {
+    			System.out.println("wartosc y wynosi: " + y);
+
+            	predykaty.getKlauzule().get(x).get(y).wypisz();
+            }
+			
 			klauzule.add(predykaty.getKlauzule().elementAt(x));
                         temp = new ArrayList<Integer>();
                         temp.add(-1);
                         temp.add(-1);
                         identyfikatory_przodkow.add(temp);
-                       
-                 for (int y = 0; y < teza.getKlauzule().get(x).size(); y++)
-                 {
-                        	teza.getKlauzule().get(x).get(y).wypisz();
-                 }
+                        
 		}
 	}
         
