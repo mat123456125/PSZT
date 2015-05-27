@@ -20,7 +20,7 @@ public class WidokKoncowy extends JPanel
 	private JTree drzewo;
 	
 	private ArrayList<ArrayList<Integer>> identyfikatory_przodkow;
-	Vector<Vector<Literal>> klauzule;
+	private Vector<Vector<Literal>> klauzule;
 	
 	DefaultMutableTreeNode node;
 	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("klazule");
