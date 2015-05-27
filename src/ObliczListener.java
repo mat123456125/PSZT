@@ -3,6 +3,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 import model.OperacjeNaDrzewach;
 import model.ListaDrzew;
@@ -46,6 +47,14 @@ public class ObliczListener implements ActionListener{
     	widok.ustawDrzewa(operacje.getPredykaty().getPredykaty());
     	
     	widok.ustawKoniec(operacje);
+        if(operacje.getCzyUdowodniono())
+        {
+            JOptionPane.showMessageDialog(null,"cos", "Udalo sie", JOptionPane.PLAIN_MESSAGE);
+        }
+        else 
+        {
+            JOptionPane.showMessageDialog(null,"cos", " Nie udalo sie", JOptionPane.PLAIN_MESSAGE);
+        }
     }
     
 }
