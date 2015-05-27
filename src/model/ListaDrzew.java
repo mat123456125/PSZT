@@ -457,7 +457,7 @@ public class ListaDrzew {
             WezelDrzewa wz;
             for(int i = 0; i< predykaty.size();i++ )
             {
-                temp = new Vector<>();
+                temp = new Vector<Literal>();
                 wz = predykaty.get(i);
                 
                 
