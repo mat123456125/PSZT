@@ -65,11 +65,6 @@ public class OknoProgramu extends JFrame
 		repaint();
 	}
 	
-	public String getZnaczenia()
-	{
-		return poczatek.getZnaczenia();
-	}
-	
 	public String getPredykaty()
 	{
 		return poczatek.getPredykaty();
