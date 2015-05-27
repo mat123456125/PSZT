@@ -113,7 +113,7 @@ public class WidokKoncowy extends JPanel
 		String string = "";
 		int pomocniczy;
 		
-		if (identyfikatory_przodkow.get(i).get(0) != null)
+		if (identyfikatory_przodkow.get(i).get(0) != -1)
 		{
 			pomocniczy = identyfikatory_przodkow.get(i).get(0);
 			
@@ -146,7 +146,7 @@ public class WidokKoncowy extends JPanel
 		
 		string = "";
 		
-		if (identyfikatory_przodkow.get(i).get(1) != null)
+		if (identyfikatory_przodkow.get(i).get(1) != -1)
 		{
 			pomocniczy = identyfikatory_przodkow.get(i).get(1);
 			
