@@ -41,7 +41,10 @@ public class WidokPoczatkowy extends JPanel
 		teza = new JTextArea();
 		
 		this.setLayout(null);
-		this.setBackground(Color.GREEN);
+		this.setBackground(Color.DARK_GRAY);
+		tresc1.setForeground(Color.orange);
+		tresc2.setForeground(Color.orange);
+		tresc3.setForeground(Color.orange);
 		
 		tresc1.setBounds(450, 30, 100, 50);
 		tresc2.setBounds(470, 260, 100, 50);
