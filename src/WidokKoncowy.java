@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -6,6 +7,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 import java.util.ArrayList;
 import java.util.Vector;
@@ -27,15 +30,27 @@ public class WidokKoncowy extends JPanel
 	
 	public WidokKoncowy()
 	{
-		this.setSize(400,400);
+		this.setLayout(null);
+		this.setBackground(Color.DARK_GRAY);
+
 		przyciskPowrotu = new JButton("Powrot");
 		drzewo = new JTree(rootNode);
-		drzewo.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);		
+		drzewo.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		
 		
 		// TODO tutaj zrobic 
 		this.drzewa = new Vector<WezelDrzewa>();
 		
+		
+		JScrollPane scrollDrzewo = new JScrollPane (drzewo);
+		
+	    scrollDrzewo.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
+	    scrollDrzewo.setHorizontalScrollBarPolicy ( ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+	    
+	    
+	    przyciskPowrotu.setBounds(50,600, 100, 50);
+	    scrollDrzewo.setBounds(300,50 ,600 ,600);
+	    
 		// TODO przerobic elementy tak by odpowiednie byly
 		//______________________________________________________
 				
@@ -55,7 +70,7 @@ public class WidokKoncowy extends JPanel
 		node = addANode("I", rootNode);*/
 		
 		this.add(przyciskPowrotu);
-		this.add(drzewo);		
+		this.add(scrollDrzewo);		
 	}
 	
 	public void przepiszDrzewa(Vector<Vector<Literal>> klauzule, ArrayList<ArrayList<Integer>> identyfikatory_przodkow)

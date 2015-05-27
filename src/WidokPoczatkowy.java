@@ -1,5 +1,4 @@
 import model.ListaDrzew;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -44,7 +43,6 @@ public class WidokPoczatkowy extends JPanel
 		this.setLayout(null);
 		this.setBackground(Color.GREEN);
 		
-
 		tresc1.setBounds(450, 30, 100, 50);
 		tresc2.setBounds(470, 260, 100, 50);
 		tresc3.setBounds(480, 490, 100, 50);
