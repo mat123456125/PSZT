@@ -10,10 +10,11 @@ public class OperacjeNaDrzewach
 	private ListaDrzew teza = new ListaDrzew();
 	private Vector<Vector<Literal>> klauzule = new Vector<Vector<Literal>>();
         private ArrayList<ArrayList<Integer>> identyfikatory_przodkow = new ArrayList<ArrayList<Integer>> ();
+        private boolean czyUdowodniono;
 	
 	public OperacjeNaDrzewach()
 	{
-		
+		czyUdowodniono = false;
 	}
 	
 	private boolean sprawdzCzyDaSieSworzyc(Vector<Literal> pierwsze, Vector<Literal> drugie)
@@ -300,6 +301,8 @@ public class OperacjeNaDrzewach
 					
                                             if (czyKoniec())
                                             {
+                                            	System.out.println("Kurwa dziala !!!");
+                                            	czyUdowodniono = true;
                                                 // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
                                                 return;
                                             }
@@ -307,6 +310,7 @@ public class OperacjeNaDrzewach
 				}
 			}
 		}
+		System.out.println("Nie wykryto zmian wiec chyba nie da sie udowodnic\n");
 	}
         }
 	
@@ -343,5 +347,10 @@ public class OperacjeNaDrzewach
     public void setTeza(ListaDrzew teza)
     {
         this.teza = teza;
-    }	
+    }
+    
+    public boolean getCzyUdowodniono()
+    {
+        return czyUdowodniono;
+    }
 }
