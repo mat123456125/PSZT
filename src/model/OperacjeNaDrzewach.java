@@ -172,6 +172,14 @@ public class OperacjeNaDrzewach
                         temp.add(-1);
                         identyfikatory_przodkow.add(temp);
                         
+                        
+                        if (czyKoniec())
+                        {
+                        	System.out.println("Kurwa dziala !!!");
+                        	czyUdowodniono = true;
+                            // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+                            return;
+                        }
                 	}
             
                 }
@@ -191,7 +199,15 @@ public class OperacjeNaDrzewach
                             temp.add(-1);
                             temp.add(-1);
                             identyfikatory_przodkow.add(temp);
-                       }                        
+                       }
+                       
+                       if (czyKoniec())
+                       {
+                       	System.out.println("Kurwa dziala !!!");
+                       	czyUdowodniono = true;
+                           // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+                           return;
+                       }
 		}
 	}
         
@@ -272,47 +288,55 @@ public class OperacjeNaDrzewach
 	
 	private void  wytwarzajNoweKlauzuleNaPodstawieObecnych()
 	{
+		
         boolean czyDodano = true;
-	while(czyDodano)
+	
+        if (czyUdowodniono == true)
+        {
+        	System.out.println("Kurwa dziala !!!");
+        	return;
+        }
+        
+        while(czyDodano)
         {
             czyDodano = false;
             
             for (int x = 0; x + 1 < klauzule.size(); x++)
-		{
-			for (int y = x + 1 ; y < klauzule.size(); y++)
-			{
+            {
+            	for (int y = x + 1 ; y < klauzule.size(); y++)
+            	{
 				
-				// sprawdzenie czy z x i y da sie stworzyc klauzule
-				if (sprawdzCzyDaSieSworzyc(klauzule.get(x), klauzule.get(y)))
-				{
-					Vector<Literal> nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
-						
-					wypisywanie(nowy);
-					
-					if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
+					// sprawdzenie czy z x i y da sie stworzyc klauzule
+					if (sprawdzCzyDaSieSworzyc(klauzule.get(x), klauzule.get(y)))
 					{
-                                            czyDodano = true;
-                                            dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
+						Vector<Literal> nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
+							
+						wypisywanie(nowy);
 						
-                                            ArrayList<Integer> temp = new ArrayList<Integer>();
-                                            temp.add(x);
-                                            temp.add(y);
-                                            identyfikatory_przodkow.add(temp);
-					
-                                            if (czyKoniec())
-                                            {
-                                            	System.out.println("Kurwa dziala !!!");
-                                            	czyUdowodniono = true;
-                                                // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
-                                                return;
-                                            }
+						if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
+						{
+	                                            czyDodano = true;
+	                                            dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
+							
+	                                            ArrayList<Integer> temp = new ArrayList<Integer>();
+	                                            temp.add(x);
+	                                            temp.add(y);
+	                                            identyfikatory_przodkow.add(temp);
+						
+	                                            if (czyKoniec())
+	                                            {
+	                                            	System.out.println("Kurwa dziala !!!");
+	                                            	czyUdowodniono = true;
+	                                                // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+	                                                return;
+	                                            }
+						}
 					}
-				}
-			}
-		}
-	}
-	System.out.println("Nie wykryto zmian wiec chyba nie da sie udowodnic\n");
+            	}
+            }
         }
+		System.out.println("Nie wykryto zmian wiec chyba nie da sie udowodnic\n");
+    }
 	
 	public void Oblicz() throws IllegalAccessException
 	{
@@ -321,12 +345,15 @@ public class OperacjeNaDrzewach
                 teza.wypelnijListe();
                 
                 przypiszZawartosciDoKlauzul();
+                
                 usunPowtarzanieAll();
                 for (int x = 0; x  < klauzule.size(); x++)
                 {
                     wypisywanie(klauzule.get(x));
                 }
                 wytwarzajNoweKlauzuleNaPodstawieObecnych();
+                
+                return;
 	}
 
     public ListaDrzew getPredykaty()
