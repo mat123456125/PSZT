@@ -575,6 +575,9 @@ public class ListaDrzew {
     {
         WezelDrzewa temp,temp2,noweDrzewo;
         
+        System.out.println("u");
+
+        
         	for(int k = 0;k < predykaty.size();)
                 {
                     temp = null;
@@ -583,20 +586,27 @@ public class ListaDrzew {
                     if(temp == null )
                     {
                         k++;
+                        System.out.println("a");
                     }
                     else
                     {
+                        System.out.println("b");
+
                         noweDrzewo = conversion.copyTree(predykaty.get(k));
                         predykaty.add(k+1, noweDrzewo);
                         temp2 = znajdujWierzcholekKoniunkcji(noweDrzewo,null);
                         if(temp.getLewy().getSpojnik() == 1)
                         {
+                            System.out.println("c");
+
                             temp2.setLewy(temp.getLewy().getPrawy());
                             temp.setLewy(temp.getLewy().getLewy());
                             
                         }
                         else
                         {
+                            System.out.println("d");
+
                             temp2.setPrawy(temp.getPrawy().getPrawy());
                             temp.setPrawy(temp.getPrawy().getLewy());
                         }
