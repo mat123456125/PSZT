@@ -380,4 +380,15 @@ public class OperacjeNaDrzewach
     {
         return czyUdowodniono;
     }
+    
+    public Vector<Vector<Literal>> getKlauzule()
+    {
+    	return klauzule;
+    }
+    
+    public ArrayList<ArrayList<Integer>> getIdentyfikatory_przodkow ()
+    {
+    	return identyfikatory_przodkow;
+    }
+
 }

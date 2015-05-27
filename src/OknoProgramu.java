@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 import model.ListaDrzew;
+import model.OperacjeNaDrzewach;
 import model.WezelDrzewa;
 
 public class OknoProgramu extends JFrame
@@ -48,11 +49,11 @@ public class OknoProgramu extends JFrame
 		repaint();
 	}
 	
-	public void ustawKoniec()
+	public void ustawKoniec(OperacjeNaDrzewach operacje)
 	{
 		remove(poczatek);
 		
-		koniec.przepiszDrzewa();
+		koniec.przepiszDrzewa(operacje.getKlauzule(), operacje.getIdentyfikatory_przodkow());
 		
 		add(koniec);
 		validate();

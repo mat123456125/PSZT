@@ -8,7 +8,7 @@ package model;
  *
  * 
  */
-class Literal {
+public class Literal {
     
     
     private boolean znak; // true oznacza negacje | false oznacza twierdzenie

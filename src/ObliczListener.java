@@ -45,7 +45,7 @@ public class ObliczListener implements ActionListener{
     	
     	widok.ustawDrzewa(operacje.getPredykaty().getPredykaty());
     	
-    	widok.ustawKoniec();
+    	widok.ustawKoniec(operacje);
     }
     
 }

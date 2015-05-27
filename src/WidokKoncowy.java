@@ -6,15 +6,21 @@ import javax.swing.JTextArea;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
+
+import java.util.ArrayList;
 import java.util.Vector;
 import model.ListaDrzew;
 import model.WezelDrzewa;
+import model.Literal;
 
 public class WidokKoncowy extends JPanel
 {
 	private Vector<WezelDrzewa> drzewa;
 	private JButton przyciskPowrotu;
 	private JTree drzewo;
+	
+	private ArrayList<ArrayList<Integer>> identyfikatory_przodkow;
+	Vector<Vector<Literal>> klauzule;
 	
 	DefaultMutableTreeNode node;
 	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("klazule");
@@ -52,22 +58,120 @@ public class WidokKoncowy extends JPanel
 		this.add(drzewo);		
 	}
 	
-	public void przepiszDrzewa()
+	public void przepiszDrzewa(Vector<Vector<Literal>> klauzule, ArrayList<ArrayList<Integer>> identyfikatory_przodkow)
 	{
-            for(int i =0;i<drzewa.size();i++)
+		this.identyfikatory_przodkow = identyfikatory_przodkow;
+		this.klauzule = klauzule;
+		
+        DefaultMutableTreeNode kozen;
+		
+        String string = "";
+        
+		for (int i = 0; i<klauzule.size(); i++)
+		{
+			for (int y = 0; y < klauzule.get(i).size(); y++)
+			{
+				string += klauzule.get(i).get(y).isZnak();
+				string += klauzule.get(i).get(y).getZdanie();
+				
+				if (y == klauzule.get(i).size() - 1)
+				{
+					break;
+				}
+				else
+				{
+					string += " v ";
+				}
+			}
+			
+			kozen = addANode(string , rootNode);
+			
+			dopiszPoddrzewa(kozen, i);
+			
+			
+			//addANode(identyfikatory_przodkow.get(i).get(0));
+			
+
+		}
+
+            /*for(int i =0;i<drzewa.size();i++)
             {
                 
                 node = addANode(String.valueOf(i),rootNode);
                 
                 
                 przepiszWezel(drzewa.get(i),node);
-            }
+            }*/
 		
 	}
+	
+	private void dopiszPoddrzewa(DefaultMutableTreeNode kozen, int i)
+	{
+		String string = "";
+		int pomocniczy;
+		
+		if (identyfikatory_przodkow.get(i).get(0) != null)
+		{
+			pomocniczy = identyfikatory_przodkow.get(i).get(0);
+			
+			for (int y = 0; y < klauzule.get(pomocniczy).size(); y++)
+			{
+				string += klauzule.get(pomocniczy).get(y).isZnak();
+				string += klauzule.get(pomocniczy).get(y).getZdanie();
+				
+				if (y == klauzule.get(pomocniczy).size() - 1)
+				{
+					break;
+				}
+				else
+				{
+					string += " v ";
+				}
+			}
+			
+			kozen = addANode(string, kozen);
+			
+			dopiszPoddrzewa(kozen, pomocniczy);
+			
+			kozen = (DefaultMutableTreeNode) kozen.getParent();
+			
+			// dopisujemy i uruchamiamy dla nowego i i kozenia
+		}
+		
+		string = "";
+		
+		if (identyfikatory_przodkow.get(i).get(1) != null)
+		{
+			pomocniczy = identyfikatory_przodkow.get(i).get(1);
+			
+			for (int y = 0; y < klauzule.get(pomocniczy).size(); y++)
+			{
+				string += klauzule.get(pomocniczy).get(y).isZnak();
+				string += klauzule.get(pomocniczy).get(y).getZdanie();
+				
+				if (y == klauzule.get(pomocniczy).size() - 1)
+				{
+					break;
+				}
+				else
+				{
+					string += " v ";
+				}
+			}
+			
+			kozen = addANode(string, kozen);
+			dopiszPoddrzewa(kozen, pomocniczy);
+			kozen = (DefaultMutableTreeNode) kozen.getParent();
+		}
+
+		return;
+	}
+	
+	
         
         private void przepiszWezel(WezelDrzewa wezel ,DefaultMutableTreeNode n )
         {
-            String znak = new String();
+           /* String znak = new String();
             DefaultMutableTreeNode kozen;
             
             if((wezel.isZnak()))
@@ -116,7 +220,7 @@ public class WidokKoncowy extends JPanel
                 
                 
             
-            
+            */
         }
 	
 	public void ustawListeDrzew(Vector<WezelDrzewa> listyDrzew)
