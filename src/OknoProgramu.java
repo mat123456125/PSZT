@@ -36,6 +36,11 @@ public class OknoProgramu extends JFrame
 		this.koniec = new WidokKoncowy();
 	}
 	
+	public void czysc()
+	{
+		koniec.czysc();
+	}
+	
 	public void ustawDrzewa(Vector<WezelDrzewa>lista)
 	{
 		koniec.ustawListeDrzew(lista);

@@ -13,6 +13,7 @@ public class PowrotListener implements ActionListener
 	
 	 public void actionPerformed(ActionEvent e)
 	 {
+		 widok.czysc();
 		 widok.ustawWidokPoczatkowy();
 	 }
 }
