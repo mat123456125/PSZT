@@ -28,6 +28,10 @@ public class conversion
             {
                 m.setSpojnik(1);
             }
+            else if(m.getSpojnik() == 0)
+            {
+                return;
+            }
             m.setZnak(false);
             zaneguj(m.getLewy());
             zaneguj(m.getPrawy());
@@ -109,10 +113,9 @@ public class conversion
                 m.setSpojnik(1);
                 m.setLewy(mpl);
                 m.setPrawy(mpr);
-            } else if (m.getSpojnik() == 0)
-            {
+            } 
 
-            } else if (m.getSpojnik() == 0)
+             else if (m.getSpojnik() == 0)
             {
                 return;
             }
