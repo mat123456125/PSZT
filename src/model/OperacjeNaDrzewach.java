@@ -99,13 +99,13 @@ public class OperacjeNaDrzewach
 				}
 				else if (y == druga.size() - 1)
 				{
-					return true;
+					return false;
 				}
 			}
 			
 		}
 		
-		return false;
+		return true;
 	}
 	
 	private boolean sprawdzCzyDodacKlauzule (Vector<Literal> klauzulaDoDodania)
