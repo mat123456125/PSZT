@@ -250,4 +250,14 @@ public class WidokKoncowy extends JPanel
 		
 		return nowy;
 	}
+	
+	public void czysc()
+	{
+		System.out.println("Czyszcze !!!");
+		rootNode = new DefaultMutableTreeNode("klazule");
+		drzewo = new JTree(rootNode);
+		//drzewo = null;
+		
+		return;
+	}
 }
