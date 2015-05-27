@@ -158,7 +158,6 @@ public class ListaDrzew {
 	            	znak = poczatkowy.charAt(x);
 	            	if (znak == '|' || znak == '&' || znak == '(' || znak == ')' || znak == '-')
 	            	{
-	            		System.out.println("a");
 	            		if (!pomocniczy.isEmpty())
 	            		{
 	            			dzielenieSlow.add(pomocniczy);
@@ -169,8 +168,7 @@ public class ListaDrzew {
 	            	}
 	            	else if ((znak == '=') && (x+1 < poczatkowy.length()) && (poczatkowy.charAt(x+1) == '>') && (x-1 >= 0) && (poczatkowy.charAt(x-1) != '<'))
 	            	{
-	            		System.out.println("b");
-
+	            		
 	            		if (!pomocniczy.isEmpty())
 	            		{
 	            			dzielenieSlow.add(pomocniczy);
@@ -181,7 +179,6 @@ public class ListaDrzew {
 	            	}
 	            	else if (znak == '<' && x+2 < poczatkowy.length() && poczatkowy.charAt(x+1) == '=' && poczatkowy.charAt(x+2) == '>')
 	            	{
-	            		System.out.println("c");
 
 	            		if (!pomocniczy.isEmpty())
 	            		{
