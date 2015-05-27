@@ -157,8 +157,9 @@ public class OperacjeNaDrzewach
                 	
                     for (int y = 0; y < teza.getKlauzule().elementAt(x).size(); y++)
                     {
-                    	System.out.println(teza.getKlauzule().get(x).get(y).wypisz());
+                    	System.out.print(teza.getKlauzule().get(x).get(y).wypisz() + " ");
                     }
+                    System.out.print("\n");
                 	
                 	
 			klauzule.add(teza.getKlauzule().elementAt(x));
@@ -173,10 +174,11 @@ public class OperacjeNaDrzewach
 		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
 		{
 
-            for (int y = 0; y < predykaty.getKlauzule().elementAt(x).size(); y++)
-            {
-            	System.out.println(predykaty.getKlauzule().get(x).get(y).wypisz());
-            }
+                        for (int y = 0; y < predykaty.getKlauzule().elementAt(x).size(); y++)
+                        {
+                            System.out.print(predykaty.getKlauzule().get(x).get(y).wypisz()+ " ");
+                        }
+                        System.out.print("\n");
 			
 			klauzule.add(predykaty.getKlauzule().elementAt(x));
                         temp = new ArrayList<Integer>();
