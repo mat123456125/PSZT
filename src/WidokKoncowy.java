@@ -256,6 +256,8 @@ public class WidokKoncowy extends JPanel
 		System.out.println("Czyszcze !!!");
 		rootNode = new DefaultMutableTreeNode("klazule");
 		drzewo = new JTree(rootNode);
+		
+		
 		//drzewo = null;
 		
 		return;
