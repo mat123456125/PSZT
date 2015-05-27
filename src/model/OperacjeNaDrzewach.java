@@ -150,13 +150,14 @@ public class OperacjeNaDrzewach
 	private void przypiszZawartosciDoKlauzul()
 	{
 		
+                
                 ArrayList<Integer> temp;
                 for (int x = 0; x < teza.getKlauzule().size(); x++)
                 {
                 	
                     for (int y = 0; y < teza.getKlauzule().elementAt(x).size(); y++)
                     {
-                    	teza.getKlauzule().get(x).get(y).wypisz();
+                    	System.out.println(teza.getKlauzule().get(x).get(y).wypisz());
                     }
                 	
                 	
@@ -174,7 +175,7 @@ public class OperacjeNaDrzewach
 
             for (int y = 0; y < predykaty.getKlauzule().elementAt(x).size(); y++)
             {
-            	predykaty.getKlauzule().get(x).get(y).wypisz();
+            	System.out.println(predykaty.getKlauzule().get(x).get(y).wypisz());
             }
 			
 			klauzule.add(predykaty.getKlauzule().elementAt(x));
