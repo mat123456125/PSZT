@@ -457,7 +457,7 @@ public class ListaDrzew {
             WezelDrzewa wz;
             for(int i = 0; i< predykaty.size();i++ )
             {
-                temp = new Vector<>();
+                temp = new Vector<Literal>();
                 wz = predykaty.get(i);
                 
                 
@@ -473,26 +473,18 @@ public class ListaDrzew {
                 
                 klauzule.add(temp);
                 
-            }
-            
-            
-            
-            
-            
-            
-            
-            
+            }  
             
         }
 
        public void DrzewoNaVectorKlauzula(WezelDrzewa m,Vector<Literal> klauzula)
        {
-    	      if (m.getLewy() != null)
+    	   if (m.getLewy() != null)
                DrzewoNaVectorKlauzula(m.getLewy(), klauzula);
 
-           else if (m.getPrawy() != null)
+           if (m.getPrawy() != null)
                DrzewoNaVectorKlauzula(m.getPrawy(), klauzula);
-           else
+           if(m.getLewy()== null && m.getPrawy() == null)
            {
                Literal l = new Literal(m.isZnak(), m.getZdanie());
                klauzula.add(l);
