@@ -310,8 +310,8 @@ public class OperacjeNaDrzewach
 				}
 			}
 		}
-		System.out.println("Nie wykryto zmian wiec chyba nie da sie udowodnic\n");
 	}
+	System.out.println("Nie wykryto zmian wiec chyba nie da sie udowodnic\n");
         }
 	
 	public void Oblicz() throws IllegalAccessException
