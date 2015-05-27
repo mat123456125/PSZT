@@ -67,7 +67,6 @@ public class OdczytListener implements ActionListener{
                 		}
                 	}
                 }
-                widok.setZnaczenia(SymboleZdan);
                 widok.setPredykaty(Predykaty);
                 widok.setTeza(Teza);
                 
