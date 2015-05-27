@@ -230,6 +230,7 @@ public class ListaDrzew {
             WezelDrzewa temp,kozen,ostatni;
             boolean czyKozen,czyStart;
             boolean czySymbol;
+            int czyNawias = 0;
             boolean czyMinus = false;
             int symbol = 0;
             ostatni = new WezelDrzewa("test");
@@ -299,6 +300,7 @@ public class ListaDrzew {
                     }
                     else if(linia.get(j).charAt(0) == '(')
                     {
+                        czyNawias++;
                         temp = new WezelDrzewa(5);
                         if(czyKozen)
                         {   
@@ -328,6 +330,7 @@ public class ListaDrzew {
                     }
                     else if(linia.get(j).charAt(0) == ')')
                     {
+                        czyNawias--;
                         ostatni = kozen;
                         temp = kozen;
 
@@ -383,11 +386,13 @@ public class ListaDrzew {
                             return true;
                         }
                         
-                        temp = new WezelDrzewa(symbol);
+                        
                         if(czyKozen)
                         {
-                            if(kozen.getSpojnik() < symbol)
+                            ostatni = kozen;
+                            if(kozen.getSpojnik() < symbol && (czyNawias  == 0 ))
                             {
+                                temp = new WezelDrzewa(symbol);
                                 temp.setLewy(kozen);
                                 kozen = temp;
                                 ostatni = temp;
@@ -395,12 +400,28 @@ public class ListaDrzew {
                             }
                             else
                             {
-                                ostatni = kozen;
+                                if (czyNawias != 0)
+                                {
+                                    temp = kozen;
+
+                                    while (ostatni.getPrawy().getSpojnik() != 0)
+                                    {
+                                        ostatni = ostatni.getPrawy();
+                                        if (ostatni.getSpojnik() == 5)
+                                            temp = ostatni;
+
+                                    }
+                                    ostatni = temp;
+
+                                }
+                            
+                                                          
 
                                 while(ostatni.getPrawy().getSpojnik() >= symbol)
                                 {
                                     ostatni = ostatni.getPrawy();
                                 }
+                                temp = new WezelDrzewa(symbol);
                                 temp.setLewy(ostatni.getPrawy());
                                 ostatni.setPrawy(temp);
                                 ostatni = temp;
