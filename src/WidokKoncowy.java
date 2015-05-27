@@ -71,7 +71,10 @@ public class WidokKoncowy extends JPanel
 		{
 			for (int y = 0; y < klauzule.get(i).size(); y++)
 			{
-				string += klauzule.get(i).get(y).isZnak();
+				if (klauzule.get(i).get(y).isZnak())
+				{
+					string += "-";
+				}
 				string += klauzule.get(i).get(y).getZdanie();
 				
 				if (y == klauzule.get(i).size() - 1)
@@ -116,7 +119,10 @@ public class WidokKoncowy extends JPanel
 			
 			for (int y = 0; y < klauzule.get(pomocniczy).size(); y++)
 			{
-				string += klauzule.get(pomocniczy).get(y).isZnak();
+				if (klauzule.get(pomocniczy).get(y).isZnak())
+				{
+					string += "-";
+				}
 				string += klauzule.get(pomocniczy).get(y).getZdanie();
 				
 				if (y == klauzule.get(pomocniczy).size() - 1)
@@ -146,7 +152,10 @@ public class WidokKoncowy extends JPanel
 			
 			for (int y = 0; y < klauzule.get(pomocniczy).size(); y++)
 			{
-				string += klauzule.get(pomocniczy).get(y).isZnak();
+				if (klauzule.get(pomocniczy).get(y).isZnak())
+				{
+					string += "-";
+				}
 				string += klauzule.get(pomocniczy).get(y).getZdanie();
 				
 				if (y == klauzule.get(pomocniczy).size() - 1)
