@@ -11,7 +11,7 @@ public class conversion
             return m;
         WezelDrzewa nowy = new WezelDrzewa(m);
         nowy.setLewy(copyTree(m.getLewy()));
-        nowy.setLewy(copyTree(m.getPrawy()));
+        nowy.setPrawy(copyTree(m.getPrawy()));
         return nowy;
     }
     

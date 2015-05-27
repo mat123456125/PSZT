@@ -39,6 +39,14 @@ class Literal {
         this.znak = znak;
         this.zdanie = zdanie;
     }
+    public String wypisz()
+    {
+        String temp = new String();
+        if(znak) temp = "-";
+        temp = temp + zdanie;
+        return temp;
+        
+    }
     
         
      
