@@ -49,11 +49,11 @@ public class ObliczListener implements ActionListener{
     	widok.ustawKoniec(operacje);
         if(operacje.getCzyUdowodniono())
         {
-            JOptionPane.showMessageDialog(null,"cos", "Udalo sie", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Udalo sie udowodnic teze", "Wynik", JOptionPane.PLAIN_MESSAGE);
         }
         else 
         {
-            JOptionPane.showMessageDialog(null,"cos", " Nie udalo sie", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Nie udalo sie udowosnic tezy", "Wynik", JOptionPane.PLAIN_MESSAGE);
         }
     }
     
