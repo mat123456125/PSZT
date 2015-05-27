@@ -460,15 +460,7 @@ public class ListaDrzew {
                 temp = new Vector<Literal>();
                 wz = predykaty.get(i);
                 
-                
-
-               
                 DrzewoNaVectorKlauzula(wz, temp);
-                
-                
-
-                
-                
                 
                 
                 klauzule.add(temp);
