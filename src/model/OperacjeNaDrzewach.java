@@ -144,7 +144,8 @@ public class OperacjeNaDrzewach
 			System.out.print(nowy.elementAt(z).getZdanie());
 		}
 		
-		System.out.println("___________________________");
+		
+		System.out.println("\n" + "___________________________");
 	}
 	
 	private void przypiszZawartosciDoKlauzul()
