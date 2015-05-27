@@ -20,7 +20,7 @@ public class WidokKoncowy extends JPanel
 	private JTree drzewo;
 	
 	private ArrayList<ArrayList<Integer>> identyfikatory_przodkow;
-	Vector<Vector<Literal>> klauzule;
+	private Vector<Vector<Literal>> klauzule;
 	
 	DefaultMutableTreeNode node;
 	DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("klazule");
@@ -253,11 +253,13 @@ public class WidokKoncowy extends JPanel
 	
 	public void czysc()
 	{
-		System.out.println("Czyszcze !!!");
+		remove(drzewo);
+                System.out.println("Czyszcze !!!");
+        drzewo = null;
 		rootNode = new DefaultMutableTreeNode("klazule");
 		drzewo = new JTree(rootNode);
-		
-		
+
+        add(drzewo);	
 		//drzewo = null;
 		
 		return;
