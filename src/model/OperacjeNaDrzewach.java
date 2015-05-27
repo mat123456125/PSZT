@@ -159,6 +159,11 @@ public class OperacjeNaDrzewach
                         temp.add(-1);
                         identyfikatory_przodkow.add(temp);
                         
+            for (int y = 0; y < teza.getKlauzule().elementAt(x).size(); y++)
+            {
+            	teza.getKlauzule().elementAt(x).get(y).wypisz();
+            }
+            
 		}
 		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
 		{
@@ -167,6 +172,11 @@ public class OperacjeNaDrzewach
                         temp.add(-1);
                         temp.add(-1);
                         identyfikatory_przodkow.add(temp);
+                        
+                 for (int y = 0; y < teza.getKlauzule().elementAt(x).size(); y++)
+                 {
+                        	teza.getKlauzule().elementAt(x).get(y).wypisz();
+                 }
 		}
 	}
         
