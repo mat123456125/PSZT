@@ -43,8 +43,8 @@ public class WidokPoczatkowy extends JPanel
 		tresc1.setForeground(new Color(245,233,188));
 		tresc2.setForeground(new Color(245,233,188));
 		
-		tresc1.setBounds(470, 40, 100, 50);
-		tresc2.setBounds(480, 480, 100, 50);
+		tresc1.setBounds(470, 30, 100, 50);
+		tresc2.setBounds(480, 470, 100, 50);
 		przyciskWczytajPlik.setBounds(1050, 200, 180, 50);
 		obliczaj.setBounds(1120, 620, 110, 50);
 		zapiszDoPliku.setBounds(1050, 280, 180, 50);
@@ -58,12 +58,9 @@ public class WidokPoczatkowy extends JPanel
 	    scrollTeza.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
 	    scrollTeza.setHorizontalScrollBarPolicy ( ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	    
-	    scrollPredykaty.setBounds(100, 100, 800, 350);
-	    scrollTeza.setBounds(100, 550, 800, 130);
+	    scrollPredykaty.setBounds(100, 90, 800, 350);
+	    scrollTeza.setBounds(100, 530, 800, 130);
 	    
-	    
-	   // scrollZnaczeniaHor.setHorizontalScrollBarPolicy ( ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS );
-	   // scrollPredykatyHor.setHorizontalScrollBarPolicy ( ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS );
 	    
 	    //Add Textarea in to middle panel
 	    this.add ( scrollPredykaty );
