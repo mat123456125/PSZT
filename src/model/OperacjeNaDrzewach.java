@@ -162,16 +162,18 @@ public class OperacjeNaDrzewach
                     }
                     System.out.print("\n");
                 	
-                	
-			klauzule.add(teza.getKlauzule().elementAt(x));
+                	if (sprawdzCzyDodacKlauzule(teza.getKlauzule().get(x)))
+                	{
+                        
+                    	klauzule.add(teza.getKlauzule().elementAt(x));
                         temp = new ArrayList<Integer>();
                         temp.add(-1);
                         temp.add(-1);
                         identyfikatory_przodkow.add(temp);
                         
-
+                	}
             
-		}
+                }
 		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
 		{
 
@@ -181,12 +183,14 @@ public class OperacjeNaDrzewach
                        }
                        System.out.print("\n");
 			
-			klauzule.add(predykaty.getKlauzule().elementAt(x));
-                        temp = new ArrayList<Integer>();
-                        temp.add(-1);
-                        temp.add(-1);
-                        identyfikatory_przodkow.add(temp);
-                        
+                       if (sprawdzCzyDodacKlauzule(predykaty.getKlauzule().get(x)))
+                       {
+                          	klauzule.add(predykaty.getKlauzule().elementAt(x));
+                            temp = new ArrayList<Integer>();
+                            temp.add(-1);
+                            temp.add(-1);
+                            identyfikatory_przodkow.add(temp);
+                       }                        
 		}
 	}
         
