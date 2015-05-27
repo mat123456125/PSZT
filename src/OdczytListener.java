@@ -59,12 +59,8 @@ public class OdczytListener implements ActionListener{
                 	{
                 		if (stan == 0)
                 		{
-                			SymboleZdan += linia;
-                		}
-                		else if (stan == 1)
-                		{
                 			Predykaty += linia;
-                		}
+                		}                		
                 		else
                 		{
                 			Teza += linia;

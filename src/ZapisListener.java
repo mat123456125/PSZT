@@ -39,7 +39,7 @@ public class ZapisListener implements ActionListener{
         if(returnVal == JFileChooser.APPROVE_OPTION) 
         {
             try {
-                String text = widok.getZnaczenia() + "\n%$%\n" + widok.getPredykaty() + "\n%$%\n" + widok.getTeza();
+                String text =  widok.getPredykaty() + "\n%$%\n" + widok.getTeza();
 
                 Path path  = Paths.get(chooser.getSelectedFile().getPath());
                 Files.write(path, text.getBytes(), StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING);
