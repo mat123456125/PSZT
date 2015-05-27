@@ -94,6 +94,7 @@ public class WidokKoncowy extends JPanel
 			
 			//addANode(identyfikatory_przodkow.get(i).get(0));
 			
+			string = "";
 
 		}
 
