@@ -9,6 +9,8 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import org.w3c.dom.css.RGBColor;
+
 
 public class WidokPoczatkowy extends JPanel
 {
@@ -42,9 +44,9 @@ public class WidokPoczatkowy extends JPanel
 		
 		this.setLayout(null);
 		this.setBackground(Color.DARK_GRAY);
-		tresc1.setForeground(Color.orange);
-		tresc2.setForeground(Color.orange);
-		tresc3.setForeground(Color.orange);
+		tresc1.setForeground(new Color(245,233,188));
+		tresc2.setForeground(new Color(245,233,188));
+		tresc3.setForeground(new Color(245,233,188));
 		
 		tresc1.setBounds(450, 30, 100, 50);
 		tresc2.setBounds(470, 260, 100, 50);
