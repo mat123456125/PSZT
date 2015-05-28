@@ -109,7 +109,7 @@ public class conversion
 
                 mpr.setLewy(copyTree(m.getLewy()));
                 mpr.setPrawy(copyTree(m.getPrawy()));
-                Negation(mpl.getLewy());
+                Negation(mpr.getLewy());
                 m.setSpojnik(1);
                 m.setLewy(mpl);
                 m.setPrawy(mpr);
