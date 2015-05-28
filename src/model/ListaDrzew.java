@@ -9,7 +9,7 @@ public class ListaDrzew {
 	private Vector<Vector<Literal>> klauzule = new Vector<Vector<Literal>>();
         private Vector<WezelDrzewa> predykaty = new Vector<WezelDrzewa>();
 	private ArrayList<ArrayList<String>> tablicaSlow = new ArrayList<ArrayList<String>>();
-	private String text;// bedzie zawieral predykaty
+	private String text;				// bedzie zawieral predykaty
         private boolean teza = false;
 	
 	
@@ -49,7 +49,6 @@ public class ListaDrzew {
         private void nawiasy(WezelDrzewa wz)
         {
             //prawe poddrzewo
-            
             if(wz.getPrawy().getSpojnik() == -1)
             {
                 if(wz.getPrawy().isZnak())
@@ -64,6 +63,7 @@ public class ListaDrzew {
             {
                 nawiasy(wz.getPrawy());
             }
+            
             //lewe poddrzewo
             if(wz.getLewy().getSpojnik() == -1)
             {
@@ -121,10 +121,6 @@ public class ListaDrzew {
         
 	public void dzielSlowa()
 	{
-            
-		
-		//ArrayList<ArrayList<String>> tablicaSlow = new ArrayList<ArrayList<String>>();
-	
 	
 		String przerywnik = "[\\n]+";
 		ArrayList<String> linie = new ArrayList<String>(Arrays.asList(text.split(przerywnik)));
@@ -214,8 +210,6 @@ public class ListaDrzew {
 	    	dzielenieSlow.clear();
         
 	    }
-	    
-	    // TODO tutaj zapierdalamy !!!!
 	
 	    
 	    System.out.println("___");
@@ -524,8 +518,7 @@ public class ListaDrzew {
                 
 
 	}
-	
-	//public 
+
 
 	public String getText() {
 		return text;
@@ -616,19 +609,10 @@ public class ListaDrzew {
                             temp2.setPrawy(temp.getPrawy().getPrawy());
                             temp.setPrawy(temp.getPrawy().getLewy());
                         }
-                        
-                        
+                   
                     }
-                    
 
-        		
-        	
-                
-                
                 }
-                
-                
-                
                 
     }
         
@@ -663,9 +647,7 @@ public class ListaDrzew {
         
         }
         return null;
-    	
-    	
-    	
+
     }
         
 }

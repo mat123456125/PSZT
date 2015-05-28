@@ -9,7 +9,6 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-import org.w3c.dom.css.RGBColor;
 
 
 public class WidokPoczatkowy extends JPanel
@@ -62,10 +61,7 @@ public class WidokPoczatkowy extends JPanel
 	    scrollTeza.setBounds(100, 530, 800, 130);
 	    
 	    
-	    //Add Textarea in to middle panel
 	    this.add ( scrollPredykaty );
-	  //  this.add ( scrollZnaczeniaHor );
-	  //  this.add ( scrollPredykatyHor );
 		
 		this.add(tresc1);
 		this.add(tresc2);

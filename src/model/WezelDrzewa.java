@@ -76,7 +76,4 @@ public class WezelDrzewa {
 		this.zdanie = zdanie;
 	}
 	
-	
-	
-	
 }
