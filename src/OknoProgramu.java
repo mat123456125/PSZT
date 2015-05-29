@@ -31,8 +31,6 @@ public class OknoProgramu extends JFrame
 		
 		this.poczatek = new WidokPoczatkowy();
 		
-		//this.listaDrzew
-		
 		this.koniec = new WidokKoncowy();
 	}
 	
@@ -80,7 +78,6 @@ public class OknoProgramu extends JFrame
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		OknoProgramu naszeOkno = new OknoProgramu();
 		naszeOkno.setVisible(true);

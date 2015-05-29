@@ -37,8 +37,8 @@ public class OperacjeNaDrzewach
 		return false;
 	}
 	
-	private boolean czyKoniec(int numer) // metoda sluzaca do sprawdzenia czy dodana klauzula nie jest zaprzeczeniem innej klauzuli
-								// jesli jest to koniec wnioskowania
+	private boolean czyKoniec(int numer) 	// metoda sluzaca do sprawdzenia czy dodana klauzula nie jest zaprzeczeniem innej klauzuli
+										 	// jesli jest to koniec wnioskowania
 	{
 		Vector<Literal> dodanaKlauzula = klauzule.get(numer); // pobieramy ostatni element ( dodany element )
 		Vector<Literal> aktualnaKlauzula;
@@ -76,7 +76,6 @@ public class OperacjeNaDrzewach
 		return;
 	}
 	
-	// TODO zdaje sie jest OK !!!!!!!!!!!!!!!!!!!!!!!!
 	private boolean czyToSamo(Vector<Literal> pierwsza, Vector<Literal> druga) // przechodzenie literal po literale
 	{
 		Literal literalZPierwszego, literalZDrugiego;
@@ -111,7 +110,7 @@ public class OperacjeNaDrzewach
 	
 	private boolean sprawdzCzyDodacKlauzule (Vector<Literal> klauzulaDoDodania)
 	{
-		 // TODO metoda do przechodzenia przez baze naszych klauzul i sprawdza czy taka juz jest i jesli taka
+		// metoda do przechodzenia przez baze naszych klauzul i sprawdza czy taka juz jest i jesli taka
 		// jest to wtedy zwracamy false 
 		// jesli nie ma to zwracamy true
 		
@@ -172,14 +171,6 @@ public class OperacjeNaDrzewach
                         temp.add(-1);
                         identyfikatory_przodkow.add(temp);
                         
-                        
-                        //if (czyKoniec())
-                        //{
-                        //	System.out.println("Kurwa dziala !!!");
-                        //	czyUdowodniono = true;
-                        //    // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
-                        //    return;
-                        //}
                 	}
             
                 }
@@ -201,13 +192,6 @@ public class OperacjeNaDrzewach
                             identyfikatory_przodkow.add(temp);
                        }
                        
-                       //if (czyKoniec())
-                      // {
-                       	//System.out.println("Kurwa dziala !!!");
-                       //	czyUdowodniono = true;
-                           // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
-                      //     return;
-                       //}
 		}
 		
 		for (int x = 0; x < klauzule.size(); x++)
@@ -263,8 +247,6 @@ public class OperacjeNaDrzewach
 				Literal lit1 = zastepczy.get(x);
 				Literal lit2 = zastepczy.get(y);
 				
-				//System.out.println(lit1.getZdanie());
-				//System.out.println(lit2.getZdanie());
 				
 				if (lit1.getZdanie().equals(lit2.getZdanie()) && lit1.isZnak() != lit2.isZnak())
 				{
@@ -303,7 +285,7 @@ public class OperacjeNaDrzewach
 	
         if (czyUdowodniono == true)
         {
-        	System.out.println("Kurwa dziala !!!");
+        	System.out.println("Dziala !!!");
         	return;
         }
         
@@ -335,7 +317,7 @@ public class OperacjeNaDrzewach
 						
 	                                            if (czyKoniec(klauzule.size()-1))
 	                                            {
-	                                            	System.out.println("Kurwa dziala !!!");
+	                                            	System.out.println("Dziala !!!");
 	                                            	czyUdowodniono = true;
 	                                                // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
 	                                                return;
@@ -345,7 +327,7 @@ public class OperacjeNaDrzewach
             	}
             }
         }
-		System.out.println("Nie wykryto zmian wiec chyba nie da sie udowodnic\n");
+		System.out.println("Nie wykryto zmian wiec nie da sie udowodnic\n");
     }
 	
 	public void Oblicz() throws IllegalAccessException

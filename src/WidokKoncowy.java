@@ -38,8 +38,6 @@ public class WidokKoncowy extends JPanel
 		drzewo = new JTree(rootNode);
 		drzewo.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		
-		
-		// TODO tutaj zrobic 
 		this.drzewa = new Vector<WezelDrzewa>();
 		
 		
@@ -89,9 +87,6 @@ public class WidokKoncowy extends JPanel
 			kozen = addANode(string , rootNode);
 			
 			dopiszPoddrzewa(kozen, i);
-			
-			
-			//addANode(identyfikatory_przodkow.get(i).get(0));
 			
 			string = "";
 
@@ -203,8 +198,7 @@ public class WidokKoncowy extends JPanel
 	    scrollDrzewo.setBounds(300,50 ,600 ,600);
 	    
         add(scrollDrzewo);	
-		//drzewo = null;
-		
+
 		return;
 	}
 }

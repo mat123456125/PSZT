@@ -47,7 +47,4 @@ public class Literal {
         return temp;
         
     }
-    
-        
-     
 }

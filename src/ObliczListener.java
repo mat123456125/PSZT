@@ -11,9 +11,7 @@ import model.ListaDrzew;
 public class ObliczListener implements ActionListener{
 
 	private OknoProgramu widok;
-	private OperacjeNaDrzewach operacje;// = new OperacjeNaDrzewach();
-//	private WidokPoczatkowy widok;
-//	private WidokKoncowy koniec;
+	private OperacjeNaDrzewach operacje;
 	
     ObliczListener(OknoProgramu widok)
     {
@@ -29,7 +27,6 @@ public class ObliczListener implements ActionListener{
     	
     	String predykaty = widok.getPredykaty();
         
-    	
         operacje.getPredykaty().setText(predykaty);
         operacje.getTeza().setText(widok.getTeza());
             try
@@ -41,9 +38,6 @@ public class ObliczListener implements ActionListener{
             }
         
     	
-    	
-        // TODO dorobic by brana byla pod uwage teza
-    	
     	widok.ustawDrzewa(operacje.getPredykaty().getPredykaty());
     	
     	widok.ustawKoniec(operacje);
@@ -53,7 +47,7 @@ public class ObliczListener implements ActionListener{
         }
         else 
         {
-            JOptionPane.showMessageDialog(null,"Nie udalo sie udowosnic tezy", "Wynik", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Nie udalo sie udowodnic tezy", "Wynik", JOptionPane.PLAIN_MESSAGE);
         }
     }
     
