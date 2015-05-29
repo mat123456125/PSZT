@@ -40,7 +40,7 @@ public class OperacjeNaDrzewach
 	private boolean czyKoniec(int numer) 	// metoda sluzaca do sprawdzenia czy dodana klauzula nie jest zaprzeczeniem innej klauzuli
 										 	// jesli jest to koniec wnioskowania
 	{
-		Vector<Literal> dodanaKlauzula = klauzule.get(numer); // pobieramy ostatni element ( dodany element )
+		Vector<Literal> dodanaKlauzula = klauzule.get(numer); // pobieramy element
 		Vector<Literal> aktualnaKlauzula;
 		// bedziemy sprawdzac pozostale wiersze od 0 do przedostatniego czy jest zaprzeczenie jesli jest to koniec
 		// jesli przejdzie przez wszystko to oznacza ze nie jest zaprzeczeniem innej klauzuli wiec nie konczy dowodu
@@ -51,7 +51,7 @@ public class OperacjeNaDrzewach
 			return false;		// jesli wiecej niz 1 literal to nie koniec sprawdzania
 		}
 		
-		for (int x = 0; x < klauzule.size() - 1; x++)				// czyli ze mozna sprawdzac czy nie zaprzecza czemus innemu
+		for (int x = 0; x < klauzule.size(); x++)				// czyli ze mozna sprawdzac czy nie zaprzecza czemus innemu
 		{
 			if (klauzule.get(x).size() == 1)
 			{
@@ -59,7 +59,24 @@ public class OperacjeNaDrzewach
 				if ((aktualnaKlauzula.get(0).getZdanie().equals(dodanaKlauzula.get(0).getZdanie())) &&
 						(aktualnaKlauzula.get(0).isZnak() != dodanaKlauzula.get(0).isZnak()))
 				{
-					// oznacza ze znalezlismy 2 klauzule sprzeczne (ostatnia i x)
+					// oznacza ze znalezlismy 2 klauzule sprzeczne
+					
+					// dopisujemy odpowiednie numery klauzul do identyfikatory_przodkow
+					
+                    ArrayList<Integer> temp = new ArrayList<Integer>();
+                    temp.add(numer);
+                    temp.add(x);
+					
+					identyfikatory_przodkow.add(temp);
+					
+					// dodajemy nowo utworzona klauzule ( literal "Sprzecznosc" )
+					
+					Literal nowy = new Literal(false,"Sprzecznosc");
+					
+					Vector<Literal> sprzecznosc = new Vector<Literal>();
+					sprzecznosc.add(nowy);
+					dodajKlauzule (sprzecznosc);
+					
 					return true;
 				}
 			}
@@ -79,6 +96,11 @@ public class OperacjeNaDrzewach
 	private boolean czyToSamo(Vector<Literal> pierwsza, Vector<Literal> druga) // przechodzenie literal po literale
 	{
 		Literal literalZPierwszego, literalZDrugiego;
+		
+		if (pierwsza.size() == 0 || druga.size() == 0)
+		{
+			return false;
+		}
 		
 		if (pierwsza.size() != druga.size())
 		{
@@ -113,13 +135,19 @@ public class OperacjeNaDrzewach
 		// metoda do przechodzenia przez baze naszych klauzul i sprawdza czy taka juz jest i jesli taka
 		// jest to wtedy zwracamy false 
 		// jesli nie ma to zwracamy true
-		
+		boolean tworzyc = false;
 		System.out.println("\nSprawdzam czy dodac klauzule !!!");
+		
+		if (klauzulaDoDodania.size() == 0)
+		{
+			return false;
+		}
 		
 		for (int licznik = 0; licznik < klauzule.size(); licznik++)
 		{
 			System.out.println("Przechodze po klauzulach");
-			if (czyToSamo(klauzulaDoDodania, klauzule.get(licznik))) // sprawdzenie czy klauzule takie same ( wywolanie od 2 klauzul)
+			tworzyc = czyToSamo(klauzulaDoDodania, klauzule.get(licznik));
+			if (tworzyc) // sprawdzenie czy klauzule takie same ( wywolanie od 2 klauzul)
 			{
 				System.out.println("Znaleziono 2 takie same klauzule");
 				return false;
@@ -155,17 +183,18 @@ public class OperacjeNaDrzewach
                 ArrayList<Integer> temp;
                 for (int x = 0; x < teza.getKlauzule().size(); x++)
                 {
-                	
+                	System.out.print("Z tezy przepisuje klauzule: ");
                     for (int y = 0; y < teza.getKlauzule().elementAt(x).size(); y++)
                     {
                     	System.out.print(teza.getKlauzule().get(x).get(y).wypisz() + " ");
                     }
                     System.out.print("\n");
                 	
-                	if (sprawdzCzyDodacKlauzule(teza.getKlauzule().get(x)))
+                	if (sprawdzCzyDodacKlauzule(teza.getKlauzule().get(x)) && teza.getKlauzule().get(x).size() != 0)
                 	{
-                        
-                    	klauzule.add(teza.getKlauzule().elementAt(x));
+
+                        dodajKlauzule(teza.getKlauzule().elementAt(x));
+                    	//klauzule.add(teza.getKlauzule().elementAt(x));
                         temp = new ArrayList<Integer>();
                         temp.add(-1);
                         temp.add(-1);
@@ -176,15 +205,16 @@ public class OperacjeNaDrzewach
                 }
 		for (int x = 0; x < predykaty.getKlauzule().size(); x++)
 		{
-
+					System.out.print("Z predykatow przepisuje klauzule: ");
                        for (int y = 0; y < predykaty.getKlauzule().elementAt(x).size(); y++)
                         {
                           System.out.print(predykaty.getKlauzule().get(x).get(y).wypisz()+ " ");
                        }
                        System.out.print("\n");
 			
-                       if (sprawdzCzyDodacKlauzule(predykaty.getKlauzule().get(x)))
+                       if (sprawdzCzyDodacKlauzule(predykaty.getKlauzule().get(x)) && predykaty.getKlauzule().get(x).size() != 0)
                        {
+                    	   
                           	klauzule.add(predykaty.getKlauzule().elementAt(x));
                             temp = new ArrayList<Integer>();
                             temp.add(-1);
@@ -208,13 +238,19 @@ public class OperacjeNaDrzewach
         private void usunPowtarzanieAll()
         {
             Vector<Vector<Literal>> temp = new Vector<Vector<Literal>>();
+            Vector<Literal> pom;
             
             for (int x = 0; x < klauzule.size(); x++)
             {
-                
-                temp.add(usunPowtarzanieIOdwrotnosci(klauzule.get(x)));
-                
-
+                pom = usunPowtarzanieIOdwrotnosci(klauzule.get(x));
+                if (pom.size() != 0)
+                {
+                	temp.add(pom);
+                }
+                else
+                {
+                	identyfikatory_przodkow.remove(x);
+                }
             }
             klauzule = temp;
 
@@ -222,39 +258,46 @@ public class OperacjeNaDrzewach
 	
 	private Vector<Literal> usunPowtarzanieIOdwrotnosci (Vector<Literal> oryginal)
 	{
+		boolean powtorzyc = false;
 		Vector<Literal> zastepczy = new Vector<Literal>(oryginal);
-		
-		for (int x = 0; x < zastepczy.size() - 1; x++)
+		do
 		{
-			for (int y = x + 1; y < zastepczy.size(); y++)
+			powtorzyc = false;
+			
+			for (int x = 0; x < zastepczy.size() - 1; x++)
 			{
-				
-				Literal lit1 = zastepczy.get(x);
-				Literal lit2 = zastepczy.get(y);
-				
-				if (lit1.getZdanie().equals(lit2.getZdanie()) && lit1.isZnak() == lit2.isZnak())
+				for (int y = x + 1; y < zastepczy.size(); y++)
 				{
-					zastepczy.remove(y);
+					
+					Literal lit1 = zastepczy.get(x);
+					Literal lit2 = zastepczy.get(y);
+					
+					if (lit1.getZdanie().equals(lit2.getZdanie()) && lit1.isZnak() == lit2.isZnak())
+					{
+						zastepczy.remove(y);
+					}
 				}
 			}
-		}
-		
-		for (int x = 0; x < zastepczy.size() - 1; x++)
-		{
-			for (int y = x + 1 ; y < zastepczy.size() ; y++)
+			
+			for (int x = 0; x < zastepczy.size() - 1; x++)
 			{
-				
-				Literal lit1 = zastepczy.get(x);
-				Literal lit2 = zastepczy.get(y);
-				
-				
-				if (lit1.getZdanie().equals(lit2.getZdanie()) && lit1.isZnak() != lit2.isZnak())
+				for (int y = x + 1 ; y < zastepczy.size() ; y++)
 				{
-					zastepczy.remove(x);
-					zastepczy.remove(y-1);
+					
+					Literal lit1 = zastepczy.get(x);
+					Literal lit2 = zastepczy.get(y);
+					
+					
+					if (lit1.getZdanie().equals(lit2.getZdanie()) && lit1.isZnak() != lit2.isZnak())
+					{
+						zastepczy.remove(x);
+						zastepczy.remove(y-1);
+						powtorzyc = true;
+					}
 				}
 			}
-		}
+		}while (powtorzyc);
+		
 		
 		return zastepczy;
 	}
@@ -274,8 +317,14 @@ public class OperacjeNaDrzewach
 		}
 		
 		nowy = usunPowtarzanieIOdwrotnosci(nowy);
+        if (nowy.size() != 0)
+        {
+        	return nowy;
+        }
+		
+		System.out.println("Stworzono Nowa klauzule:" + nowy.size());
 				
-		return nowy;
+		return null;
 	}
 	
 	private void  wytwarzajNoweKlauzuleNaPodstawieObecnych()
@@ -302,27 +351,31 @@ public class OperacjeNaDrzewach
 					if (sprawdzCzyDaSieSworzyc(klauzule.get(x), klauzule.get(y)))
 					{
 						Vector<Literal> nowy = tworzNowaKlauzule(klauzule.get(x), klauzule.get(y));
-							
-						wypisywanie(nowy);
 						
-						if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
+						if (nowy != null)
 						{
-	                                            czyDodano = true;
-	                                            dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
+							wypisywanie(nowy);
 							
-	                                            ArrayList<Integer> temp = new ArrayList<Integer>();
-	                                            temp.add(x);
-	                                            temp.add(y);
-	                                            identyfikatory_przodkow.add(temp);
-						
-	                                            if (czyKoniec(klauzule.size()-1))
-	                                            {
-	                                            	System.out.println("Dziala !!!");
-	                                            	czyUdowodniono = true;
-	                                                // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
-	                                                return;
-	                                            }
+							if (sprawdzCzyDodacKlauzule (nowy) ) // sprawdz czy juz takiej klauzuli nie ma w bazie
+							{
+		                                            czyDodano = true;
+		                                            dodajKlauzule(nowy);  //		dodajemy nowa klauzule do bazy
+								
+		                                            ArrayList<Integer> temp = new ArrayList<Integer>();
+		                                            temp.add(x);
+		                                            temp.add(y);
+		                                            identyfikatory_przodkow.add(temp);
+							
+		                                            if (czyKoniec(klauzule.size()-1))
+		                                            {
+		                                            	System.out.println("Dziala !!!");
+		                                            	czyUdowodniono = true;
+		                                                // sprawdz czy dodana klauzula nie jest zaprzeczeniem innej jesli tak to koniec
+		                                                return;
+		                                            }
+							}
 						}
+
 					}
             	}
             }
