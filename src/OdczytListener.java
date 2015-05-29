@@ -51,7 +51,9 @@ public class OdczytListener implements ActionListener{
                 BufferedReader reader = new BufferedReader(new StringReader(text));
                 while((linia = reader.readLine()) != null)
                 {
-                	if (linia.charAt(0) == '%' && linia.charAt(1) == '$' && linia.charAt(2) == '%')
+                    if(linia.isEmpty()) continue;
+                    
+                    if (linia.charAt(0) == '%' && linia.charAt(1) == '$' && linia.charAt(2) == '%')
                 	{
                 		stan++;
                 	}
@@ -59,11 +61,12 @@ public class OdczytListener implements ActionListener{
                 	{
                 		if (stan == 0)
                 		{
-                			Predykaty += linia;
+                			Predykaty += (linia + "\n");
+                                        
                 		}                		
                 		else
                 		{
-                			Teza += linia;
+                			Teza += (linia + "\n");
                 		}
                 	}
                 }
