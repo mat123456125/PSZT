@@ -28,7 +28,8 @@ public class ListaDrzew {
                     if( predykaty.get(i).isZnak())
                     {
                     predykaty.set(i, predykaty.get(i).getPrawy());
-                    predykaty.get(i).setZnak(true);
+                    
+                    predykaty.get(i).setZnak(!(predykaty.get(i).isZnak()));
                     }
                     else
                     {
