@@ -40,7 +40,7 @@ public class conversion
         else
         {
             sprawdzNegacje(m.getLewy());
-            sprawdzNegacje(m.getLewy());
+            sprawdzNegacje(m.getPrawy());
 
         }
     }
