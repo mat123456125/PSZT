@@ -21,6 +21,7 @@ public class OperacjeNaDrzewach
 	{
 		
 		Literal literal1,literal2;
+		boolean czyDaSie = false;
 		
 		for (int x = 0; x < pierwsze.size(); x++)
 		{
@@ -30,11 +31,18 @@ public class OperacjeNaDrzewach
 				literal2 = drugie.get(y);
 				if (literal1.isZnak() != literal2.isZnak() && literal1.getZdanie().equals(literal2.getZdanie()))
 				{
-					return true;
+					if (czyDaSie == false)
+					{
+						czyDaSie = true;
+					}
+					else if (czyDaSie == true)
+					{
+						return false;
+					}
 				}
 			}
 		}
-		return false;
+		return czyDaSie;
 	}
 	
 	private boolean czyKoniec(int numer) 	// metoda sluzaca do sprawdzenia czy dodana klauzula nie jest zaprzeczeniem innej klauzuli
@@ -341,7 +349,7 @@ public class OperacjeNaDrzewach
         while(czyDodano)
         {
             czyDodano = false;
-            
+           
             for (int x = 0; x + 1 < klauzule.size(); x++)
             {
             	for (int y = x + 1 ; y < klauzule.size(); y++)
