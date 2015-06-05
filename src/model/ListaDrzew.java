@@ -174,6 +174,17 @@ public class ListaDrzew {
 	            		x++;
 	            		pomocniczy = "";
 	            	}
+                        else if((znak == '=')&& (x+1 < poczatkowy.length()) && (poczatkowy.charAt(x+1) == '>'))
+                        {
+                            if (!pomocniczy.isEmpty())
+	            		{
+	            			dzielenieSlow.add(pomocniczy);
+	            		}
+	            		dzielenieSlow.add("=>");
+	            		x++;
+	            		pomocniczy = "";
+                            
+                        }
 	            	else if (znak == '<' && x+2 < poczatkowy.length() && poczatkowy.charAt(x+1) == '=' && poczatkowy.charAt(x+2) == '>')
 	            	{
 
@@ -461,10 +472,10 @@ public class ListaDrzew {
         		conversion.IMPEQ(predykaty.get(k));
         		conversion.sprawdzNegacje(predykaty.get(k));
                 }
-                for(k = 0;k<predykaty.size();k++)
+                for(k = 0;k<predykaty.size();)
                 {
                         
-        		rozdzielKoniunkcje(predykaty.get(k));
+        		k = k + rozdzielKoniunkcje(predykaty.get(k));
         	}
                 wyciagnijKoniunkcje();
 
@@ -475,7 +486,7 @@ public class ListaDrzew {
             
             Vector<Literal> temp;
             WezelDrzewa wz;
-            for(int i = 0; i< predykaty.size();i++ )
+            for(int i = 0; i< predykaty.size(); i++ )
             {
                 temp = new Vector<Literal>();
                 wz = predykaty.get(i);
