@@ -163,28 +163,6 @@ public class ListaDrzew {
 	            		
 	            		pomocniczy = "";
 	            	}
-	            	else if ((znak == '=') && (x+1 < poczatkowy.length()) && (poczatkowy.charAt(x+1) == '>') && (x-1 >= 0) && (poczatkowy.charAt(x-1) != '<'))
-	            	{
-	            		
-	            		if (!pomocniczy.isEmpty())
-	            		{
-	            			dzielenieSlow.add(pomocniczy);
-	            		}
-	            		dzielenieSlow.add("=>");
-	            		x++;
-	            		pomocniczy = "";
-	            	}
-                        else if((znak == '=')&& (x+1 < poczatkowy.length()) && (poczatkowy.charAt(x+1) == '>'))
-                        {
-                            if (!pomocniczy.isEmpty())
-	            		{
-	            			dzielenieSlow.add(pomocniczy);
-	            		}
-	            		dzielenieSlow.add("=>");
-	            		x++;
-	            		pomocniczy = "";
-                            
-                        }
 	            	else if (znak == '<' && x+2 < poczatkowy.length() && poczatkowy.charAt(x+1) == '=' && poczatkowy.charAt(x+2) == '>')
 	            	{
 
@@ -196,6 +174,18 @@ public class ListaDrzew {
 	            		x+=2;
 	            		pomocniczy = "";
 	            	}
+	            	else if ((znak == '=') && (x+1 < poczatkowy.length()) && (poczatkowy.charAt(x+1) == '>'))
+	            	{
+	            		
+	            		if (!pomocniczy.isEmpty())
+	            		{
+	            			dzielenieSlow.add(pomocniczy);
+	            		}
+	            		dzielenieSlow.add("=>");
+	            		x++;
+	            		pomocniczy = "";
+	            	}
+
 	            		
 	            	else pomocniczy += znak;
 	            	if (x+1 == poczatkowy.length() && znak != '|' && znak != '&' &&
